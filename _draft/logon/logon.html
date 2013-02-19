@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Log-on screen</title>
+<style>
+body
+{
+  background: #5A7EDC;
+  color: white;
+  font-family: Tahoma, sans-serif;
+}
+
+div.header
+{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 80px;
+  background: #00309C;
+}
+
+div.header div.border
+{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: -webkit-linear-gradient(left, #5A7EDC, #C8DEFF 26%, #5A7EDC);
+  background: -moz-linear-gradient(left, #5A7EDC, #C8DEFF 26%, #5A7EDC);
+  background: -ms-linear-gradient(left, #5A7EDC, #C8DEFF 26%, #5A7EDC);
+  background: -o-linear-gradient(left, #5A7EDC, #C8DEFF 26%, #5A7EDC);
+}
+
+div.content
+{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 80px;
+  bottom: 96px;
+}
+
+div.content div.left
+{
+  position: absolute;
+  left: 0;
+  right: 50%;
+  top: 0;
+  bottom: 0;
+  background: -webkit-radial-gradient(8% 9%, 170px 170px, #94B3EF, #5A7EDC);
+}
+
+div.content div.left div.divider
+{
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: -webkit-linear-gradient(top, #5A7EDC, #91AEEE, #5A7EDC);
+  background: -moz-linear-gradient(top, #5A7EDC, #91AEEE, #5A7EDC);
+  background: -ms-linear-gradient(top, #5A7EDC, #91AEEE, #5A7EDC);
+  background: -o-linear-gradient(top, #5A7EDC, #91AEEE, #5A7EDC);
+}
+
+div.content div.right
+{
+  position: absolute;
+  left: 50%;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+div.footer
+{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 96px;
+  background: #00309C;
+}
+
+div.footer div.border
+{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 2px;
+  background: -webkit-linear-gradient(left, #0C3CA1, #FA9736 26%, #003399);
+  background: -moz-linear-gradient(left, #0C3CA1, #FA9736 26%, #003399);
+  background: -ms-linear-gradient(left, #0C3CA1, #FA9736 26%, #003399);
+  background: -o-linear-gradient(left, #0C3CA1, #FA9736 26%, #003399);
+}
+
+</style>
+</head>
+<body>
+  <div class="header">
+    <div class="border"></div>
+  </div>
+  <div class="content">
+    <div class="left">
+      <div>Logo</div>
+      <p>To begin, click your user name</p>
+      <div class="divider"></div>
+    </div>
+    <div class="right">
+    </div>
+  </div>
+  <div class="footer">
+    <div class="border"></div>
+    <div>
+      <a href="#">Turn off computer</a>
+    </div>
+    <div>
+      <p>After you log on, you can add or change accounts.</p>
+      <p>Just go to Control Panel and click User Accounts.</p>
+    </div>
+  </div>
+<!--
+vim: ts=2 sts=2 sw=2
+-->
+</body>
+</html>

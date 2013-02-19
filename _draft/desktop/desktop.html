@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Desktop</title>
+<style>
+body
+{
+  margin: 0;
+  padding: 0;
+}
+
+div#desktop
+{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #004E98;
+  background-image: url(bliss.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+div#taskbar
+{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 30px;
+  background: -webkit-linear-gradient(top, #3168D5, #4993E6 2px, #2359D6 7px, #2663E0 25px, #1941A5);
+  background: -moz-linear-gradient(top, #3168D5, #4993E6 2px, #2359D6 7px, #2663E0 25px, #1941A5);
+  background: -ms-linear-gradient(top, #3168D5, #4993E6 2px, #2359D6 7px, #2663E0 25px, #1941A5);
+  background: -o-linear-gradient(top, #3168D5, #4993E6 2px, #2359D6 7px, #2663E0 25px, #1941A5);
+  color: white;
+  font-family: Tahoma, sans-serif;
+  font-size: 9pt;
+}
+
+div#start
+{
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 99px;
+  max-height: 33px;
+  background: url(blue_startbutton_bmp.png);
+}
+
+div#start img#logo
+{
+  position: absolute;
+  left: 10px;
+  top: 7px;
+}
+
+div#start div
+{
+  position: absolute;
+  left: 35px;
+  top: 4px;
+  color: white !important;
+  font-size: 17px;
+  font-weight: bold;
+  text-shadow: rgba(0, 0, 0, 0.5) 2px 2px 1px;
+}
+
+div#notification_area
+{
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-top: solid 1px #095BC9;
+  border-bottom: solid 1px #095BC9;
+  border-left: solid 1px rgba(0, 0, 0, 0.5);
+  background: -webkit-linear-gradient(top, #16AEF1, #19B9F8 1px, #1396EC 5px, #108EE8 25px, #1586DC);
+  padding: 7px 14px;
+}
+
+div#notification_area div.highlight
+{
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #1CC8F7;
+}
+
+</style>
+</head>
+<body>
+  <div id="desktop">
+    <div id="taskbar">
+      <a href="#"><div id="start">
+        <img id="logo" src="logo.png" />
+        <div>시작</div>
+      </div></a>
+      <div id="notification_area">
+        <div class="highlight"></div>
+        오후 3:31
+      </div>
+    </div>
+  </div>
+<!--
+vim: ts=2 sts=2 sw=2
+-->
+</body>
+</html>
