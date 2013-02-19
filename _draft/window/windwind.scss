@@ -1,0 +1,116 @@
+@mixin linear-gradient-hor($from, $to) {
+  background-color: $to;
+  
+  background-image: -webkit-gradient(linear,left top,right top,color-stop(0, $from),color-stop(1, $to));
+  background-image: -webkit-linear-gradient(left, $from, $to);
+  background-image: -moz-linear-gradient(left, $from, $to);
+  background-image: -ms-linear-gradient(left, $from, $to);
+  background-image: -o-linear-gradient(left, $from, $to);
+  background-image: linear-gradient(left, right, $from, $to);
+}
+
+$outer-tl: rgb(214, 214, 206);
+$outer-dr: rgb(66, 66, 66);
+$inner-tl: rgb(255, 255, 255);
+$inner-dr: rgb(132, 132, 132);
+
+$title-l: rgb(8, 33, 107);
+$title-r: rgb(165, 206, 247);
+
+$control-color: rgb(214, 214, 206);
+
+.window {
+    background-color: $control-color;
+
+    border-width: 1px;
+    border-style: solid;
+    border-color: $outer-tl $outer-dr $outer-dr $outer-tl;
+
+    .window-inner {
+        border-color: $inner-tl $inner-dr $inner-dr $inner-tl;
+        padding: 2px;
+    }
+}
+
+$title-button-group-width: 16px + 16px + 2px + 16px + 2px;
+
+.title-bar {
+    padding-left: 20px;
+    padding-right: $title-button-group-width;
+
+    height: 18px;
+
+    .title-icon {
+        float: left;
+        width: 20px;
+        height: 18px;
+        margin-left: -20px;
+
+        background-color: $title-l;
+    }
+    .title {
+        float: left;
+        height: 18px;
+        width: 100%;
+        overflow: hidden;
+
+        font-family: "Tahoma", sans-serif;
+        font-size: 9pt;
+        font-weight: bold;
+        color: white;
+
+        cursor: default;
+
+        @include linear-gradient-hor($title-l, $title-r);
+    }
+    .title-button-group {
+        float: left;
+        margin-right: -$title-button-group-width;
+        width: $title-button-group-width;
+
+        padding: 2px 0;
+
+        background-color: $title-r;
+
+        .title-button {
+            float: left;
+
+            border-width: 1px;
+            border-style: solid;
+            border-color: $inner-tl $outer-dr $outer-dr $inner-tl;
+
+            background-color: $control-color;
+
+            .title-button-inner {
+                border-width: 0 1px 1px 0;
+                border-style: solid;
+                border-color: $inner-tl $inner-dr $inner-dr $inner-tl;
+
+                width: 13px;
+                height: 11px;
+            }
+
+            &:active {
+                border-color: $outer-dr $inner-tl $inner-tl $outer-dr;
+                .title-button-inner {
+                    border-width: 1px 0 0 1px;
+                    border-color: $inner-dr $inner-tl $inner-tl $inner-dr;
+                }
+            }
+
+        }
+
+        .title-button.minimize .title-button-inner {
+            background-image: url(images/minimize.png);
+        }
+        .title-button.maximize {
+            margin-right: 2px;
+            .title-button-inner {
+                background-image: url(images/maximize.png);
+            }
+        }
+        .title-button.close .title-button-inner {
+            background-image: url(images/close.png);
+        }
+    }
+}
