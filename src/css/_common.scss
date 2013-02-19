@@ -1,0 +1,12 @@
+@mixin linear-gradient-hor($from, $to) {
+  background-color: $to;
+  
+  background-image: -webkit-gradient(linear,left top,right top,color-stop(0, $from),color-stop(1, $to));
+  background-image: -webkit-linear-gradient(left, $from, $to);
+  background-image: -moz-linear-gradient(left, $from, $to);
+  background-image: -ms-linear-gradient(left, $from, $to);
+  background-image: -o-linear-gradient(left, $from, $to);
+  background-image: linear-gradient(left, right, $from, $to);
+}
+
+// vim: et ts=2 sts=2 sw=2
