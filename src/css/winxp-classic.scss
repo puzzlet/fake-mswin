@@ -26,9 +26,7 @@ $control-color: rgb(214, 214, 206);
 
         padding: 2px;
 
-        @include box-sizing(border-box);
-        width: 100%;
-        height: 100%;
+        @include box-max-size();
     }
 }
 
