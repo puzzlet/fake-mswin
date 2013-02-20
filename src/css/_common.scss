@@ -9,6 +9,19 @@
   background-image: linear-gradient(left, right, $from, $to);
 }
 
+@mixin linear-gradient($args) {
+  background-image: -webkit-linear-gradient($args);
+  background-image: -moz-linear-gradient($args);
+  background-image: -ms-linear-gradient($args);
+  background-image: -o-linear-gradient($args);
+  background-image: linear-gradient($args);
+}
+
+@mixin radial-gradient($args) {
+  background-image: -webkit-radial-gradient($args);
+  background-image: radial-gradient($args);
+}
+
 @mixin box-sizing($value) {
   -webkit-box-sizing: $value;
   -moz-box-sizing: $value;
