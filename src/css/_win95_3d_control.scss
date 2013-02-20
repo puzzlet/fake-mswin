@@ -1,17 +1,14 @@
-// names from GetSysColor WinAPI function
-
-$color-face: rgb(214, 214, 206);
-$color-border-highlight: rgb(255, 255, 255);
-$color-border-light: rgb(214, 214, 206);
-$color-border-shadow: rgb(132, 132, 132);
-$color-border-darkshadow: rgb(66, 66, 66);
+// terminology from WinAPI functions: DrawEdge, GetSysColor
+// $color-face
+// $color-border-highlight
+// $color-border-light
+// $color-border-shadow
+// $color-border-darkshadow
 
 @mixin border-common() {
     border-width: 1px;
     border-style: solid;
 }
-
-// names from DrawEdge WinAPI function
 
 @mixin border-raised-inner() {
     @include border-common();

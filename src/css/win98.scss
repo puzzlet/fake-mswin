@@ -1,0 +1,10 @@
+@import "_common.scss";
+
+$color-face: rgb(192, 192, 192);
+$color-border-highlight: rgb(255, 255, 255);
+$color-border-light: rgb(223, 223, 223);
+$color-border-shadow: rgb(128, 128, 128);
+$color-border-darkshadow: rgb(0, 0, 0);
+
+@import "_win95_3d_control.scss";
+@import "_win95_common.scss";
