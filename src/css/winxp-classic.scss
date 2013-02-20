@@ -13,7 +13,7 @@ $title-height: 18px;
     .window-inner {
         @include border-raised-inner();
 
-        padding: 2px;
+        padding: 2px+$title-height 2px 2px 2px;
 
         @include box-max-size();
     }
@@ -26,6 +26,7 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
     padding-right: $title-button-group-width;
 
     height: $title-height;
+    margin-top: -$title-height;
 
     .title-icon {
         float: left;
