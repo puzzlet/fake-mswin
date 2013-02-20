@@ -1,28 +1,15 @@
 @import "_common.scss";
-
-// window border
-
-$border1: rgb(255, 255, 255);
-$border2: rgb(214, 214, 206);
-$border3: rgb(132, 132, 132);
-$border4: rgb(66, 66, 66);
+@import "_win32_3d_control.scss";
 
 $title-l: rgb(8, 33, 107);
 $title-r: rgb(165, 206, 247);
 
-$control-color: rgb(214, 214, 206);
-
 .window {
-    background-color: $control-color;
+    background-color: $color-face;
 
-    border-width: 1px;
-    border-style: solid;
-    border-color: $border2 $border4 $border4 $border2;
-
+    @include border-raised-outer();
     .window-inner {
-        border-width: 1px;
-        border-style: solid;
-        border-color: $border1 $border3 $border3 $border1;
+        @include border-raised-inner();
 
         padding: 2px;
 
@@ -75,24 +62,24 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
 
             border-width: 1px;
             border-style: solid;
-            border-color: $border1 $border4 $border4 $border1;
+            border-color: $color-border-highlight $color-border-darkshadow $color-border-darkshadow $color-border-highlight;
 
-            background-color: $control-color;
+            background-color: $color-face;
 
             .title-button-inner {
                 border-width: 0 1px 1px 0;
                 border-style: solid;
-                border-color: $border1 $border3 $border3 $border1;
+                border-color: $color-border-highlight $color-border-shadow $color-border-shadow $color-border-highlight;
 
                 width: 13px;
                 height: 11px;
             }
 
             &:active {
-                border-color: $border4 $border1 $border1 $border4;
+                border-color: $color-border-darkshadow $color-border-highlight $color-border-highlight $color-border-darkshadow;
                 .title-button-inner {
                     border-width: 1px 0 0 1px;
-                    border-color: $border3 $border1 $border1 $border3;
+                    border-color: $color-border-shadow $color-border-highlight $color-border-highlight $color-border-shadow;
                 }
             }
 
@@ -119,15 +106,9 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
 .edit {
     background-color: white;
 
-    border-width: 1px;
-    border-style: solid;
-    border-color: $border3 $border1 $border1 $border3;
-
+    @include border-sunken-outer();
     .edit-inner {
-        border-width: 1px;
-        border-style: solid;
-        border-color: $border4 $border2 $border2 $border4;
-
+        @include border-sunken-inner();
         @include box-max-size();
     }
 }

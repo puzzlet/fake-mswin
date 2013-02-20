@@ -1,0 +1,35 @@
+// names from GetSysColor WinAPI function
+
+$color-face: rgb(214, 214, 206);
+$color-border-highlight: rgb(255, 255, 255);
+$color-border-light: rgb(214, 214, 206);
+$color-border-shadow: rgb(132, 132, 132);
+$color-border-darkshadow: rgb(66, 66, 66);
+
+@mixin border-common() {
+    border-width: 1px;
+    border-style: solid;
+}
+
+// names from DrawEdge WinAPI function
+
+@mixin border-raised-inner() {
+    @include border-common();
+    border-color: $color-border-highlight $color-border-shadow $color-border-shadow $color-border-highlight;
+}
+
+@mixin border-sunken-inner() {
+    @include border-common();
+    border-color: $color-border-darkshadow $color-border-light $color-border-light $color-border-darkshadow;
+}
+
+@mixin border-raised-outer() {
+    @include border-common();
+    border-color: $color-border-light $color-border-darkshadow $color-border-darkshadow $color-border-light;
+}
+
+@mixin border-sunken-outer() {
+    @include border-common();
+    border-color: $color-border-shadow $color-border-highlight $color-border-highlight $color-border-shadow;
+}
+

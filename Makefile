@@ -15,7 +15,7 @@ gh-pages/images/*: src/css/images/* gh-pages/.git
 	mkdir -p gh-pages/images/
 	cp -rf src/css/images/* gh-pages/images/
 
-$(TARGET_CSS): $(SOURCE_SCSS) gh-pages/.git
+$(TARGET_CSS): src/css/*.scss gh-pages/.git
 	$(foreach skin,$(SKINS), \
 		sass src/css/$(skin).scss gh-pages/$(skin).css --style compressed ; \
 	)
