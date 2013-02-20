@@ -8,3 +8,7 @@ $color-border-darkshadow: rgb(66, 66, 66);
 
 @import "_win95_3d_control.scss";
 @import "_win95_common.scss";
+
+body {
+    background-color: rgb(58, 110, 165);
+}
