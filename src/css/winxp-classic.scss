@@ -116,3 +116,18 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
     }
 }
 
+.edit {
+    background-color: white;
+
+    border-width: 1px;
+    border-style: solid;
+    border-color: $border3 $border1 $border1 $border3;
+
+    .edit-inner {
+        border-width: 1px;
+        border-style: solid;
+        border-color: $border4 $border2 $border2 $border4;
+
+        @include box-max-size();
+    }
+}
