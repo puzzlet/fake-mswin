@@ -21,4 +21,8 @@
     height: 100%;
 }
 
+.box-max-size {
+  @include box-max-size();
+}
+
 // vim: et ts=2 sts=2 sw=2
