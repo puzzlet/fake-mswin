@@ -100,6 +100,9 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
                 background-image: url(images/maximize.png);
             }
         }
+        .title-button.maximize.disabled .title-button-inner {
+            background-image: url(images/maximize_dis.png);
+        }
         .title-button.close .title-button-inner {
             background-image: url(images/close.png);
         }
