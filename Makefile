@@ -1,4 +1,4 @@
-SKINS = winxp-green winxp-classic
+SKINS = win98 winxp-green winxp-classic
 SOURCE_SCSS = $(patsubst %,src/css/%.scss,$(SKINS))
 TARGET_CSS = $(patsubst %,gh-pages/%.css,$(SKINS))
 
