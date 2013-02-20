@@ -142,8 +142,9 @@ ul.menu {
     @include box-sizing(border-box);
     @include raised-control();
 
-    width: 182px; // arbitrary
-    padding: 2px; // arbitrary
+    width: 182px; // XXX: arbitrary
+    margin: 0; // strip default margin
+    padding: 2px; // XXX: arbitrary
     & > li {
         @include system-font();
         list-style-type: none;
@@ -182,6 +183,7 @@ ul.menu {
         }
     }
 }
+
 $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
 
 .title-bar {
