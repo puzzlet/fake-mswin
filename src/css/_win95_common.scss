@@ -113,7 +113,7 @@ div#notification_area {
             height: $menubar-height;
             width: 100%;
 
-            li {
+            & > li {
                 @include system-font();
                 list-style-type: none;
                 display: block;
@@ -133,6 +133,48 @@ div#notification_area {
     }
 }
 
+
+ul.menu {
+    display: block;
+    @include box-sizing(border-box);
+    @include raised-control();
+
+    width: 182px; // arbitrary
+    padding: 2px; // arbitrary
+    & > li {
+        @include system-font();
+        list-style-type: none;
+        display: block;
+        padding: 2px 16px; // arbitrary
+
+        &[data-popup]:after {
+            content: "...";
+        }
+
+        &:not(.separator):hover {
+            background-color: rgb(0, 0, 128);
+            color: white;
+        }
+
+        &.default {
+            font-weight: bold;
+        }
+
+        &.disabled {
+            color: $color-border-shadow;
+            text-shadow: $color-border-highlight 1px 1px;
+        }
+
+        &.separator {
+            padding: 0;
+            margin: 4px 0;
+            width: 100%;
+
+            border-top: 1px solid $color-border-shadow;
+            border-bottom: 1px solid $color-border-highlight;
+        }
+    }
+}
 $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
 
 .title-bar {
