@@ -111,12 +111,14 @@ div#notification_area {
             padding: 1px 0;
             margin: 0;
             height: $menubar-height;
+            width: 100%;
 
             li {
                 @include system-font();
                 list-style-type: none;
-                display: inline;
-                padding: 0 4px;
+                display: block;
+                float: left;
+                padding: 0 8px;
 
                 &:after {
                     content: "(" attr(data-access-key) ")";
