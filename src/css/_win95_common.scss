@@ -113,7 +113,7 @@ div#notification_area {
             height: $menubar-height;
             width: 100%;
 
-            li {
+            & > li {
                 @include system-font();
                 list-style-type: none;
                 display: block;
