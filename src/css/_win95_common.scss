@@ -1,4 +1,5 @@
 $title-height: 18px;
+$menubar-height: 18px;
 
 @mixin system-font() {
     font-family: "굴림", "Gulim", "Tahoma", sans-serif;
@@ -95,6 +96,39 @@ div#notification_area {
 
         &:before {
             border: 0;
+        }
+    }
+
+    &.has-menu {
+        padding-top: 3px+$title-height+$menubar-height;
+        .title-bar {
+            margin-top: -($title-height+$menubar-height);
+        }
+        ul.menu-bar {
+            display: block;
+
+            @include box-sizing(border-box);
+            padding: 1px 0;
+            margin: 0;
+            height: $menubar-height;
+            width: 100%;
+
+            li {
+                @include system-font();
+                list-style-type: none;
+                display: block;
+                float: left;
+                padding: 0 8px;
+
+                &:after {
+                    content: "(" attr(data-access-key) ")";
+                    text-transform: uppercase;
+                }
+
+                &:active {
+                    background-color: rgb(0, 0, 128);
+                }
+            }
         }
     }
 }
