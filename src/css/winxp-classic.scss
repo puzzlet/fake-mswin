@@ -130,8 +130,9 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
     background-color: white;
 
     @include border-sunken-outer();
-    .edit-inner {
+    @include make-inner-box();
+    &:before {
         @include border-sunken-inner();
-        @include box-max-size();
     }
+    padding: 1px;
 }
