@@ -6,17 +6,37 @@ $title-r: rgb(165, 206, 247);
 
 $title-height: 18px;
 
+@mixin make-inner-box() {
+    @include box-sizing(border-box);
+    position: relative;
+    z-index: 1;
+
+    &:before {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        content: "";
+
+        z-index: -1;
+    }
+}
+
 .window {
     background-color: $color-face;
 
     @include border-raised-outer();
-    .window-inner {
+
+    @include make-inner-box();
+    &:before {
         @include border-raised-inner();
-
-        padding: 2px+$title-height 2px 2px 2px;
-
-        @include box-max-size();
     }
+
+    // 2px: default padding area
+    // 1px: due to :before border
+    padding: 3px+$title-height 3px 3px 3px;
 }
 
 $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
@@ -69,39 +89,37 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
 
             background-color: $color-face;
 
-            .title-button-inner {
+            width: 16px;
+            height: 14px;
+            @include make-inner-box();
+            &:before {
                 border-width: 0 1px 1px 0;
                 border-style: solid;
                 border-color: $color-border-highlight $color-border-shadow $color-border-shadow $color-border-highlight;
-
-                width: 13px;
-                height: 11px;
             }
 
             &:active {
                 border-color: $color-border-darkshadow $color-border-highlight $color-border-highlight $color-border-darkshadow;
-                .title-button-inner {
+                &:before {
                     border-width: 1px 0 0 1px;
                     border-color: $color-border-shadow $color-border-highlight $color-border-highlight $color-border-shadow;
                 }
             }
 
-        }
-
-        .title-button.minimize .title-button-inner {
-            background-image: url(images/minimize.png);
-        }
-        .title-button.maximize {
-            margin-right: 2px;
-            .title-button-inner {
-                background-image: url(images/maximize.png);
+            &.minimize {
+                background-image: url(images/minimize.png);
             }
-        }
-        .title-button.maximize.disabled .title-button-inner {
-            background-image: url(images/maximize_dis.png);
-        }
-        .title-button.close .title-button-inner {
-            background-image: url(images/close.png);
+            &.maximize {
+                margin-right: 2px;
+                background-image: url(images/maximize.png);
+
+                &.disabled {
+                    background-image: url(images/maximize_dis.png);
+                }
+            }
+            &.close {
+                background-image: url(images/close.png);
+            }
         }
     }
 }
@@ -110,8 +128,9 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
     background-color: white;
 
     @include border-sunken-outer();
-    .edit-inner {
+    @include make-inner-box();
+    &:before {
         @include border-sunken-inner();
-        @include box-max-size();
     }
+    padding: 1px;
 }
