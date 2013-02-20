@@ -37,6 +37,15 @@ $title-height: 18px;
     // 2px: default padding area
     // 1px: due to :before border
     padding: 3px+$title-height 3px 3px 3px;
+
+    &.maximized {
+        border: 0;
+        padding: $title-height 0 0 0;
+
+        &:before {
+            border: 0;
+        }
+    }
 }
 
 $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
