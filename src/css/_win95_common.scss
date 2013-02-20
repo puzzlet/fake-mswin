@@ -21,6 +21,55 @@ $title-height: 18px;
     }
 }
 
+body {
+    font-size: 12px;
+    font-family: "굴림체", san-serif;
+}
+
+#taskbar {
+    @include make-inner-box();
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 28px + 1px;
+
+    background-color: $color-face;
+    border-top: 1px solid $color-border-light;
+    &:before {
+        border-top: 1px solid $color-border-highlight;
+    }
+    padding-top: 1px;
+}
+
+div#start {
+    float: left;
+    margin: 2px;
+    padding: 3px 3px 0;
+    box-sizing: border-box;
+
+    border-color: $color-border-highlight $color-border-darkshadow $color-border-darkshadow $color-border-highlight;
+    &:before {
+        border-color: $color-border-light $color-border-shadow $color-border-shadow $color-border-light;
+    }
+
+    div {
+        &:before {
+            content: url(images/win95.gif);
+            float: left;
+            margin: 0 3px;
+        }
+        font-weight: bold;
+    }
+}
+
+div#notification_area {
+    float: right;
+    margin: 2px;
+    padding: 5px 11px 4px;
+    @include border-sunken-outer();
+}
+
 .window {
     background-color: $color-face;
 
