@@ -89,18 +89,18 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
 
             background-color: $color-face;
 
-            .title-button-inner {
+            width: 16px;
+            height: 14px;
+            @include make-inner-box();
+            &:before {
                 border-width: 0 1px 1px 0;
                 border-style: solid;
                 border-color: $color-border-highlight $color-border-shadow $color-border-shadow $color-border-highlight;
-
-                width: 13px;
-                height: 11px;
             }
 
             &:active {
                 border-color: $color-border-darkshadow $color-border-highlight $color-border-highlight $color-border-darkshadow;
-                .title-button-inner {
+                &:before {
                     border-width: 1px 0 0 1px;
                     border-color: $color-border-shadow $color-border-highlight $color-border-highlight $color-border-shadow;
                 }
@@ -108,19 +108,17 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
 
         }
 
-        .title-button.minimize .title-button-inner {
+        .title-button.minimize {
             background-image: url(images/minimize.png);
         }
         .title-button.maximize {
             margin-right: 2px;
-            .title-button-inner {
-                background-image: url(images/maximize.png);
-            }
+            background-image: url(images/maximize.png);
         }
-        .title-button.maximize.disabled .title-button-inner {
+        .title-button.maximize.disabled {
             background-image: url(images/maximize_dis.png);
         }
-        .title-button.close .title-button-inner {
+        .title-button.close {
             background-image: url(images/close.png);
         }
     }
