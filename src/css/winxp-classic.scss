@@ -6,17 +6,12 @@ $title-r: rgb(165, 206, 247);
 
 $title-height: 18px;
 
-.window {
-    background-color: $color-face;
-
-    @include border-raised-outer();
-
+@mixin make-inner-box() {
     @include box-sizing(border-box);
     position: relative;
     z-index: 1;
-    &:before {
-        @include border-raised-inner();
 
+    &:before {
         position: absolute;
         top: 0;
         bottom: 0;
@@ -26,6 +21,17 @@ $title-height: 18px;
         content: "";
 
         z-index: -1;
+    }
+}
+
+.window {
+    background-color: $color-face;
+
+    @include border-raised-outer();
+
+    @include make-inner-box();
+    &:before {
+        @include border-raised-inner();
     }
 
     // 2px: default padding area
