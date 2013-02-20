@@ -133,7 +133,6 @@ div#notification_area {
     }
 }
 
-
 ul.menu {
     display: block;
     @include box-sizing(border-box);
@@ -163,6 +162,10 @@ ul.menu {
         &.disabled {
             color: $color-border-shadow;
             text-shadow: $color-border-highlight 1px 1px;
+            &:hover {
+                color: $color-border-shadow;
+                text-shadow: none;
+            }
         }
 
         &.separator {
