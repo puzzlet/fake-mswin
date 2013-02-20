@@ -68,14 +68,7 @@ div#notification_area {
 }
 
 .window {
-    background-color: $color-face;
-
-    @include border-raised-outer();
-
-    @include make-inner-box();
-    &:before {
-        @include border-raised-inner();
-    }
+    @include raised-control();
 
     // 2px: default padding area
     // 1px: due to :before border
@@ -178,13 +171,7 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
 }
 
 .edit {
+    @include sunken-control();
     background-color: white;
-
-    @include border-sunken-outer();
-    @include make-inner-box();
-    &:before {
-        @include border-sunken-inner();
-    }
-    padding: 1px;
 }
 

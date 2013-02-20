@@ -30,3 +30,26 @@
     border-color: $color-border-shadow $color-border-highlight $color-border-highlight $color-border-shadow;
 }
 
+@mixin raised-control() {
+    background-color: $color-face;
+
+    padding: 1px;
+
+    @include border-raised-outer();
+
+    @include make-inner-box();
+    &:before {
+        @include border-raised-inner();
+    }
+}
+
+@mixin sunken-control() {
+    padding: 1px;
+
+    @include border-sunken-outer();
+
+    @include make-inner-box();
+    &:before {
+        @include border-sunken-inner();
+    }
+}
