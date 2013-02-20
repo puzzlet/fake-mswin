@@ -1,169 +1,279 @@
 @import "_common.scss";
 
 body {
-  margin: 0;
-  padding: 0;
-  background: #5A7EDC;
-  color: white;
-  font-family: Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #5A7EDC;
+    color: white;
+    font-family: Tahoma, sans-serif;
 }
 
+// logon
+
 body#logon {
-  div.header {
+    div.header {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 80px;
+        background: #00309C;
+
+        div.border {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 2px;
+            background: -webkit-linear-gradient(left, #5A7EDC, #C8DEFF 26%, #5A7EDC);
+            background: -moz-linear-gradient(left, #5A7EDC, #C8DEFF 26%, #5A7EDC);
+            background: -ms-linear-gradient(left, #5A7EDC, #C8DEFF 26%, #5A7EDC);
+            background: -o-linear-gradient(left, #5A7EDC, #C8DEFF 26%, #5A7EDC);
+        }
+    }
+
+    div.content {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 80px;
+        bottom: 96px;
+
+        div.left {
+            position: absolute;
+            left: 0;
+            right: 50%;
+            top: 0;
+            bottom: 0;
+            background: -webkit-radial-gradient(8% 9%, 170px 170px, #94B3EF, #5A7EDC);
+
+            div.divider {
+                position: absolute;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                width: 1px;
+                background: -webkit-linear-gradient(top, #5A7EDC, #91AEEE, #5A7EDC);
+                background: -moz-linear-gradient(top, #5A7EDC, #91AEEE, #5A7EDC);
+                background: -ms-linear-gradient(top, #5A7EDC, #91AEEE, #5A7EDC);
+                background: -o-linear-gradient(top, #5A7EDC, #91AEEE, #5A7EDC);
+            }
+        }
+
+        div.right {
+            position: absolute;
+            left: 50%;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+    }
+
+    div.footer {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 96px;
+        background: #00309C;
+
+        div.border {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            height: 2px;
+            background: -webkit-linear-gradient(left, #0C3CA1, #FA9736 26%, #003399);
+            background: -moz-linear-gradient(left, #0C3CA1, #FA9736 26%, #003399);
+            background: -ms-linear-gradient(left, #0C3CA1, #FA9736 26%, #003399);
+            background: -o-linear-gradient(left, #0C3CA1, #FA9736 26%, #003399);
+        }
+    }
+}
+
+// desktop
+
+div#desktop {
     position: absolute;
     left: 0;
     right: 0;
     top: 0;
-    height: 80px;
-    background: #00309C;
-
-    div.border {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 2px;
-      background: -webkit-linear-gradient(left, #5A7EDC, #C8DEFF 26%, #5A7EDC);
-      background: -moz-linear-gradient(left, #5A7EDC, #C8DEFF 26%, #5A7EDC);
-      background: -ms-linear-gradient(left, #5A7EDC, #C8DEFF 26%, #5A7EDC);
-      background: -o-linear-gradient(left, #5A7EDC, #C8DEFF 26%, #5A7EDC);
-    }
-  }
-
-  div.content {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 80px;
-    bottom: 96px;
-
-    div.left {
-      position: absolute;
-      left: 0;
-      right: 50%;
-      top: 0;
-      bottom: 0;
-      background: -webkit-radial-gradient(8% 9%, 170px 170px, #94B3EF, #5A7EDC);
-
-      div.divider {
-        position: absolute;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        width: 1px;
-        background: -webkit-linear-gradient(top, #5A7EDC, #91AEEE, #5A7EDC);
-        background: -moz-linear-gradient(top, #5A7EDC, #91AEEE, #5A7EDC);
-        background: -ms-linear-gradient(top, #5A7EDC, #91AEEE, #5A7EDC);
-        background: -o-linear-gradient(top, #5A7EDC, #91AEEE, #5A7EDC);
-      }
-    }
-
-    div.right {
-      position: absolute;
-      left: 50%;
-      right: 0;
-      top: 0;
-      bottom: 0;
-    }
-  }
-
-  div.footer {
-    position: absolute;
-    left: 0;
-    right: 0;
     bottom: 0;
-    height: 96px;
-    background: #00309C;
-
-    div.border {
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 0;
-      height: 2px;
-      background: -webkit-linear-gradient(left, #0C3CA1, #FA9736 26%, #003399);
-      background: -moz-linear-gradient(left, #0C3CA1, #FA9736 26%, #003399);
-      background: -ms-linear-gradient(left, #0C3CA1, #FA9736 26%, #003399);
-      background: -o-linear-gradient(left, #0C3CA1, #FA9736 26%, #003399);
-    }
-  }
-}
-
-div#desktop {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #004E98;
-  background-image: url(bliss-lite.jpg);
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
+    width: 100%;
+    height: 100%;
+    background-color: #004E98;
+    background-image: url(bliss-lite.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
 }
 
 div#taskbar {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 30px;
-  background: -webkit-linear-gradient(top, #3168D5, #4993E6 2px, #2359D6 7px, #2663E0 25px, #1941A5);
-  background: -moz-linear-gradient(top, #3168D5, #4993E6 2px, #2359D6 7px, #2663E0 25px, #1941A5);
-  background: -ms-linear-gradient(top, #3168D5, #4993E6 2px, #2359D6 7px, #2663E0 25px, #1941A5);
-  background: -o-linear-gradient(top, #3168D5, #4993E6 2px, #2359D6 7px, #2663E0 25px, #1941A5);
-  color: white;
-  font-family: Tahoma, sans-serif;
-  font-size: 9pt;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 30px;
+    background: -webkit-linear-gradient(top, #3168D5, #4993E6 2px, #2359D6 7px, #2663E0 25px, #1941A5);
+    background: -moz-linear-gradient(top, #3168D5, #4993E6 2px, #2359D6 7px, #2663E0 25px, #1941A5);
+    background: -ms-linear-gradient(top, #3168D5, #4993E6 2px, #2359D6 7px, #2663E0 25px, #1941A5);
+    background: -o-linear-gradient(top, #3168D5, #4993E6 2px, #2359D6 7px, #2663E0 25px, #1941A5);
+    color: white;
+    font-family: Tahoma, sans-serif;
+    font-size: 9pt;
 }
 
 div#start {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 99px;
-  max-height: 33px;
-  background: url(blue_startbutton_bmp.png);
-
-  img#logo {
-    position: absolute;
-    left: 10px;
-    top: 7px;
-  }
-
-  div {
-    position: absolute;
-    left: 35px;
-    top: 4px;
-    color: white !important;
-    font-size: 17px;
-    font-weight: bold;
-    text-shadow: rgba(0, 0, 0, 0.5) 2px 2px 1px;
-  }
-}
-
-div#notification_area {
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  border-top: solid 1px #095BC9;
-  border-bottom: solid 1px #095BC9;
-  border-left: solid 1px rgba(0, 0, 0, 0.5);
-  background: -webkit-linear-gradient(top, #16AEF1, #19B9F8 1px, #1396EC 5px, #108EE8 25px, #1586DC);
-  padding: 7px 14px;
-
-  div.highlight {
     position: absolute;
     left: 0;
     top: 0;
     bottom: 0;
-    width: 2px;
-    background: #1CC8F7;
-  }
+    width: 99px;
+    max-height: 33px;
+    background: url(blue_startbutton_bmp.png);
+
+    img#logo {
+        position: absolute;
+        left: 10px;
+        top: 7px;
+    }
+
+    div {
+        position: absolute;
+        left: 35px;
+        top: 4px;
+        color: white !important;
+        font-size: 17px;
+        font-weight: bold;
+        text-shadow: rgba(0, 0, 0, 0.5) 2px 2px 1px;
+    }
 }
 
-// vim: et ts=2 sts=2 sw=2
+div#notification_area {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-top: solid 1px #095BC9;
+    border-bottom: solid 1px #095BC9;
+    border-left: solid 1px rgba(0, 0, 0, 0.5);
+    background: -webkit-linear-gradient(top, #16AEF1, #19B9F8 1px, #1396EC 5px, #108EE8 25px, #1586DC);
+    padding: 7px 14px;
+
+    div.highlight {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: #1CC8F7;
+    }
+}
+
+// window border
+
+$outer-tl: rgb(214, 214, 206);
+$outer-dr: rgb(66, 66, 66);
+$inner-tl: rgb(255, 255, 255);
+$inner-dr: rgb(132, 132, 132);
+
+$title-l: rgb(8, 33, 107);
+$title-r: rgb(165, 206, 247);
+
+$control-color: rgb(214, 214, 206);
+
+.window {
+    background-color: $control-color;
+
+    border-width: 1px;
+    border-style: solid;
+    border-color: $outer-tl $outer-dr $outer-dr $outer-tl;
+
+    .window-inner {
+        border-color: $inner-tl $inner-dr $inner-dr $inner-tl;
+        padding: 2px;
+    }
+}
+
+$title-button-group-width: 16px + 16px + 2px + 16px + 2px;
+
+.title-bar {
+    padding-left: 20px;
+    padding-right: $title-button-group-width;
+
+    height: 18px;
+
+    .title-icon {
+        float: left;
+        width: 20px;
+        height: 18px;
+        margin-left: -20px;
+
+        background-color: $title-l;
+    }
+    .title {
+        float: left;
+        height: 18px;
+        width: 100%;
+        overflow: hidden;
+
+        font-family: "Tahoma", sans-serif;
+        font-size: 9pt;
+        font-weight: bold;
+        color: white;
+
+        cursor: default;
+
+        @include linear-gradient-hor($title-l, $title-r);
+    }
+    .title-button-group {
+        float: left;
+        margin-right: -$title-button-group-width;
+        width: $title-button-group-width;
+
+        padding: 2px 0;
+
+        background-color: $title-r;
+
+        .title-button {
+            float: left;
+
+            border-width: 1px;
+            border-style: solid;
+            border-color: $inner-tl $outer-dr $outer-dr $inner-tl;
+
+            background-color: $control-color;
+
+            .title-button-inner {
+                border-width: 0 1px 1px 0;
+                border-style: solid;
+                border-color: $inner-tl $inner-dr $inner-dr $inner-tl;
+
+                width: 13px;
+                height: 11px;
+            }
+
+            &:active {
+                border-color: $outer-dr $inner-tl $inner-tl $outer-dr;
+                .title-button-inner {
+                    border-width: 1px 0 0 1px;
+                    border-color: $inner-dr $inner-tl $inner-tl $inner-dr;
+                }
+            }
+
+        }
+
+        .title-button.minimize .title-button-inner {
+            background-image: url(images/minimize.png);
+        }
+        .title-button.maximize {
+            margin-right: 2px;
+            .title-button-inner {
+                background-image: url(images/maximize.png);
+            }
+        }
+        .title-button.close .title-button-inner {
+            background-image: url(images/close.png);
+        }
+    }
+}
