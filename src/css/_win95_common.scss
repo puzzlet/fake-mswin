@@ -118,7 +118,7 @@ div#notification_area {
                 list-style-type: none;
                 display: block;
                 float: left;
-                padding: 0 8px;
+                padding: 0 7px;
 
                 &:after {
                     content: "(" attr(data-access-key) ")";
