@@ -56,8 +56,12 @@ div#start {
 
     @include raised-taskbar-button();
     padding: 3px 3px 0;
+    &:active {
+        @include sunken-taskbar-button();
+        padding: 3px 3px 0;
+    }
 
-    div {
+    span {
         &:before {
             content: url(images/win95.gif);
             float: left;
