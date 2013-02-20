@@ -1,23 +1,5 @@
 $title-height: 18px;
 
-@mixin make-inner-box() {
-    @include box-sizing(border-box);
-    position: relative;
-    z-index: 1;
-
-    &:before {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-
-        content: "";
-
-        z-index: -1;
-    }
-}
-
 body {
     font-size: 12px;
     font-family: "굴림체", san-serif;
@@ -42,13 +24,9 @@ body {
 div#start {
     float: left;
     margin: 2px;
-    padding: 3px 3px 0;
-    box-sizing: border-box;
 
-    border-color: $color-border-highlight $color-border-darkshadow $color-border-darkshadow $color-border-highlight;
-    &:before {
-        border-color: $color-border-light $color-border-shadow $color-border-shadow $color-border-light;
-    }
+    @include raised-taskbar-button();
+    padding: 3px 3px 0;
 
     div {
         &:before {

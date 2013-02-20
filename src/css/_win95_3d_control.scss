@@ -53,3 +53,35 @@
         @include border-sunken-inner();
     }
 }
+
+@mixin raised-taskbar-button() {
+    background-color: $color-face;
+
+    padding: 1px;
+
+    @include border-common();
+    border-color: $color-border-highlight $color-border-darkshadow $color-border-darkshadow $color-border-highlight;
+
+    @include make-inner-box();
+    &:before {
+        @include border-common();
+        border-color: $color-border-light $color-border-shadow $color-border-shadow $color-border-light;
+    }
+}
+
+@mixin sunken-taskbar-button() {
+    background-color: $color-face;
+
+    padding: 1px;
+
+    @include border-common();
+    border-color: $color-border-darkshadow $color-border-highlight $color-border-highlight $color-border-darkshadow;
+
+    @include make-inner-box();
+    &:before {
+        @include border-common();
+        border-color: $color-border-shadow $color-border-light $color-border-light $color-border-shadow;
+    }
+}
+
+

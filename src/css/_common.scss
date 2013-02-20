@@ -25,4 +25,22 @@
   @include box-max-size();
 }
 
+@mixin make-inner-box() {
+    @include box-sizing(border-box);
+    position: relative;
+    z-index: 1;
+
+    &:before {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        content: "";
+
+        z-index: -1;
+    }
+}
+
 // vim: et ts=2 sts=2 sw=2
