@@ -9,4 +9,10 @@
   background-image: linear-gradient(left, right, $from, $to);
 }
 
+@mixin box-sizing($value) {
+  -webkit-box-sizing: $value;
+  -moz-box-sizing: $value;
+  box-sizing: $value;
+}
+
 // vim: et ts=2 sts=2 sw=2
