@@ -10,13 +10,27 @@ $title-height: 18px;
     background-color: $color-face;
 
     @include border-raised-outer();
-    .window-inner {
+
+    @include box-sizing(border-box);
+    position: relative;
+    z-index: 1;
+    &:before {
         @include border-raised-inner();
 
-        padding: 2px+$title-height 2px 2px 2px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
 
-        @include box-max-size();
+        content: "";
+
+        z-index: -1;
     }
+
+    // 2px: default padding area
+    // 1px: due to :before border
+    padding: 3px+$title-height 3px 3px 3px;
 }
 
 $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
