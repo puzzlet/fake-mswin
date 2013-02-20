@@ -1,6 +1,3 @@
-$title-l: rgb(8, 33, 107);
-$title-r: rgb(165, 206, 247);
-
 $title-height: 18px;
 
 @mixin make-inner-box() {
@@ -109,7 +106,7 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
         height: $title-height;
         margin-left: -20px;
 
-        background-color: $title-l;
+        background-color: $color-active-title;
     }
     .title {
         float: left;
@@ -124,7 +121,7 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
 
         cursor: default;
 
-        @include linear-gradient-hor($title-l, $title-r);
+        @include linear-gradient-hor($color-active-title, $color-gradient-active-title);
     }
     .title-button-group {
         float: left;
@@ -133,7 +130,7 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
 
         padding: 2px 0;
 
-        background-color: $title-r;
+        background-color: $color-gradient-active-title;
 
         .title-button {
             float: left;
