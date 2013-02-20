@@ -106,20 +106,20 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
                 }
             }
 
-        }
+            &.minimize {
+                background-image: url(images/minimize.png);
+            }
+            &.maximize {
+                margin-right: 2px;
+                background-image: url(images/maximize.png);
 
-        .title-button.minimize {
-            background-image: url(images/minimize.png);
-        }
-        .title-button.maximize {
-            margin-right: 2px;
-            background-image: url(images/maximize.png);
-        }
-        .title-button.maximize.disabled {
-            background-image: url(images/maximize_dis.png);
-        }
-        .title-button.close {
-            background-image: url(images/close.png);
+                &.disabled {
+                    background-image: url(images/maximize_dis.png);
+                }
+            }
+            &.close {
+                background-image: url(images/close.png);
+            }
         }
     }
 }
