@@ -4,6 +4,8 @@
 $title-l: rgb(8, 33, 107);
 $title-r: rgb(165, 206, 247);
 
+$title-height: 18px;
+
 .window {
     background-color: $color-face;
 
@@ -11,7 +13,7 @@ $title-r: rgb(165, 206, 247);
     .window-inner {
         @include border-raised-inner();
 
-        padding: 2px;
+        padding: 2px+$title-height 2px 2px 2px;
 
         @include box-max-size();
     }
@@ -23,19 +25,20 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
     padding-left: 20px;
     padding-right: $title-button-group-width;
 
-    height: 18px;
+    height: $title-height;
+    margin-top: -$title-height;
 
     .title-icon {
         float: left;
         width: 20px;
-        height: 18px;
+        height: $title-height;
         margin-left: -20px;
 
         background-color: $title-l;
     }
     .title {
         float: left;
-        height: 18px;
+        height: $title-height;
         width: 100%;
         overflow: hidden;
 
