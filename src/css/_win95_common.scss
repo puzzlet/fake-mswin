@@ -10,6 +10,10 @@ body {
     @include system-font();
 }
 
+* {
+    cursor: default;
+}
+
 #taskbar {
     @include make-inner-box();
     position: absolute;
@@ -201,8 +205,6 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
         font-weight: bold;
         color: white;
 
-        cursor: default;
-
         @include linear-gradient-hor($color-active-title, $color-gradient-active-title);
     }
     .title-button-group {
@@ -262,5 +264,7 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
 .edit {
     @include sunken-control();
     background-color: white;
+    cursor: text;
+
 }
 
