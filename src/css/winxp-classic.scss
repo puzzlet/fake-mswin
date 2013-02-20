@@ -108,6 +108,7 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
             }
 
             &:active {
+                background-position: 1px 1px;
                 border-color: $color-border-darkshadow $color-border-highlight $color-border-highlight $color-border-darkshadow;
                 &:before {
                     border-width: 1px 0 0 1px;
