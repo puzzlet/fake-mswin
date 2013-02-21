@@ -27,7 +27,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    height: 28px + 1px;
+    height: 28px;
 
     background-color: $color-face;
     border-top: 1px solid $color-border-light;
@@ -156,8 +156,8 @@ div#start_menu {
 
 div#notification_area {
     float: right;
-    margin: 2px;
-    padding: 5px 11px 4px;
+    margin: 2px 2px 0;
+    padding: 4px 11px 2px;
     @include border-sunken-outer();
 }
 
