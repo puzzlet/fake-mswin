@@ -1,37 +1,3 @@
-@mixin animation-duration($arg) {
-    -moz-animation-duration: $arg;
-    -webkit-animation-duration: $arg;
-}
-
-@mixin animation-name($arg) {
-    -moz-animation-name: $arg;
-    -webkit-animation-name: $arg;
-}
-
-@mixin transform-animation($name, $from, $to) {
-    @-moz-keyframes $name {
-        from {
-            -moz-transform: $from;
-        }
-        to {
-            -moz-transform: $to;
-        }
-    }
-
-    @-webkit-keyframes $name {
-        from {
-            -webkit-transform: $from;
-        }
-        to {
-            -webkit-transform: $to;
-        }
-    }
-}
-
-@include transform-animation(slide_down, translateY(-100%), translateY(0));
-@include transform-animation(slide_up, translateY(100%), translateY(0));
-@include transform-animation(slide_context, translate(-100%, -100%), translate(0, 0));
-
 .menu {
     @include animation-duration(0.3s);
     .slide-down     & { @include animation-name(slide_down);    }
