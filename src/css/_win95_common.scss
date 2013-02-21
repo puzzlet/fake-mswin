@@ -11,6 +11,18 @@ $menubar-height: 18px;
     color: white;
 }
 
+@mixin button-sprite($x, $y) {
+    background-image: url(images/sprite.png);
+    background-position: $x $y;
+    &:active {
+        background-position: ($x+1px) ($y+1px);
+    }
+}
+
+@mixin title-button-sprite($index) {
+    @include button-sprite(-224px, (-108px - 11px*$index));
+}
+
 * {
     @include system-font();
     cursor: default;
@@ -364,7 +376,6 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
             }
 
             &:active {
-                background-position: 1px 1px;
                 border-color: $color-border-darkshadow $color-border-highlight $color-border-highlight $color-border-darkshadow;
                 &:before {
                     border-width: 1px 0 0 1px;
@@ -373,21 +384,18 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
             }
 
             &.minimize {
-                background-image: url(images/sprite.png);
-                background-position: -224px -108px;
+                @include title-button-sprite(0);
             }
             &.maximize {
-                background-image: url(images/sprite.png);
-                background-position: (-224px) (-108px - 11px);
                 margin-right: 2px;
+                @include title-button-sprite(1);
 
                 &.disabled {
                     background-image: url(images/maximize_dis.png);
                 }
             }
             &.close {
-                background-image: url(images/sprite.png);
-                background-position: (-224px) (-108px - 11px*3);
+                @include title-button-sprite(3);
             }
         }
     }
