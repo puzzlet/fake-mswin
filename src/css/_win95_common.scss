@@ -194,15 +194,15 @@ div.start {
                 background-image: url(images/sprite.png);
                 content: "";
             }
-            &[data-icon="programs"  ]:before { background-position:    0      0;    }
-            &[data-icon="favorites" ]:before { background-position:  -32px    0;    }
-            &[data-icon="documents" ]:before { background-position:  -64px    0;    }
-            &[data-icon="setting"   ]:before { background-position:  -96px    0;    }
-            &[data-icon="find"      ]:before { background-position: -128px    0;    }
-            &[data-icon="help"      ]:before { background-position: -160px    0;    }
-            &[data-icon="run"       ]:before { background-position: -192px    0;    }
-            &[data-icon="logoff"    ]:before { background-position:    0    -32px;  }
-            &[data-icon="shutdown"  ]:before { background-position:  -32px  -32px;  }
+            &[data-icon="programs"  ]:before { background-position: (-32px * 0) (-32px * 0); }
+            &[data-icon="favorites" ]:before { background-position: (-32px * 1) (-32px * 0); }
+            &[data-icon="documents" ]:before { background-position: (-32px * 2) (-32px * 0); }
+            &[data-icon="setting"   ]:before { background-position: (-32px * 3) (-32px * 0); }
+            &[data-icon="find"      ]:before { background-position: (-32px * 4) (-32px * 0); }
+            &[data-icon="help"      ]:before { background-position: (-32px * 5) (-32px * 0); }
+            &[data-icon="run"       ]:before { background-position: (-32px * 6) (-32px * 0); }
+            &[data-icon="logoff"    ]:before { background-position: (-32px * 0) (-32px * 1); }
+            &[data-icon="shutdown"  ]:before { background-position: (-32px * 1) (-32px * 1); }
         }
     }
 }
@@ -425,8 +425,8 @@ ul.listview {
             background-image: url(images/sprite.png);
             content: "";
         }
-        &[data-icon="my-computer"   ]:before { background-position:    0    -64px;  }
-        &[data-icon="recycling-bin" ]:before { background-position:  -96px  -64px;  }
+        &[data-icon="my-computer"   ]:before { background-position: (-32px * 0) (-32px * 2); }
+        &[data-icon="recycling-bin" ]:before { background-position: (-32px * 3) (-32px * 2); }
 
         span {
             padding: 2px;
@@ -437,7 +437,7 @@ ul.listview {
             @include item-selected();
         }
         &.selected:before {
-            background-position-y: -96px;
+            background-position-y: (-32px * 3);
         }
     }
 }
