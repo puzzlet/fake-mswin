@@ -10,24 +10,30 @@
     border-style: solid;
 }
 
-@mixin border-raised-inner() {
+@mixin border-color($topleft, $bottomright) {
     @include border-common();
-    border-color: $color-border-highlight $color-border-shadow $color-border-shadow $color-border-highlight;
+    border: {
+        top-color: $topleft;
+        left-color: $topleft;
+        bottom-color: $bottomright;
+        right-color: $bottomright;
+    }
+}
+
+@mixin border-raised-inner() {
+    @include border-color($color-border-highlight, $color-border-shadow);
 }
 
 @mixin border-sunken-inner() {
-    @include border-common();
-    border-color: $color-border-darkshadow $color-border-light $color-border-light $color-border-darkshadow;
+    @include border-color($color-border-darkshadow, $color-border-light);
 }
 
 @mixin border-raised-outer() {
-    @include border-common();
-    border-color: $color-border-light $color-border-darkshadow $color-border-darkshadow $color-border-light;
+    @include border-color($color-border-light, $color-border-darkshadow);
 }
 
 @mixin border-sunken-outer() {
-    @include border-common();
-    border-color: $color-border-shadow $color-border-highlight $color-border-highlight $color-border-shadow;
+    @include border-color($color-border-shadow, $color-border-highlight);
 }
 
 @mixin raised-control() {
