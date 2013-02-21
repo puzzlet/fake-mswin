@@ -108,21 +108,13 @@
 @mixin raised-control() {
     background-color: $color-face;
 
-    @include border-raised-outer();
-
-    @include make-inner-box();
-    &:before {
-        @include border-raised-inner();
-    }
+    @include control-border2($color-border-light, $color-border-darkshadow,
+            $color-border-highlight, $color-border-shadow);
 }
 
 @mixin sunken-control() {
-    @include border-sunken-outer();
-
-    @include make-inner-box();
-    &:before {
-        @include border-sunken-inner();
-    }
+    @include control-border2($color-border-shadow, $color-border-highlight,
+            $color-border-darkshadow, $color-border-light);
 }
 
 @mixin taskbar-button() {
