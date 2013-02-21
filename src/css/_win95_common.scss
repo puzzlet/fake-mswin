@@ -101,6 +101,59 @@ div#start {
     }
 }
 
+div#start_menu {
+    position: absolute;
+    left: 2px;
+    @include transform(translateY(-100%));
+
+    ul.menu {
+        padding-left: 21px + 2px;
+        div.decorator {
+            position: absolute;
+            left: 2px;
+            top: 2px;
+            bottom: 2px;
+            width: 21px;
+            background-color: rgb(0, 0, 120); // XXX
+            z-index: 0;
+            &:before {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 21px;
+                height: 108px;
+                background-image: url(images/sprite.png);
+                background-position: -224px 0;
+                z-index: 1;
+                content: "";
+            }
+        }
+
+        & > li:not(.separator) {
+            padding: 9px 16px 9px 32px + 9px; // XXX
+            position: relative;
+            &:before {
+                position: absolute;
+                left: 2px;
+                top: 0;
+                width: 32px;
+                height: 32px;
+                background-image: url(images/sprite.png);
+                content: "";
+            }
+            &[data-icon="programs"  ]:before { background-position:    0      0;    }
+            &[data-icon="favorites" ]:before { background-position:  -32px    0;    }
+            &[data-icon="documents" ]:before { background-position:  -64px    0;    }
+            &[data-icon="setting"   ]:before { background-position:  -96px    0;    }
+            &[data-icon="find"      ]:before { background-position: -128px    0;    }
+            &[data-icon="help"      ]:before { background-position: -160px    0;    }
+            &[data-icon="run"       ]:before { background-position: -192px    0;    }
+            &[data-icon="logoff"    ]:before { background-position:    0    -32px;  }
+            &[data-icon="shutdown"  ]:before { background-position:  -32px  -32px;  }
+        }
+    }
+}
+
 div#notification_area {
     float: right;
     margin: 2px;
