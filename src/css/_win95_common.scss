@@ -11,6 +11,40 @@ $menubar-height: 18px;
     color: white;
 }
 
+@mixin button-style($x, $y, $disabled: false) {
+    background-image: url(images/sprite.png);
+    background-position: $x $y;
+
+    border-width: 1px;
+    border-style: solid;
+    border-color: $color-border-highlight $color-border-darkshadow $color-border-darkshadow $color-border-highlight;
+
+    background-color: $color-face;
+
+    @include make-inner-box();
+    &:before {
+        border-width: 0 1px 1px 0;
+        border-style: solid;
+        border-color: $color-border-highlight $color-border-shadow $color-border-shadow $color-border-highlight;
+    }
+
+    @if $disabled == false {
+        &:active {
+            border-color: $color-border-darkshadow $color-border-highlight $color-border-highlight $color-border-darkshadow;
+            &:before {
+                border-width: 1px 0 0 1px;
+                border-color: $color-border-shadow $color-border-highlight $color-border-highlight $color-border-shadow;
+            }
+
+            background-position: ($x+1px) ($y+1px);
+        }
+    }
+}
+
+@mixin title-button-style($index, $disabled: false) {
+    @include button-style(-224px, (-108px - 11px*$index), $disabled);
+}
+
 * {
     @include system-font();
     cursor: default;
@@ -348,43 +382,25 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
         .title-button {
             float: left;
 
-            border-width: 1px;
-            border-style: solid;
-            border-color: $color-border-highlight $color-border-darkshadow $color-border-darkshadow $color-border-highlight;
-
-            background-color: $color-face;
-
             width: 16px;
             height: 14px;
-            @include make-inner-box();
-            &:before {
-                border-width: 0 1px 1px 0;
-                border-style: solid;
-                border-color: $color-border-highlight $color-border-shadow $color-border-shadow $color-border-highlight;
-            }
-
-            &:active {
-                background-position: 1px 1px;
-                border-color: $color-border-darkshadow $color-border-highlight $color-border-highlight $color-border-darkshadow;
-                &:before {
-                    border-width: 1px 0 0 1px;
-                    border-color: $color-border-shadow $color-border-highlight $color-border-highlight $color-border-shadow;
-                }
-            }
 
             &.minimize {
-                background-image: url(images/minimize.png);
+                @include title-button-style(0);
             }
             &.maximize {
-                margin-right: 2px;
-                background-image: url(images/maximize.png);
+                @include title-button-style(1);
 
                 &.disabled {
-                    background-image: url(images/maximize_dis.png);
+                    @include title-button-style(4, true);
                 }
             }
+            &.restore {
+                @include title-button-style(2);
+            }
             &.close {
-                background-image: url(images/close.png);
+                margin-left: 2px;
+                @include title-button-style(3);
             }
         }
     }
