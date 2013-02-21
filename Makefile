@@ -22,3 +22,8 @@ $(TARGET_CSS): src/css/*.scss gh-pages/.git
 
 gh-pages/.git:
 	git clone -b gh-pages git@github.com:puzzlet/fake-winxp.git gh-pages
+
+clean:
+	rm -r gh-pages/*.html gh-pages/*.jpg gh-pages/*.png gh-pages/images/* $(TARGET_CSS)
+
+.PHONY: all clean
