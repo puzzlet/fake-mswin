@@ -12,8 +12,9 @@ $menubar-height: 18px;
 }
 
 @mixin button-style($x, $y, $disabled: false) {
+    $padding: 1px;
     background-image: url(images/sprite.png);
-    background-position: $x $y;
+    background-position: ($x+$padding) ($y+$padding);
 
     border-width: 1px;
     border-style: solid;
@@ -23,26 +24,26 @@ $menubar-height: 18px;
 
     @include make-inner-box();
     &:before {
-        border-width: 0 1px 1px 0;
+        border-width: 1px;
         border-style: solid;
-        border-color: $color-border-highlight $color-border-shadow $color-border-shadow $color-border-highlight;
+        border-color: $color-face $color-border-shadow $color-border-shadow $color-face;
     }
 
     @if $disabled == false {
         &:active {
             border-color: $color-border-darkshadow $color-border-highlight $color-border-highlight $color-border-darkshadow;
             &:before {
-                border-width: 1px 0 0 1px;
-                border-color: $color-border-shadow $color-border-highlight $color-border-highlight $color-border-shadow;
+                border-width: 1px;
+                border-color: $color-border-shadow $color-face $color-face $color-border-shadow;
             }
 
-            background-position: ($x+1px) ($y+1px);
+            background-position: ($x+$padding+1px) ($y+$padding+1px);
         }
     }
 }
 
 @mixin title-button-style($index, $disabled: false) {
-    @include button-style(-224px, (-108px - 11px*$index), $disabled);
+    @include button-style(-224px, (-108px - 10px*$index), $disabled);
 }
 
 * {
@@ -382,6 +383,7 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
         .title-button {
             float: left;
 
+            // including borders
             width: 16px;
             height: 14px;
 
