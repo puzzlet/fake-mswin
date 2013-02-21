@@ -1,5 +1,7 @@
 @import "_common.scss";
 
+.windows-xp-classic {
+
 $color-face: rgb(214, 214, 206);
 $color-border-highlight: rgb(255, 255, 255);
 $color-border-light: rgb(214, 214, 206);
@@ -7,10 +9,9 @@ $color-border-shadow: rgb(132, 132, 132);
 $color-border-darkshadow: rgb(66, 66, 66);
 $color-active-title: rgb(10, 36, 106);
 $color-gradient-active-title: rgb(166, 202, 240);
+$color-desktop-background: rgb(58, 110, 165);
 
 @import "_win95_3d_control.scss";
 @import "_win95_common.scss";
 
-body {
-    background-color: rgb(58, 110, 165);
-}
+} // .windows-98

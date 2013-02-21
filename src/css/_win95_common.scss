@@ -6,11 +6,8 @@ $menubar-height: 18px;
     font-size: 9pt;
 }
 
-body {
-    @include system-font();
-}
-
 * {
+    @include system-font();
     cursor: default;
     // disable highlighting selection
     -webkit-touch-callout: none;
@@ -19,9 +16,23 @@ body {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+
+    padding: 0;
+    margin: 0;
 }
 
-#taskbar {
+.desktop {
+    background-color: $color-desktop-background;
+
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+.taskbar {
     @include make-inner-box();
     position: absolute;
     left: 0;
@@ -66,7 +77,7 @@ body {
     }
 }
 
-div#start {
+div.start {
     float: left;
     margin: 2px;
 
@@ -101,12 +112,12 @@ div#start {
     }
 }
 
-div#start_menu {
+.start_menu {
     position: absolute;
     left: 2px;
     @include transform(translateY(-100%));
 
-    ul.menu {
+    .menu {
         padding-left: 21px + 2px;
         div.decorator {
             position: absolute;
@@ -154,7 +165,7 @@ div#start_menu {
     }
 }
 
-div#notification_area {
+div.notification_area {
     float: right;
     margin: 2px 2px 0;
     padding: 4px 11px 2px;
@@ -192,7 +203,6 @@ div#notification_area {
             width: 100%;
 
             & > li {
-                @include system-font();
                 list-style-type: none;
                 display: block;
                 float: left;
@@ -220,7 +230,6 @@ ul.menu {
     margin: 0; // strip default margin
     padding: 2px; // XXX: arbitrary
     & > li {
-        @include system-font();
         list-style-type: none;
         display: block;
         padding: 2px 16px; // arbitrary
@@ -348,7 +357,7 @@ ul.listview {
     margin: 0;
     padding: 0;
 
-    #desktop > & {
+    .desktop > & {
         color: white;
     }
 

@@ -5,15 +5,37 @@
 
 <meta charset="utf-8">
    <link rel="stylesheet" href="win98.css" type="text/css" media="screen">
+   <link rel="stylesheet" href="winxp-classic.css" type="text/css" media="screen">
 
 <style>
-#notepad {
-    width: 400px;
-    height: 400px;
-    margin: 5em auto;
+body {
+    padding: 0;
+    margin: 0;
+}
+.windows {
+    width: 600px;
+    height: 600px;
+    position: absolute;
+}
+.windows-98 {
+    top: 10px;
+    left: 10px;
+}
+.windows-xp-classic {
+    top: 10px;
+    left: 620px;
 }
 
-#notepad .title-bar .title-icon {
+.notepad {
+    width: 300px;
+    height: 200px;
+    margin: 5em auto;
+    position: absolute;
+    top: 0;
+    left: 100px;
+}
+
+.notepad .title-bar .title-icon {
     background-image: url(images/word.png);
 }
 </style>
@@ -21,10 +43,17 @@
 </head>
 
 <body>
-  <div id="desktop">
-    <div id="taskbar">
-      <div id="start" class="selected pressed" title="시작하려면 이곳을 누르십시오."><span>시작</span></div>
-      <div id="start_menu" class="slide slide-up">
+<div class="windows windows-98">
+    <div class="desktop">
+        <ul class="listview listview-largeicon">
+            <li data-icon="my-computer"><span>내 컴퓨터</span></li>
+            <li class="selected" data-icon="recycling-bin"><span>휴지통</span></li>
+        </ul>
+    </div>
+
+    <div class="taskbar">
+      <div class="start selected pressed" title="시작하려면 이곳을 누르십시오."><span>시작</span></div>
+      <div class="start_menu slide slide-up">
           <ul class="menu">
               <div class="decorator"></div>
               <li data-access-key="p" data-icon="programs">프로그램</li>
@@ -44,45 +73,111 @@
           <span>제목 없음 - 메모장</span>
       </div>
       <div class="task"><span>제목 없음 - 메모장</span></div>
-      <div id="notification_area">
+      <div class="notification_area">
         오후 3:31
       </div>
     </div>
-<div id="notepad" class="window has-menu">
-    <div class="title-bar">
-        <div class="title-icon"></div>
-        <div class="title">제목 없음 - 메모장</div>
-        <div class="title-button-group">
-            <div class="title-button minimize"></div>
-            <div class="title-button maximize"></div>
-            <div class="title-button close"></div>
+
+    <div class="notepad window has-menu">
+        <div class="title-bar">
+            <div class="title-icon"></div>
+            <div class="title">제목 없음 - 메모장</div>
+            <div class="title-button-group">
+                <div class="title-button minimize"></div>
+                <div class="title-button maximize"></div>
+                <div class="title-button close"></div>
+            </div>
+        </div>
+        <ul class="menu-bar">
+            <li data-access-key="f">파일</li>
+            <li data-access-key="e">편집</li>
+            <li data-access-key="o">서식</li>
+            <li data-access-key="v">보기</li>
+            <li data-access-key="h">도움말</li>
+        </ul>
+        <div class="edit box-max-size">
+        Hello<br/>
+        World
         </div>
     </div>
-    <ul class="menu-bar">
-        <li data-access-key="f">파일</li>
-        <li data-access-key="e">편집</li>
-        <li data-access-key="o">서식</li>
-        <li data-access-key="v">보기</li>
-        <li data-access-key="h">도움말</li>
+
+    <div class="slide slide-down">
+    <ul class="menu">
+        <li class="default" data-access-key="n">새로 만들기</li>
+        <li class="disabled" data-access-key="o" data-popup>열기</li>
+        <li class="separator" />
+        <li data-access-key="x" data-popup>끝내기</li>
     </ul>
-    <div class="edit box-max-size">
-    Hello<br/>
-    World
     </div>
 </div>
-<div class="slide slide-down">
-<ul class="menu">
-    <li class="default" data-access-key="n">새로 만들기</li>
-    <li class="disabled" data-access-key="o" data-popup>열기</li>
-    <li class="separator" />
-    <li data-access-key="x" data-popup>끝내기</li>
-</ul>
-</div>
-    <ul class="listview listview-largeicon">
-        <li data-icon="my-computer"><span>내 컴퓨터</span></li>
-        <li class="selected" data-icon="recycling-bin"><span>휴지통</span></li>
+
+<div class="windows windows-xp-classic">
+    <div class="desktop">
+        <ul class="listview listview-largeicon">
+            <li data-icon="my-computer"><span>내 컴퓨터</span></li>
+            <li class="selected" data-icon="recycling-bin"><span>휴지통</span></li>
+        </ul>
+    </div>
+
+    <div class="taskbar">
+      <div class="start selected pressed" title="시작하려면 이곳을 누르십시오."><span>시작</span></div>
+      <div class="start_menu slide slide-up">
+          <ul class="menu">
+              <div class="decorator"></div>
+              <li data-access-key="p" data-icon="programs">프로그램</li>
+              <li data-access-key="a" data-icon="favorites">즐겨찾기</li>
+              <li data-access-key="d" data-icon="documents">문서</li>
+              <li data-access-key="s" data-icon="setting">설정</li>
+              <li data-access-key="f" data-icon="find">찾기</li>
+              <li data-access-key="h" data-icon="help">도움말</li>
+              <li data-access-key="r" data-icon="run" data-popup>실행</li>
+              <li class="separator" />
+              <li data-access-key="l" data-icon="logoff" data-popup>로그오프</li>
+              <li data-access-key="u" data-icon="shutdown" data-popup>시스템 종료</li>
+          </ul>
+      </div>
+      <div class="task selected">
+          <img src="images/word.png"/>
+          <span>제목 없음 - 메모장</span>
+      </div>
+      <div class="task"><span>제목 없음 - 메모장</span></div>
+      <div class="notification_area">
+        오후 3:31
+      </div>
+    </div>
+
+    <div class="notepad window has-menu">
+        <div class="title-bar">
+            <div class="title-icon"></div>
+            <div class="title">제목 없음 - 메모장</div>
+            <div class="title-button-group">
+                <div class="title-button minimize"></div>
+                <div class="title-button maximize"></div>
+                <div class="title-button close"></div>
+            </div>
+        </div>
+        <ul class="menu-bar">
+            <li data-access-key="f">파일</li>
+            <li data-access-key="e">편집</li>
+            <li data-access-key="o">서식</li>
+            <li data-access-key="v">보기</li>
+            <li data-access-key="h">도움말</li>
+        </ul>
+        <div class="edit box-max-size">
+        Hello<br/>
+        World
+        </div>
+    </div>
+
+    <div class="slide slide-down">
+    <ul class="menu">
+        <li class="default" data-access-key="n">새로 만들기</li>
+        <li class="disabled" data-access-key="o" data-popup>열기</li>
+        <li class="separator" />
+        <li data-access-key="x" data-popup>끝내기</li>
     </ul>
-  </div>
+    </div>
+</div>
 </body>
 
 </html>
