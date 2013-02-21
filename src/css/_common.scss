@@ -46,17 +46,17 @@
   @include box-max-size();
 }
 
-@mixin make-inner-box() {
+@mixin make-inner-box($padding: 0) {
     @include box-sizing(border-box);
     position: relative;
     z-index: 1;
 
     &:before {
         position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
+        top: $padding;
+        bottom: $padding;
+        left: $padding;
+        right: $padding;
 
         content: "";
 

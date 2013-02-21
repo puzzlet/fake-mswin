@@ -52,32 +52,67 @@ $menubar-height: 18px;
     }
     padding-top: 1px;
 
-    .task {
+    .panel {
         float: left;
-        margin: 2px 3px;
-        width: 160px;
-        max-width: 160px;
+        &.panel-notification-area {
+            float: right;
+            padding: 2px;
+        }
         height: 22px;
-        @include raised-taskbar-button();
-        padding: (1px + 1px) (3px + 1px) 1px;
 
-        &:active {
-            @include sunken-taskbar-button();
-            padding: (1px + 1px) (3px + 1px) 1px;
-        }
-        &.selected {
-            @include sunken-taskbar-button();
-            padding: (1px + 1px) (3px + 1px) 1px;
-            background-image: url(images/checkerboard.gif);
-            font-weight: bold;
+        padding: 2px 2px 2px (2px + 6px);
+        position: relative;
+        &:before {
+            position: absolute;
+            top: 2px;
+            bottom: 2px;
+            left: 0;
+            border-left: 1px solid $color-border-shadow;
+            border-right: 1px solid $color-border-highlight;
+            content: "";
         }
 
-        img {
+        .handle {
+            @include border-raised-inner();
+            position: absolute;
+            top: 4px;
+            bottom: 4px;
+            left: 4px;
             float: left;
+            width: 1px;
         }
-        span {
+
+        .quick-launch {
+            margin: 0 3px;
+        }
+
+        .task {
             float: left;
-            margin-top: 2px;
+            margin: 0 3px;
+            width: 160px;
+            max-width: 160px;
+            height: 100%;
+            @include raised-taskbar-button();
+            padding: (1px + 1px) (3px + 1px) 1px;
+
+            &:active {
+                @include sunken-taskbar-button();
+                padding: (1px + 1px) (3px + 1px) 1px;
+            }
+            &.selected {
+                @include sunken-taskbar-button();
+                padding: (1px + 1px) (3px + 1px) 1px;
+                background-image: url(images/checkerboard.gif);
+                font-weight: bold;
+            }
+
+            img {
+                float: left;
+            }
+            span {
+                float: left;
+                margin-top: 2px;
+            }
         }
     }
 }
@@ -170,9 +205,9 @@ div.start {
     }
 }
 
-div.notification_area {
+div.notification-area {
     float: right;
-    margin: 2px 2px 0;
+    margin: 0 2px;
     padding: 4px 11px 2px;
     @include border-sunken-outer();
 }
@@ -402,6 +437,30 @@ ul.listview {
         &.selected:before {
             background-position-y: -96px;
         }
+    }
+}
+
+ul.toolbar {
+    li {
+        @include make-inner-box(3px);
+        list-style-type: none;
+        float: left;
+        &:hover {
+            @include border-raised-inner();
+        }
+
+        width: 16px + (2px + 1px) * 2;
+        height: 16px + (2px + 1px) * 2;
+
+        &:before {
+            width: 16px;
+            height: 16px;
+            background-image: url(images/sprite.png);
+        }
+        &[data-icon="show-desktop"  ]:before { background-position: (-16px * 4) (-16px * 2); }
+        &[data-icon="ie5"           ]:before { background-position: (-16px * 5) (-16px * 2); }
+        &[data-icon="outlook"       ]:before { background-position: (-16px * 6) (-16px * 2); }
+        &[data-icon="github"        ]:before { background-position: (-16px * 6) (-16px * 3); }
     }
 }
 
