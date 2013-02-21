@@ -116,33 +116,3 @@
     @include control-border2($color-border-shadow, $color-border-highlight,
             $color-border-darkshadow, $color-border-light);
 }
-
-@mixin taskbar-button() {
-    background-color: $color-face;
-
-    @include border-common();
-    border-color: $color-border-highlight $color-border-darkshadow $color-border-darkshadow $color-border-highlight;
-
-    @include make-inner-box();
-    &:before {
-        @include border-common();
-        border-color: $color-border-light $color-border-shadow $color-border-shadow $color-border-light;
-    }
-}
-
-@mixin taskbar-button-pressed() {
-    background-color: $color-face;
-
-    @include border-common();
-    border-color: $color-border-darkshadow $color-border-highlight $color-border-highlight $color-border-darkshadow;
-
-    @include make-inner-box();
-    &:before {
-        @include border-common();
-        border-color: $color-border-shadow $color-border-light $color-border-light $color-border-shadow;
-    }
-}
-
-@mixin pressed-button-padding($top, $right, $bottom, $left) {
-    padding: ($top + 1px) ($right - 1px) ($bottom - 1px) ($left + 1px);
-}
