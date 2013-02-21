@@ -340,10 +340,58 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
     }
 }
 
+ul.listview {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    margin: 0;
+    padding: 0;
+
+    #desktop > & {
+        color: white;
+    }
+
+    & > li {
+        list-style-type: none;
+    }
+}
+
+.listview-largeicon {
+    li {
+        @include box-sizing(border-box);
+        margin: 2px;
+        width: 70px;
+        height: 76px;
+        padding-top: 32px + 4px;
+        text-align: center;
+        position: relative;
+        &:before {
+            position: absolute;
+            top: 0;
+            left: (70px - 32px) / 2;
+            width: 32px;
+            height: 32px;
+            background-image: url(images/sprite.png);
+            content: "";
+        }
+        &[data-icon="my-computer"   ]:before { background-position:    0    -64px;  }
+        &[data-icon="recycling-bin" ]:before { background-position:  -96px  -64px;  }
+
+        span {
+            padding: 2px;
+        }
+
+        &.selected span {
+            border: 1px dotted rgb(255, 255, 127);  // inverted color
+            background-color: rgb(0, 0, 128);
+        }
+    }
+}
+
 .edit {
     @include sunken-control();
     background-color: white;
     cursor: text;
 
 }
-
