@@ -71,10 +71,10 @@ div#start {
     margin: 2px;
 
     @include raised-taskbar-button();
-    padding: 3px 3px 0;
+    padding: 3px 3px 0 1px;
     &:active {
         @include sunken-taskbar-button();
-        padding: 3px 3px 0;
+        padding: 3px 3px 0 1px;
     }
 
     span {
