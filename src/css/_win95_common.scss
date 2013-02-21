@@ -387,7 +387,6 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
                 @include title-button-sprite(0);
             }
             &.maximize {
-                margin-right: 2px;
                 @include title-button-sprite(1);
 
                 &.disabled {
@@ -395,6 +394,7 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
                 }
             }
             &.close {
+                margin-left: 2px;
                 @include title-button-sprite(3);
             }
         }
