@@ -11,39 +11,13 @@ $menubar-height: 18px;
     color: white;
 }
 
-@mixin button-style($x, $y, $disabled: false) {
-    $padding: 1px;
+@mixin sprite-image($x, $y) {
     background-image: url(images/sprite.png);
-    background-position: ($x+$padding) ($y+$padding);
-
-    border-width: 1px;
-    border-style: solid;
-    border-color: $color-border-highlight $color-border-darkshadow $color-border-darkshadow $color-border-highlight;
-
-    background-color: $color-face;
-
-    @include make-inner-box();
-    &:before {
-        border-width: 1px;
-        border-style: solid;
-        border-color: $color-face $color-border-shadow $color-border-shadow $color-face;
-    }
-
-    @if $disabled == false {
-        &:active {
-            border-color: $color-border-darkshadow $color-border-highlight $color-border-highlight $color-border-darkshadow;
-            &:before {
-                border-width: 1px;
-                border-color: $color-border-shadow $color-face $color-face $color-border-shadow;
-            }
-
-            background-position: ($x+$padding+1px) ($y+$padding+1px);
-        }
-    }
+    background-position: ($x) ($y);
 }
 
-@mixin title-button-style($index, $disabled: false) {
-    @include button-style(-224px, (-108px - 10px*$index), $disabled);
+@mixin title-button-image($index) {
+    @include sprite-image(-224px, (-108px - 10px*$index));
 }
 
 * {
@@ -387,22 +361,28 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
             width: 16px;
             height: 14px;
 
+            @include button-control();
+
+            &:not(.disabled):active {
+                @include button-control-pushed();
+            }
+
             &.minimize {
-                @include title-button-style(0);
+                @include title-button-image(0);
             }
             &.maximize {
-                @include title-button-style(1);
+                @include title-button-image(1);
 
                 &.disabled {
-                    @include title-button-style(4, true);
+                    @include title-button-image(4);
                 }
             }
             &.restore {
-                @include title-button-style(2);
+                @include title-button-image(2);
             }
             &.close {
                 margin-left: 2px;
-                @include title-button-style(3);
+                @include title-button-image(3);
             }
         }
     }

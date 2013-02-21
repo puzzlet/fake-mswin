@@ -36,6 +36,75 @@
     @include border-color($color-border-shadow, $color-border-highlight);
 }
 
+@mixin position($top, $right: false, $bottom: false, $left: false) {
+    @if $right == false {
+        $right: $top;
+        $bottom: $top;
+        $left: $top;
+    }
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+// control with double border
+// outer1, outer2, inner1, inner2
+@mixin control-border2($c1, $c2, $c3, $c4) {
+    @include box-sizing(border-box);
+    position: relative;
+    z-index: 1;
+
+    background-color: $color-face;
+
+    &:before {
+        position: absolute;
+        content: "";
+        z-index: -1;
+
+        box-shadow:
+            inset 1px 1px 0 0 $c1,
+            inset -1px -1px 0 0 $c2,
+            inset 1px 1px 0 1px $c3,
+            inset -1px -1px 0 1px $c4;
+
+        @include position(-2px);
+    }
+    border: 2px solid $color-face;
+}
+
+// triple border, but same content width/height as control-border2
+@mixin control-border2-default($c1, $c2, $c3, $c4, $color-default) {
+    @include control-border2($color-default, $color-default, $c1, $c2);
+    &:after {
+        position: absolute;
+        content: "";
+    }
+    &:after {
+        z-index: -2;
+        @include position(-3px);
+        @include border-color($color-default, $color-default);
+    }
+}
+
+@mixin button-control() {
+    @include control-border2($color-border-highlight, $color-border-darkshadow,
+            $color-face, $color-border-shadow);
+}
+
+@mixin adjust-button-pushed($w1, $w2) {
+    border-width: $w1 $w2 $w2 $w1;
+    &:before {
+        @include position(-$w1, -$w2, -$w2, -$w1);
+    }
+}
+
+@mixin button-control-pushed() {
+    @include control-border2($color-border-darkshadow, $color-border-highlight,
+            $color-border-shadow, $color-face);
+    @include adjust-button-pushed(3px, 1px);
+}
+
 @mixin raised-control() {
     background-color: $color-face;
 
