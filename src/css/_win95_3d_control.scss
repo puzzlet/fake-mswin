@@ -50,7 +50,7 @@
     }
 }
 
-@mixin raised-taskbar-button() {
+@mixin taskbar-button() {
     background-color: $color-face;
 
     @include border-common();
@@ -63,7 +63,7 @@
     }
 }
 
-@mixin sunken-taskbar-button() {
+@mixin taskbar-button-pressed() {
     background-color: $color-face;
 
     @include border-common();
@@ -74,4 +74,8 @@
         @include border-common();
         border-color: $color-border-shadow $color-border-light $color-border-light $color-border-shadow;
     }
+}
+
+@mixin pressed-button-padding($top, $right, $bottom, $left) {
+    padding: ($top + 1px) ($right - 1px) ($bottom - 1px) ($left + 1px);
 }

@@ -92,16 +92,16 @@ $menubar-height: 18px;
             width: 160px;
             max-width: 160px;
             height: 100%;
-            @include raised-taskbar-button();
+            @include taskbar-button();
             padding: (1px + 1px) (3px + 1px) 1px;
 
             &:active {
-                @include sunken-taskbar-button();
-                padding: (1px + 1px) (3px + 1px) 1px;
+                @include taskbar-button-pressed();
+                @include pressed-button-padding((1px + 1px), (3px + 1px), 1px, (3px + 1px));
             }
             &.selected {
-                @include sunken-taskbar-button();
-                padding: (1px + 1px) (3px + 1px) 1px;
+                @include taskbar-button-pressed();
+                @include pressed-button-padding((1px + 1px), (3px + 1px), 1px, (3px + 1px));
                 background-image: url(images/checkerboard.gif);
                 font-weight: bold;
             }
@@ -120,11 +120,13 @@ $menubar-height: 18px;
 div.start {
     float: left;
     margin: 2px;
+    height: 22px;
 
-    @include raised-taskbar-button();
-    padding: 3px 4px 0 1px;
+    @include taskbar-button();
+    padding: 3px 4px 1px 1px;
     &.pressed {
-        @include sunken-taskbar-button();
+        @include taskbar-button-pressed();
+        @include pressed-button-padding(3px, 4px, 1px, 1px);
     }
 
     &:after {
@@ -448,6 +450,9 @@ ul.toolbar {
         &:hover {
             @include border-raised-inner();
         }
+        &:active {
+            @include border-sunken-outer();
+        }
 
         width: 16px + (2px + 1px) * 2;
         height: 16px + (2px + 1px) * 2;
@@ -456,6 +461,12 @@ ul.toolbar {
             width: 16px;
             height: 16px;
             background-image: url(images/sprite.png);
+        }
+        &:active:before {
+            top: 4px;
+            left: 4px;
+            bottom: 2px;
+            right: 2px;
         }
         &[data-icon="show-desktop"  ]:before { background-position: (-16px * 4) (-16px * 2); }
         &[data-icon="ie5"           ]:before { background-position: (-16px * 5) (-16px * 2); }
