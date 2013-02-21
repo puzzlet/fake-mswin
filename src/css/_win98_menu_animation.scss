@@ -1,9 +1,9 @@
 .menu {
     @include animation-duration(0.3s);
-    .slide-down     & { @include animation-name(slide_down);    }
-    .slide-up       & { @include animation-name(slide_up);      }
-    .slide-context  & { @include animation-name(slide_context); }
 }
+.slide-down     .menu { @include animation-name(slide_down);    }
+.slide-up       .menu { @include animation-name(slide_up);      }
+.slide-context  .menu { @include animation-name(slide_context); }
 
 .slide {
     overflow: hidden;
