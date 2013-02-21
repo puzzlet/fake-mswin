@@ -6,6 +6,11 @@ $menubar-height: 18px;
     font-size: 9pt;
 }
 
+@mixin item-selected() {
+    background-color: rgb(0, 0, 128);
+    color: white;
+}
+
 * {
     @include system-font();
     cursor: default;
@@ -214,7 +219,7 @@ div.notification_area {
                 }
 
                 &:hover {
-                    background-color: rgb(0, 0, 128);
+                    @include item-selected();
                 }
             }
         }
@@ -239,8 +244,7 @@ ul.menu {
         }
 
         &:not(.separator):hover {
-            background-color: rgb(0, 0, 128);
-            color: white;
+            @include item-selected();
         }
 
         &.default {
@@ -393,7 +397,7 @@ ul.listview {
 
         &.selected span {
             border: 1px dotted rgb(255, 255, 127);  // inverted color
-            background-color: rgb(0, 0, 128);
+            @include item-selected();
         }
         &.selected:before {
             background-position-y: -96px;
