@@ -373,18 +373,21 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
             }
 
             &.minimize {
-                background-image: url(images/minimize.png);
+                background-image: url(images/sprite.png);
+                background-position: -224px -108px;
             }
             &.maximize {
+                background-image: url(images/sprite.png);
+                background-position: (-224px) (-108px - 11px);
                 margin-right: 2px;
-                background-image: url(images/maximize.png);
 
                 &.disabled {
                     background-image: url(images/maximize_dis.png);
                 }
             }
             &.close {
-                background-image: url(images/close.png);
+                background-image: url(images/sprite.png);
+                background-position: (-224px) (-108px - 11px*3);
             }
         }
     }
