@@ -390,7 +390,7 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
                 @include title-button-sprite(1);
 
                 &.disabled {
-                    background-image: url(images/maximize_dis.png);
+                    @include title-button-sprite(4);
                 }
             }
             &.close {
