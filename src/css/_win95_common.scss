@@ -71,10 +71,25 @@ div#start {
     margin: 2px;
 
     @include raised-taskbar-button();
-    padding: 3px 3px 0 1px;
-    &:active {
+    padding: 3px 4px 0 1px;
+    &.pressed {
         @include sunken-taskbar-button();
-        padding: 3px 3px 0 1px;
+        padding: 3px 4px 0 1px;
+    }
+
+    &:after {
+        position: absolute;
+        top: 2px;
+        bottom: 2px;
+        left: 2px;
+        right: 2px;
+
+        content: "";
+
+        z-index: -2;
+    }
+    &.selected:after {
+        border: 1px dotted black;
     }
 
     span {
