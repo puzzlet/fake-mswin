@@ -386,6 +386,9 @@ ul.listview {
             border: 1px dotted rgb(255, 255, 127);  // inverted color
             background-color: rgb(0, 0, 128);
         }
+        &.selected:before {
+            background-position-y: -96px;
+        }
     }
 }
 
