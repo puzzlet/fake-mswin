@@ -82,13 +82,13 @@ $menubar-height: 18px;
         }
 
         .handle {
-            @include border-raised-inner();
+            @include flat-raised-control();
             position: absolute;
             top: 4px;
             bottom: 4px;
             left: 4px;
             float: left;
-            width: 1px;
+            width: 3px;
         }
 
         .quick-launch {
@@ -216,9 +216,9 @@ div.start {
 
 div.notification-area {
     float: right;
-    margin: 0 2px;
-    padding: 4px 11px 2px;
-    @include border-sunken-outer();
+    margin: 0 0 0 2px;
+    padding: 5px 11px 3px;
+    @include flat-sunken-control();
 }
 
 .window {
@@ -445,10 +445,10 @@ ul.toolbar {
         list-style-type: none;
         float: left;
         &:hover {
-            @include border-raised-inner();
+            @include flat-raised-control();
         }
         &:active {
-            @include border-sunken-outer();
+            @include flat-sunken-control();
         }
 
         width: 16px + (2px + 1px) * 2;

@@ -20,22 +20,6 @@
     }
 }
 
-@mixin border-raised-inner() {
-    @include border-color($color-border-highlight, $color-border-shadow);
-}
-
-@mixin border-sunken-inner() {
-    @include border-color($color-border-darkshadow, $color-border-light);
-}
-
-@mixin border-raised-outer() {
-    @include border-color($color-border-light, $color-border-darkshadow);
-}
-
-@mixin border-sunken-outer() {
-    @include border-color($color-border-shadow, $color-border-highlight);
-}
-
 @mixin position($top, $right: false, $bottom: false, $left: false) {
     @if $right == false {
         $right: $top;
@@ -115,4 +99,16 @@
 @mixin sunken-control() {
     @include control-border2($color-border-shadow, $color-border-highlight,
             $color-border-darkshadow, $color-border-light);
+}
+
+@mixin flat-raised-control() {
+    box-shadow:
+        inset 1px 1px 0 0 $color-border-highlight,
+        inset -1px -1px 0 0 $color-border-shadow;
+}
+
+@mixin flat-sunken-control() {
+    box-shadow:
+        inset 1px 1px 0 0 $color-border-shadow,
+        inset -1px -1px 0 0 $color-border-highlight;
 }
