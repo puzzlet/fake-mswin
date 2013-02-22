@@ -1,3 +1,7 @@
+{% from '_desktop.html' import desktop -%}
+{% from '_notepad.html' import notepad -%}
+
+
 <!doctype html>
 <html>
 
@@ -43,74 +47,9 @@ body {
 </head>
 
 <body>
-<div class="windows windows-98">
-    <div class="desktop">
-        <ul class="listview listview-largeicon">
-            <li data-icon="my-computer"><span>내 컴퓨터</span></li>
-            <li class="selected" data-icon="recycling-bin"><span>휴지통</span></li>
-        </ul>
-    </div>
 
-    <div class="taskbar">
-        <div class="start selected pressed" title="시작하려면 이곳을 누르십시오."><span>시작</span></div>
-        <div class="start-menu slide slide-up">
-            <ul class="menu">
-                <div class="decorator"></div>
-                <li data-access-key="p" data-icon="programs">프로그램</li>
-                <li data-access-key="a" data-icon="favorites">즐겨찾기</li>
-                <li data-access-key="d" data-icon="documents">문서</li>
-                <li data-access-key="s" data-icon="setting">설정</li>
-                <li data-access-key="f" data-icon="find">찾기</li>
-                <li data-access-key="h" data-icon="help">도움말</li>
-                <li data-access-key="r" data-icon="run" data-popup>실행</li>
-                <li class="separator" />
-                <li data-access-key="l" data-icon="logoff" data-popup>로그오프</li>
-                <li data-access-key="u" data-icon="shutdown" data-popup>시스템 종료</li>
-            </ul>
-        </div>
-        <div class="panel">
-            <div class="handle"></div>
-            <ul class="toolbar quick-launch">
-                <li data-icon="ie5" title="Internet Explorer 브라우저 시작"></li>
-            </ul>
-        </div>
-        <div class="panel">
-            <div class="handle"></div>
-            <div class="task selected">
-                <img src="images/word.png"/>
-                <span>제목 없음 - 메모장</span>
-            </div>
-            <div class="task"><span>제목 없음 - 메모장</span></div>
-        </div>
-        <div class="panel panel-notification-area">
-            <div class="notification-area">
-                오후 3:31
-            </div>
-        </div>
-    </div>
-
-    <div class="notepad window has-menu">
-        <div class="title-bar">
-            <div class="title-icon"></div>
-            <div class="title">제목 없음 - 메모장</div>
-            <div class="title-button-group">
-                <div class="title-button minimize"></div>
-                <div class="title-button maximize disabled"></div>
-                <div class="title-button close"></div>
-            </div>
-        </div>
-        <ul class="menu-bar">
-            <li data-access-key="f">파일</li>
-            <li data-access-key="e">편집</li>
-            <li data-access-key="o">서식</li>
-            <li data-access-key="v">보기</li>
-            <li data-access-key="h">도움말</li>
-        </ul>
-        <div class="edit box-max-size">
-        Hello<br/>
-        World
-        </div>
-    </div>
+{% call desktop('windows-98') %}
+    {% call notepad %}{% endcall %}
 
     <div class="slide slide-down">
     <ul class="menu">
@@ -120,76 +59,10 @@ body {
         <li data-access-key="x" data-popup>끝내기</li>
     </ul>
     </div>
-</div>
+{% endcall %}
 
-<div class="windows windows-xp-classic">
-    <div class="desktop">
-        <ul class="listview listview-largeicon">
-            <li data-icon="my-computer"><span>내 컴퓨터</span></li>
-            <li class="selected" data-icon="recycling-bin"><span>휴지통</span></li>
-        </ul>
-    </div>
-
-    <div class="taskbar">
-        <div class="start selected pressed" title="시작하려면 이곳을 누르십시오."><span>시작</span></div>
-        <div class="start-menu slide slide-up">
-            <ul class="menu">
-                <div class="decorator"></div>
-                <li data-access-key="p" data-icon="programs">프로그램</li>
-                <li data-access-key="a" data-icon="favorites">즐겨찾기</li>
-                <li data-access-key="d" data-icon="documents">문서</li>
-                <li data-access-key="s" data-icon="setting">설정</li>
-                <li data-access-key="f" data-icon="find">찾기</li>
-                <li data-access-key="h" data-icon="help">도움말</li>
-                <li data-access-key="r" data-icon="run" data-popup>실행</li>
-                <li class="separator" />
-                <li data-access-key="l" data-icon="logoff" data-popup>로그오프</li>
-                <li data-access-key="u" data-icon="shutdown" data-popup>시스템 종료</li>
-            </ul>
-        </div>
-        <div class="panel">
-            <div class="handle"></div>
-            <ul class="toolbar quick-launch">
-                <li data-icon="ie5" title="Internet Explorer 브라우저 시작"></li>
-            </ul>
-        </div>
-        <div class="panel">
-            <div class="handle"></div>
-            <div class="task selected">
-                <img src="images/word.png"/>
-                <span>제목 없음 - 메모장</span>
-            </div>
-            <div class="task"><span>제목 없음 - 메모장</span></div>
-        </div>
-        <div class="panel panel-notification-area">
-            <div class="notification-area">
-                오후 3:31
-            </div>
-        </div>
-    </div>
-
-    <div class="notepad window has-menu">
-        <div class="title-bar">
-            <div class="title-icon"></div>
-            <div class="title">제목 없음 - 메모장</div>
-            <div class="title-button-group">
-                <div class="title-button minimize"></div>
-                <div class="title-button maximize"></div>
-                <div class="title-button close"></div>
-            </div>
-        </div>
-        <ul class="menu-bar">
-            <li data-access-key="f">파일</li>
-            <li data-access-key="e">편집</li>
-            <li data-access-key="o">서식</li>
-            <li data-access-key="v">보기</li>
-            <li data-access-key="h">도움말</li>
-        </ul>
-        <div class="edit box-max-size">
-        Hello<br/>
-        World
-        </div>
-    </div>
+{% call desktop('windows-xp-classic') %}
+    {% call notepad %}{% endcall %}
 
     <div class="slide slide-down">
     <ul class="menu">
@@ -199,7 +72,13 @@ body {
         <li data-access-key="x" data-popup>끝내기</li>
     </ul>
     </div>
-</div>
+{% endcall %}
+
 </body>
 
 </html>
+
+
+{#-
+vim: filetype=jinjahtml
+#}

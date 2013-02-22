@@ -1,0 +1,30 @@
+{% macro notepad %}
+    <div class="notepad window has-menu">
+        <div class="title-bar">
+            <div class="title-icon"></div>
+            <div class="title">제목 없음 - 메모장</div>
+            <div class="title-button-group">
+                <div class="title-button minimize"></div>
+                <div class="title-button maximize disabled"></div>
+                <div class="title-button close"></div>
+            </div>
+        </div>
+        <ul class="menu-bar">
+            <li data-access-key="f">파일</li>
+            <li data-access-key="e">편집</li>
+            <li data-access-key="o">서식</li>
+            <li data-access-key="v">보기</li>
+            <li data-access-key="h">도움말</li>
+        </ul>
+        <div class="edit box-max-size">
+        Hello<br/>
+        World
+        </div>
+    </div>
+{% endmacro %}
+
+
+{#-
+vim: filetype=jinjahtml
+#}
+
