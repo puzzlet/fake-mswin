@@ -249,8 +249,7 @@ ul.menu-bar {
     display: block;
 
     @include box-sizing(border-box);
-    padding: 1px 0;
-    margin: 0;
+    margin: 1px 0;
     height: $menubar-height;
     width: 100%;
 
@@ -320,6 +319,7 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
 
     height: $title-height;
     margin-top: -$title-height;
+    margin-bottom: 1px;
 
     .title-icon {
         float: left;
