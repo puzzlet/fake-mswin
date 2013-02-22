@@ -393,13 +393,13 @@ ul.listview {
     margin: 0;
     padding: 0;
 
-    .desktop > & {
-        color: white;
-    }
-
     & > li {
         list-style-type: none;
     }
+}
+
+.desktop > ul.listview {
+    color: white;
 }
 
 .listview-largeicon {
