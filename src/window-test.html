@@ -1,5 +1,4 @@
 {% from '_desktop.html' import desktop -%}
-{% from '_notepad.html' import notepad -%}
 
 
 <!doctype html>
@@ -43,7 +42,7 @@ body {
 <body>
 
 {% call desktop('windows-98') %}
-    {% call notepad %}{% endcall %}
+    {% include '_notepad.html' %}
 
     <div class="slide slide-down">
     <ul class="menu">
@@ -56,7 +55,7 @@ body {
 {% endcall %}
 
 {% call desktop('windows-xp-classic') %}
-    {% call notepad %}{% endcall %}
+    {% include '_notepad.html' %}
 
     <div class="slide slide-down">
     <ul class="menu">
