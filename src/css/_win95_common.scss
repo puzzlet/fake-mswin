@@ -314,28 +314,29 @@ ul.menu {
 $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
 
 .title-bar {
-    padding-left: 20px;
-    padding-right: $title-button-group-width;
-
     height: $title-height;
     margin-top: -$title-height;
     margin-bottom: 1px;
+    padding-right: 2px;
 
+    background-color: $color-gradient-active-title;
+
+    position: relative;
     .title-icon {
         float: left;
         width: 20px;
         height: $title-height;
-        margin-left: -20px;
 
         background-color: $color-active-title;
     }
     .title {
         @include box-sizing(border-box);
-        float: left;
-        height: $title-height;
-        width: 100%;
-        overflow: hidden;
         padding-top: 2px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 20px;
+        right: $title-button-group-width;
 
         font-weight: bold;
         color: white;
@@ -343,13 +344,9 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
         @include linear-gradient-hor($color-active-title, $color-gradient-active-title);
     }
     .title-button-group {
-        float: left;
-        margin-right: -$title-button-group-width;
-        width: $title-button-group-width;
+        float: right;
 
         padding: 2px 0;
-
-        background-color: $color-gradient-active-title;
 
         .title-button {
             float: left;
