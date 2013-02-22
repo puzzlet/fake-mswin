@@ -332,10 +332,12 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
         background-color: $color-active-title;
     }
     .title {
+        @include box-sizing(border-box);
         float: left;
         height: $title-height;
         width: 100%;
         overflow: hidden;
+        padding-top: 2px;
 
         font-weight: bold;
         color: white;
