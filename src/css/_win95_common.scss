@@ -242,30 +242,27 @@ div.notification-area {
         .title-bar {
             margin-top: -($title-height+$menubar-height);
         }
-        ul.menu-bar {
-            display: block;
+    }
+}
 
-            @include box-sizing(border-box);
-            padding: 1px 0;
-            margin: 0;
-            height: $menubar-height;
-            width: 100%;
+ul.menu-bar {
+    display: block;
 
-            & > li {
-                list-style-type: none;
-                display: block;
-                float: left;
-                padding: 0 7px;
+    @include box-sizing(border-box);
+    padding: 1px 0;
+    margin: 0;
+    height: $menubar-height;
+    width: 100%;
 
-                &:after {
-                    content: "(" attr(data-access-key) ")";
-                    text-transform: uppercase;
-                }
+    & > li {
+        list-style-type: none;
+        display: block;
+        float: left;
+        padding: 0 7px;
 
-                &:hover {
-                    @include item-selected();
-                }
-            }
+        &:after {
+            content: "(" attr(data-access-key) ")";
+            text-transform: uppercase;
         }
     }
 }

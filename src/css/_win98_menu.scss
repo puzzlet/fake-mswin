@@ -1,0 +1,14 @@
+ul.menu-bar {
+    & > li {
+        padding: {
+            top: 2px;
+            bottom: 2px;
+        }
+        &:hover {
+            @include flat-raised-control();
+        }
+        &:active {
+            @include flat-sunken-control();
+        }
+    }
+}
