@@ -1,0 +1,57 @@
+.office {
+    .panel {
+        @include flat-raised-control();
+        float: none;
+        height: auto;
+        min-height: 19px;
+        .menu-bar {
+            float: left;
+            width: auto;
+            & > li {
+                padding: 2px 5px;
+            }
+        }
+    }
+
+    ul.toolbar > li {
+        @mixin sprite($x, $y) { // local function
+            @include sprite-image((-16px * $x), (-128px - 16px * $y));
+        }
+        &[data-icon="new"           ]:before { @include sprite( 0, 0); }
+        &[data-icon="open"          ]:before { @include sprite( 1, 0); }
+        &[data-icon="save"          ]:before { @include sprite( 2, 0); }
+        &[data-icon="email"         ]:before { @include sprite( 3, 0); }
+        &[data-icon="print"         ]:before { @include sprite( 4, 0); }
+        &[data-icon="search"        ]:before { @include sprite( 5, 0); }
+        &[data-icon="spell-check"   ]:before { @include sprite( 6, 0); }
+        &[data-icon="cut"           ]:before { @include sprite( 7, 0); }
+        &[data-icon="copy"          ]:before { @include sprite( 8, 0); }
+        &[data-icon="paste"         ]:before { @include sprite( 9, 0); }
+        &[data-icon="painter"       ]:before { @include sprite(10, 0); }
+        &[data-icon="undo"          ]:before { @include sprite(11, 0); }
+        &[data-icon="redo"          ]:before { @include sprite(12, 0); }
+        &[data-icon="link"          ]:before { @include sprite( 0, 1); }
+        &[data-icon="border"        ]:before { @include sprite( 1, 1); }
+        &[data-icon="table-toolbar" ]:before { @include sprite( 2, 1); }
+        &[data-icon="excel"         ]:before { @include sprite( 3, 1); }
+        &[data-icon="column"        ]:before { @include sprite( 4, 1); }
+        &[data-icon="drawing"       ]:before { @include sprite( 5, 1); }
+        &[data-icon="map"           ]:before { @include sprite( 6, 1); }
+        &[data-icon="mark"          ]:before { @include sprite( 7, 1); }
+        &[data-icon="help"          ]:before { @include sprite( 8, 1); }
+        &[data-icon="bold"          ]:before { @include sprite( 9, 1); }
+        &[data-icon="italic"        ]:before { @include sprite(10, 1); }
+        &[data-icon="underlined"    ]:before { @include sprite(11, 1); }
+        &[data-icon="left"          ]:before { @include sprite( 0, 2); }
+        &[data-icon="center"        ]:before { @include sprite( 1, 2); }
+        &[data-icon="right"         ]:before { @include sprite( 2, 2); }
+        &[data-icon="justify"       ]:before { @include sprite( 3, 2); }
+        &[data-icon="ol"            ]:before { @include sprite( 4, 2); }
+        &[data-icon="ul"            ]:before { @include sprite( 5, 2); }
+        &[data-icon="outdent"       ]:before { @include sprite( 6, 2); }
+        &[data-icon="indent"        ]:before { @include sprite( 7, 2); }
+        &[data-icon="border"        ]:before { @include sprite( 8, 2); }
+        &[data-icon="highlight"     ]:before { @include sprite( 9, 2); }
+        &[data-icon="font-color"    ]:before { @include sprite(10, 2); }
+    }
+}

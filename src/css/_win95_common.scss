@@ -436,6 +436,7 @@ ul.listview {
 }
 
 ul.toolbar {
+    height: 16px + (2px + 1px) * 2;
     li {
         @include make-inner-box(3px);
         list-style-type: none;
