@@ -6,7 +6,7 @@ SASS_ARGS = --style compressed
 all: gh-pages/*.html gh-pages/*.jpg gh-pages/*.png gh-pages/images/* $(TARGET_CSS)
 
 gh-pages/*.html: src/*.html gh-pages/.git
-	cp src/*.html gh-pages/
+	python3 build.py
 
 gh-pages/*.jpg gh-pages/*.png: src/css/*.jpg src/css/*.png gh-pages/.git
 	cp src/css/*.jpg gh-pages/
