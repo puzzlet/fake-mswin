@@ -343,41 +343,42 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
 
         @include linear-gradient-hor($color-active-title, $color-gradient-active-title);
     }
-    .title-button-group {
-        float: right;
+}
 
-        padding: 2px 0;
+.title-button-group {
+    float: right;
 
-        .title-button {
-            float: left;
+    padding: 2px 0;
 
-            // including borders
-            width: 16px;
-            height: 14px;
+    .title-button {
+        float: left;
 
-            @include button-control();
+        // including borders
+        width: 16px;
+        height: 14px;
 
-            &:not(.disabled):active {
-                @include button-control-pushed();
+        @include button-control();
+
+        &:not(.disabled):active {
+            @include button-control-pushed();
+        }
+
+        &.minimize {
+            @include title-button-image(0);
+        }
+        &.maximize {
+            @include title-button-image(1);
+
+            &.disabled {
+                @include title-button-image(4);
             }
-
-            &.minimize {
-                @include title-button-image(0);
-            }
-            &.maximize {
-                @include title-button-image(1);
-
-                &.disabled {
-                    @include title-button-image(4);
-                }
-            }
-            &.restore {
-                @include title-button-image(2);
-            }
-            &.close {
-                margin-left: 2px;
-                @include title-button-image(3);
-            }
+        }
+        &.restore {
+            @include title-button-image(2);
+        }
+        &.close {
+            margin-left: 2px;
+            @include title-button-image(3);
         }
     }
 }
