@@ -31,8 +31,8 @@
         &[data-icon="undo"          ]:before { @include sprite(11, 0); }
         &[data-icon="redo"          ]:before { @include sprite(12, 0); }
         &[data-icon="link"          ]:before { @include sprite( 0, 1); }
-        &[data-icon="border"        ]:before { @include sprite( 1, 1); }
-        &[data-icon="table-toolbar" ]:before { @include sprite( 2, 1); }
+        &[data-icon="table-toolbar" ]:before { @include sprite( 1, 1); }
+        &[data-icon="table"         ]:before { @include sprite( 2, 1); }
         &[data-icon="excel"         ]:before { @include sprite( 3, 1); }
         &[data-icon="column"        ]:before { @include sprite( 4, 1); }
         &[data-icon="drawing"       ]:before { @include sprite( 5, 1); }

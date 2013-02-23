@@ -438,30 +438,51 @@ ul.listview {
 ul.toolbar {
     height: 16px + (2px + 1px) * 2;
     li {
-        @include make-inner-box(3px);
         list-style-type: none;
         float: left;
-        &:hover {
-            @include flat-raised-control();
-        }
-        &:active {
-            @include flat-sunken-control();
+
+        &:not(.separator):not(.combobox) {
+            @include make-inner-box(3px);
+
+            width: 16px + (2px + 1px) * 2;
+            height: 16px + (2px + 1px) * 2;
+
+            &:before {
+                width: 16px;
+                height: 16px;
+                background-image: url(images/sprite.png);
+            }
+            &:not(.disabled):not(.selected) {
+                &:hover {
+                    @include flat-raised-control();
+                }
+                &:active {
+                    @include flat-sunken-control();
+                    &:before {
+                        top: 4px;
+                        left: 4px;
+                        bottom: 2px;
+                        right: 2px;
+                    }
+                }
+            }
+            &.selected {
+                @include flat-sunken-control();
+                background-image: url(images/checkerboard.gif);
+                &:hover {
+                    background-image: none;
+                }
+            }
         }
 
-        width: 16px + (2px + 1px) * 2;
-        height: 16px + (2px + 1px) * 2;
+        &.separator {
+            height: 100%;
+            margin: 0 4px;
 
-        &:before {
-            width: 16px;
-            height: 16px;
-            background-image: url(images/sprite.png);
+            border-left: 1px solid $color-border-shadow;
+            border-right: 1px solid $color-border-highlight;
         }
-        &:active:before {
-            top: 4px;
-            left: 4px;
-            bottom: 2px;
-            right: 2px;
-        }
+
         &[data-icon="show-desktop"  ]:before { background-position: (-16px * 4) (-16px * 2); }
         &[data-icon="ie5"           ]:before { background-position: (-16px * 5) (-16px * 2); }
         &[data-icon="outlook"       ]:before { background-position: (-16px * 6) (-16px * 2); }
