@@ -3,10 +3,13 @@ SOURCE_SCSS = $(patsubst %,src/css/%.scss,$(SKINS))
 TARGET_CSS = $(patsubst %,gh-pages/%.css,$(SKINS))
 SASS_ARGS = --style compressed
 
-all: gh-pages/*.html gh-pages/*.jpg gh-pages/*.png gh-pages/images/* gh-pages/vendor/* $(TARGET_CSS)
+all: gh-pages/*.html gh-pages/*.js gh-pages/*.jpg gh-pages/*.png gh-pages/images/* gh-pages/vendor/* $(TARGET_CSS)
 
 gh-pages/*.html: src/*.html gh-pages/.git
 	python3 build.py
+
+gh-pages/*.js: src/js/*.js gh-pages/.git
+	cp src/js/*.js gh-pages/
 
 gh-pages/*.jpg gh-pages/*.png: src/css/*.jpg src/css/*.png gh-pages/.git
 	cp src/css/*.jpg gh-pages/

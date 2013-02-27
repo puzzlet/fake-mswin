@@ -6,9 +6,9 @@
 
 <head>
 
-<meta charset="utf-8">
-   <link rel="stylesheet" href="win98.css" type="text/css" media="screen">
-   <link rel="stylesheet" href="winxp-classic.css" type="text/css" media="screen">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="win98.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="winxp-classic.css" type="text/css" media="screen">
 
 <style>
 body {
@@ -29,7 +29,6 @@ body {
     margin: 5em auto;
     position: absolute;
     top: 0;
-    left: 100px;
 }
 
 .notepad .title-bar .title-icon {
@@ -70,6 +69,13 @@ body {
 {% call desktop('windows-98') %}
     {% include '_word.html' %}
 {% endcall %}
+
+    <script src="vendor/jquery.min.js"></script>
+    <script src="vendor/jquery-ui.min.js"></script>
+    <script src="jquery.windows.js"></script>
+    <script>
+$('.window').window();
+    </script>
 
 </body>
 
