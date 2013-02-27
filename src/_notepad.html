@@ -9,11 +9,47 @@
         </div>
     </div>
     <ul class="menu-bar">
-        <li data-access-key="f">파일</li>
-        <li data-access-key="e">편집</li>
-        <li data-access-key="o">서식</li>
-        <li data-access-key="v">보기</li>
-        <li data-access-key="h">도움말</li>
+        <li>
+            <a data-access-key="f" href="#">파일</a>
+            <ul class="menu">
+                <li class="default" data-access-key="n">새로 만들기</li>
+                <li class="disabled" data-access-key="o" data-popup>열기</li>
+                <li class="separator" />
+                <li>
+                    <a href="#" data-access-key="n">보내기</a>
+                    <ul class="menu">
+                        <li>휴지통</li>
+                    </ul>
+                </li>
+                <li class="separator" />
+                <li data-access-key="x" data-popup>끝내기</li>
+            </ul>
+        </li>
+        <li>
+            <a data-access-key="e" href="#">편집</a>
+            <ul class="menu">
+                <li class="default" data-access-key="n">새로 만들기</li>
+                <li class="disabled" data-access-key="o" data-popup>열기</li>
+                <li class="separator" />
+                <li>
+                    <a href="#" data-access-key="n">보내기</a>
+                    <ul class="menu">
+                        <li>휴지통</li>
+                    </ul>
+                </li>
+                <li class="separator" />
+                <li data-access-key="x" data-popup>끝내기</li>
+            </ul>
+        </li>
+        <li>
+            <a data-access-key="o" href="#">서식</a>
+        </li>
+        <li>
+            <a data-access-key="v" href="#">보기</a>
+        </li>
+        <li>
+            <a data-access-key="h" href="#">도움말</a>
+        </li>
     </ul>
     <div class="edit box-max-size">
     Hello<br/>

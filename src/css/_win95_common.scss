@@ -40,6 +40,10 @@ $menubar-height: 18px;
     margin: 0;
 }
 
+*:focus {
+    outline: none;
+}
+
 .desktop {
     background-color: $color-desktop-background;
 
@@ -131,14 +135,14 @@ $menubar-height: 18px;
     }
 }
 
-div.start {
+.start {
     float: left;
     margin: 2px;
     height: 22px;
 
     padding: 2px 3px 0px 0px;
     @include button-control();
-    &.pressed {
+    &.ui-state-open {
         @include button-control-pushed();
     }
 
@@ -153,11 +157,11 @@ div.start {
 
         z-index: -2;
     }
-    &.selected:after {
+    &.ui-state-open:after {  // TODO: focused
         border: 1px dotted black;
     }
 
-    span {
+    a.start-button {
         &:before {
             content: url(images/win95.gif);
             float: left;
@@ -167,56 +171,50 @@ div.start {
     }
 }
 
-.start-menu {
-    position: absolute;
-    left: 2px;
-    @include transform(translateY(-100%));
+ul.menu.start-menu {
+    padding-left: 21px + 2px;
+    div.decorator {
+        position: absolute;
+        left: 2px;
+        top: 2px;
+        bottom: 2px;
+        width: 21px;
+        background-color: rgb(0, 0, 120); // XXX
+        z-index: 0;
+        &:before {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 21px;
+            height: 108px;
+            background-image: url(images/sprite.png);
+            background-position: -224px 0;
+            z-index: 1;
+            content: "";
+        }
+    }
 
-    .menu {
-        padding-left: 21px + 2px;
-        div.decorator {
+    & > li:not(.separator) {
+        padding: 9px 16px 9px 32px + 9px; // XXX
+        position: relative;
+        &:before {
             position: absolute;
             left: 2px;
-            top: 2px;
-            bottom: 2px;
-            width: 21px;
-            background-color: rgb(0, 0, 120); // XXX
-            z-index: 0;
-            &:before {
-                position: absolute;
-                left: 0;
-                bottom: 0;
-                width: 21px;
-                height: 108px;
-                background-image: url(images/sprite.png);
-                background-position: -224px 0;
-                z-index: 1;
-                content: "";
-            }
+            top: 0;
+            width: 32px;
+            height: 32px;
+            background-image: url(images/sprite.png);
+            content: "";
         }
-
-        & > li:not(.separator) {
-            padding: 9px 16px 9px 32px + 9px; // XXX
-            position: relative;
-            &:before {
-                position: absolute;
-                left: 2px;
-                top: 0;
-                width: 32px;
-                height: 32px;
-                background-image: url(images/sprite.png);
-                content: "";
-            }
-            &[data-icon="programs"  ]:before { background-position: (-32px * 0) (-32px * 0); }
-            &[data-icon="favorites" ]:before { background-position: (-32px * 1) (-32px * 0); }
-            &[data-icon="documents" ]:before { background-position: (-32px * 2) (-32px * 0); }
-            &[data-icon="setting"   ]:before { background-position: (-32px * 3) (-32px * 0); }
-            &[data-icon="find"      ]:before { background-position: (-32px * 4) (-32px * 0); }
-            &[data-icon="help"      ]:before { background-position: (-32px * 5) (-32px * 0); }
-            &[data-icon="run"       ]:before { background-position: (-32px * 6) (-32px * 0); }
-            &[data-icon="logoff"    ]:before { background-position: (-32px * 0) (-32px * 1); }
-            &[data-icon="shutdown"  ]:before { background-position: (-32px * 1) (-32px * 1); }
-        }
+        &[data-icon="programs"  ]:before { background-position: (-32px * 0) (-32px * 0); }
+        &[data-icon="favorites" ]:before { background-position: (-32px * 1) (-32px * 0); }
+        &[data-icon="documents" ]:before { background-position: (-32px * 2) (-32px * 0); }
+        &[data-icon="setting"   ]:before { background-position: (-32px * 3) (-32px * 0); }
+        &[data-icon="find"      ]:before { background-position: (-32px * 4) (-32px * 0); }
+        &[data-icon="help"      ]:before { background-position: (-32px * 5) (-32px * 0); }
+        &[data-icon="run"       ]:before { background-position: (-32px * 6) (-32px * 0); }
+        &[data-icon="logoff"    ]:before { background-position: (-32px * 0) (-32px * 1); }
+        &[data-icon="shutdown"  ]:before { background-position: (-32px * 1) (-32px * 1); }
     }
 }
 
@@ -264,9 +262,13 @@ ul.menu-bar {
         float: left;
         padding: 0 7px;
 
-        &:after {
-            content: "(" attr(data-access-key) ")";
-            text-transform: uppercase;
+        & > a {
+            color: black !important;
+            text-decoration: none;
+            &:after {
+                content: "(" attr(data-access-key) ")";
+                text-transform: uppercase;
+            }
         }
     }
 }
@@ -279,6 +281,8 @@ ul.menu {
     width: 182px; // XXX: arbitrary
     margin: 0; // strip default margin
     padding: 2px; // XXX: arbitrary
+
+    position: absolute;
     & > li {
         list-style-type: none;
         display: block;

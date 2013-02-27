@@ -42,27 +42,12 @@ body {
 
 {% call desktop('windows-98') %}
     {% include '_notepad.html' %}
-
-    <div class="slide slide-down">
-    <ul class="menu">
-        <li class="default" data-access-key="n">새로 만들기</li>
-        <li class="disabled" data-access-key="o" data-popup>열기</li>
-        <li class="separator" />
-        <li data-access-key="x" data-popup>끝내기</li>
-    </ul>
-    </div>
 {% endcall %}
 
 {% call desktop('windows-xp-classic') %}
     {% include '_notepad.html' %}
 
     <div class="slide slide-down">
-    <ul class="menu">
-        <li class="default" data-access-key="n">새로 만들기</li>
-        <li class="disabled" data-access-key="o" data-popup>열기</li>
-        <li class="separator" />
-        <li data-access-key="x" data-popup>끝내기</li>
-    </ul>
     </div>
 {% endcall %}
 
@@ -73,8 +58,16 @@ body {
     <script src="vendor/jquery.min.js"></script>
     <script src="vendor/jquery-ui.min.js"></script>
     <script src="jquery.windows.js"></script>
+    <script src="jquery.windows.menu.js"></script>
     <script>
 $('.window').window();
+$('.menu-bar').menubar();
+$('.taskbar ul.start').menubar({
+    position_toplevel: {
+        my: "left bottom",
+        at: "left-4 top-5",
+    },
+});
     </script>
 
 </body>

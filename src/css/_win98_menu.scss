@@ -11,4 +11,9 @@ ul.menu-bar {
             @include flat-sunken-control();
         }
     }
+    &.ui-state-open > li {
+        &:hover {
+            @include flat-sunken-control();
+        }
+    }
 }
