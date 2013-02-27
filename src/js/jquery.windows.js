@@ -2,7 +2,9 @@
 
 $.widget('win.window', {
     _create: function () {
-        this.element.draggable({ handle: '.title-bar' });
+        if (! this.element.hasClass('maximized')) {
+            this.element.draggable({ handle: '.title-bar' });
+        }
     },
 });
 
