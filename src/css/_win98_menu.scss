@@ -7,12 +7,10 @@ ul.menu-bar {
         &:hover {
             @include flat-raised-control();
         }
-        &:active {
+        &.ui-state-open:hover {
             @include flat-sunken-control();
         }
-    }
-    &.ui-state-open > li {
-        &:hover {
+        &:active {
             @include flat-sunken-control();
         }
     }

@@ -1,6 +1,7 @@
 (function( $, undefined ) {
 
 $.widget( "win.menubar", $.ui.menu, {
+    delay: 0,
     zIndex: 100,
     options: $.extend({
         position_toplevel: {
@@ -16,25 +17,33 @@ $.widget( "win.menubar", $.ui.menu, {
         this._on({
             "mousedown .ui-menu-item": function( event ) {
                 var target = $( event.currentTarget );
-                this.element.addClass( "ui-state-open" );
                 target.siblings().children( ".ui-state-active" ).removeClass( "ui-state-active" );
                 this.focus( event, target );
             },
             "mouseenter .ui-menu-item": function( event ) {
                 var target = $( event.currentTarget );
-                if (target.is(this.element.find("> li")) && !this.element.hasClass( "ui-state-open" )) {
+                if (target.is(this.element.find("> li")) && target.siblings( ".ui-state-open" ).length < 1 ) {
                     return;
                 }
                 target.siblings().children( ".ui-state-active" ).removeClass( "ui-state-active" );
+                target.siblings( ".ui-state-open" ).removeClass( "ui-state-open" );
                 this.focus( event, target );
             },
             blur: function( event ) {
+                console.log( "blur" );
                 if ( !$.contains( this.element[0], this.document[0].activeElement ) ) {
-                    this.element.removeClass( "ui-state-open" );
+                    this.element.find( ".ui-state-open" ).removeClass( "ui-state-open" );
                     this.collapseAll( event );
                 }
             },
         });
+    },
+
+    focus: function( event, item ) {
+        $.ui.menu.prototype.focus.call( this, event, item );
+        if (item.is(this.element.find("> li"))) {
+            item.addClass( "ui-state-open" );
+        }
     },
 
     _open: function( submenu ) {
@@ -66,8 +75,8 @@ $.widget( "win.menubar", $.ui.menu, {
             .attr( "aria-expanded", "true" )
             .position( position )
             .css( "z-index", zIndex );
-        console.log(this.active);
     },
+
 });
 
 }( jQuery ));
