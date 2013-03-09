@@ -2,5 +2,5 @@ gh-pages
 
 .sass-cache
 
-.mo
+po/*.mo
 .pot
