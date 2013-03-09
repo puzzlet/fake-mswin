@@ -46,6 +46,6 @@ po/*.mo: po/*.po
 	)
 
 clean:
-	rm -rf gh-pages/*.html gh-pages/*.jpg gh-pages/*.png gh-pages/images/* $(TARGET_CSS)
+	rm -rf gh-pages/*.html gh-pages/*.jpg gh-pages/*.png gh-pages/images/* $(TARGET_CSS) po/*.mo po/messages.pot
 
 .PHONY: all clean html
