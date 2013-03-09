@@ -3,4 +3,4 @@ gh-pages
 .sass-cache
 
 po/*.mo
-.pot
+po/*.pot
