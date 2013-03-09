@@ -39,4 +39,4 @@ gh-pages/.git:
 clean:
 	rm -rf gh-pages/*.html gh-pages/*.jpg gh-pages/*.png gh-pages/images/* $(TARGET_CSS)
 
-.PHONY: all clean
+.PHONY: all clean html
