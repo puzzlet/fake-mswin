@@ -1,17 +1,17 @@
 SKINS = win98 winxp-green winxp-classic
 SOURCE_SCSS = $(patsubst %,src/css/%.scss,$(SKINS))
 TARGET_CSS = $(patsubst %,gh-pages/%.css,$(SKINS))
+LOCALES = en_US ko_KR
 SASS_ARGS = --style compressed
 
-all: html gh-pages/*.js gh-pages/*.jpg gh-pages/*.png gh-pages/images/* gh-pages/vendor/* $(TARGET_CSS)
+all: html po/messages.pot gh-pages/*.js gh-pages/*.jpg gh-pages/*.png gh-pages/images/* gh-pages/vendor/* $(TARGET_CSS)
 
-html: src/*.html gh-pages/.git
-	python3 build.py win98 en_US
-	python3 build.py win98 ko_KR
-	python3 build.py winxp-classic en_US
-	python3 build.py winxp-classic ko_KR
-	python3 build.py winxp-green en_US
-	python3 build.py winxp-green ko_KR
+html: src/*.html po/*.mo gh-pages/.git
+	$(foreach skin,$(SKINS), \
+		$(foreach locale,$(LOCALES), \
+			python3 build.py $(skin) $(locale) ; \
+		) \
+	)
 
 gh-pages/*.js: src/js/*.js gh-pages/.git
 	cp src/js/*.js gh-pages/
@@ -35,6 +35,15 @@ $(TARGET_CSS): src/css/*.scss gh-pages/.git
 
 gh-pages/.git:
 	git clone -b gh-pages git@github.com:puzzlet/fake-winxp.git gh-pages
+
+po/messages.pot: src/*.html
+	mkdir -p po/
+	pybabel extract -F babel.conf -o po/messages.pot .
+
+po/*.mo: po/*.po
+	$(foreach locale,$(LOCALES), \
+		msgfmt -o po/$(locale).mo po/$(locale).po ; \
+	)
 
 clean:
 	rm -rf gh-pages/*.html gh-pages/*.jpg gh-pages/*.png gh-pages/images/* $(TARGET_CSS)

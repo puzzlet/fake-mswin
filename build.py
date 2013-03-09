@@ -1,3 +1,4 @@
+import gettext
 import glob
 import os
 import sys
@@ -11,7 +12,11 @@ def main():
     template_path = os.path.join(base_path, 'src')
     target_path = os.path.join(base_path, 'gh-pages', theme, locale)
     os.makedirs(target_path, exist_ok=True)  # need Python >= 3.2
-    env = jinja2.Environment(loader=jinja2.FileSystemLoader(template_path))
+    env = jinja2.Environment(
+        loader=jinja2.FileSystemLoader(template_path),
+        extensions=['jinja2.ext.i18n'])
+    env.install_gettext_translations(
+        gettext.GNUTranslations(fp=open('po/{}.mo'.format(locale), 'rb')))
     kwargs = {
         'theme': theme,
         'locale': locale,
