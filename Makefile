@@ -38,7 +38,7 @@ gh-pages/.git:
 
 po/messages.pot: src/*.html
 	mkdir -p po/
-	pybabel extract -F babel.conf -o po/messages.pot .
+	pybabel extract -F babel.conf -o po/messages.pot . || (rm -f po/messages.pot && exit 2)
 
 po/*.mo: po/*.po
 	$(foreach locale,$(LOCALES), \
