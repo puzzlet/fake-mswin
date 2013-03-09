@@ -7,22 +7,9 @@
 <head>
 
     <meta charset="utf-8">
-    <link rel="stylesheet" href="win98.css" type="text/css" media="screen">
-    <link rel="stylesheet" href="winxp-classic.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../{{ theme }}.css" type="text/css" media="screen">
 
 <style>
-body {
-    padding: 0;
-    margin: 0;
-}
-.windows {
-    width: 600px;
-    height: 600px;
-    display: inline-block;
-    position: relative;
-    margin: 10px;
-}
-
 .notepad {
     width: 300px;
     height: 200px;
@@ -39,25 +26,14 @@ body {
 
 <body>
 
-{% call desktop('windows-98') %}
-    {% include '_notepad.html' %}
-{% endcall %}
-
-{% call desktop('windows-xp-classic') %}
-    {% include '_notepad.html' %}
-
-    <div class="slide slide-down">
-    </div>
-{% endcall %}
-
-{% call desktop('windows-98') %}
+    {% call desktop(class_name) %}
     {% include '_word.html' %}
 {% endcall %}
 
-    <script src="vendor/jquery.min.js"></script>
-    <script src="vendor/jquery-ui.min.js"></script>
-    <script src="jquery.windows.js"></script>
-    <script src="jquery.windows.menu.js"></script>
+    <script src="../../vendor/jquery.min.js"></script>
+    <script src="../../vendor/jquery-ui.min.js"></script>
+    <script src="../../jquery.windows.js"></script>
+    <script src="../../jquery.windows.menu.js"></script>
     <script>
 $('.window').window();
 $('.menu-bar').menubar();

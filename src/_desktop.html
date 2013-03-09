@@ -1,6 +1,6 @@
-{% macro desktop(class="windows-98") %}
+{% macro desktop(class="windows-98", locale="en_US") %}
 
-<div class="windows {{ class }}">
+<div class="windows {{ class }} windows-locale-{{ locale }} ">
     <div class="desktop">
         <ul class="listview listview-largeicon">
             <li data-icon="my-computer"><span>내 컴퓨터</span></li>
