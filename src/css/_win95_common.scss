@@ -234,6 +234,9 @@ div.notification-area {
     padding: 2px+$title-height 2px 2px 2px;
 
     &.maximized {
+        position: absolute;
+        top: 0;
+        width: 100%;
         border: 0;
         padding: $title-height 0 0 0;
 
