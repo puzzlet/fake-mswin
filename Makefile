@@ -38,7 +38,7 @@ gh-pages/.git:
 
 po/messages.pot: src/*.html
 	mkdir -p po/
-	pybabel extract -F babel.conf -o po/messages.pot .
+	pybabel extract -F babel.conf -o po/messages.pot . || (rm -f po/messages.pot && exit 2)
 
 po/*.mo: po/*.po
 	$(foreach locale,$(LOCALES), \
@@ -46,6 +46,6 @@ po/*.mo: po/*.po
 	)
 
 clean:
-	rm -rf gh-pages/*.html gh-pages/*.jpg gh-pages/*.png gh-pages/images/* $(TARGET_CSS)
+	rm -rf gh-pages/*.html gh-pages/*.jpg gh-pages/*.png gh-pages/images/* $(TARGET_CSS) po/*.mo po/messages.pot
 
 .PHONY: all clean html

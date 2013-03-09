@@ -35,7 +35,7 @@ def main():
         if file_name.startswith('_'):
             continue
         open(os.path.join(target_path, file_name), 'w+').write(
-            env.get_template(file_name).render(**kwargs))
+            env.get_template(file_name).render(**kwargs).encode('utf-8'))
 
 
 main()
