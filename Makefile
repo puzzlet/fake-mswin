@@ -9,7 +9,7 @@ all: html po/messages.pot gh-pages/*.js gh-pages/*.jpg gh-pages/*.png gh-pages/i
 html: src/*.html po/*.mo gh-pages/.git
 	$(foreach skin,$(SKINS), \
 		$(foreach locale,$(LOCALES), \
-			python3 build.py $(skin) $(locale) ; \
+			python build.py $(skin) $(locale) ; \
 		) \
 	)
 

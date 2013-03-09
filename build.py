@@ -11,7 +11,10 @@ def main():
     base_path = os.path.abspath(os.path.dirname(__file__))
     template_path = os.path.join(base_path, 'src')
     target_path = os.path.join(base_path, 'gh-pages', theme, locale)
-    os.makedirs(target_path, exist_ok=True)  # need Python >= 3.2
+    try:
+        os.makedirs(target_path)
+    except OSError:  # directory exists
+        pass
     env = jinja2.Environment(
         loader=jinja2.FileSystemLoader(template_path),
         extensions=['jinja2.ext.i18n'])
