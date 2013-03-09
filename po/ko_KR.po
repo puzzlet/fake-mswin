@@ -71,7 +71,7 @@ msgstr "시스템 종료"
 
 #: src/_desktop.html:33
 msgid "Start Internet Explorer"
-msgstr ""
+msgstr "Internet Explorer 브라우저 시작"
 
 #: src/_notepad.html:4
 msgid "Untitled"
@@ -99,11 +99,11 @@ msgstr "보내기"
 
 #: src/_notepad.html:25 src/_notepad.html:41
 msgid "Quit"
-msgstr ""
+msgstr "종료"
 
 #: src/_notepad.html:29 src/_word.html:15
 msgid "Edit"
-msgstr ""
+msgstr "편집"
 
 #: src/_notepad.html:45 src/_word.html:18
 msgid "Format"
@@ -115,7 +115,7 @@ msgstr "보기"
 
 #: src/_word.html:4
 msgid "Document"
-msgstr ""
+msgstr "문서"
 
 #: src/_word.html:17
 msgid "Insert"
