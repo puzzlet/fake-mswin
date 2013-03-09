@@ -1,7 +1,7 @@
 <div class="notepad window has-menu">
     <div class="title-bar">
         <div class="title-icon"></div>
-        <div class="title">제목 없음 - 메모장</div>
+        <div class="title">{{ gettext("Untitled") }} - {{ gettext("Notepad") }}</div>
         <div class="title-button-group">
             <div class="title-button minimize"></div>
             <div class="title-button maximize"></div>
@@ -10,45 +10,45 @@
     </div>
     <ul class="menu-bar">
         <li>
-            <a data-access-key="f" href="#">파일</a>
+            <a data-access-key="f" href="#">{{ gettext("File") }}</a>
             <ul class="menu">
-                <li class="default" data-access-key="n">새로 만들기</li>
-                <li class="disabled" data-access-key="o" data-popup>열기</li>
+                <li class="default" data-access-key="n">{{ gettext("New") }}</li>
+                <li class="disabled" data-access-key="o" data-popup>{{ gettext("Open") }}</li>
                 <li class="separator" />
                 <li>
-                    <a href="#" data-access-key="n">보내기</a>
+                    <a href="#" data-access-key="n">{{ gettext("Send to") }}</a>
                     <ul class="menu">
-                        <li>휴지통</li>
+                        <li>{{ gettext("Recycle Bin") }}</li>
                     </ul>
                 </li>
                 <li class="separator" />
-                <li data-access-key="x" data-popup>끝내기</li>
+                <li data-access-key="x" data-popup>{{ gettext("Quit") }}</li>
             </ul>
         </li>
         <li>
-            <a data-access-key="e" href="#">편집</a>
+            <a data-access-key="e" href="#">{{ gettext("Edit") }}</a>
             <ul class="menu">
-                <li class="default" data-access-key="n">새로 만들기</li>
-                <li class="disabled" data-access-key="o" data-popup>열기</li>
+                <li class="default" data-access-key="n">{{ gettext("New") }}</li>
+                <li class="disabled" data-access-key="o" data-popup>{{ gettext("Open") }}</li>
                 <li class="separator" />
                 <li>
-                    <a href="#" data-access-key="n">보내기</a>
+                    <a href="#" data-access-key="n">{{ gettext("Send to") }}</a>
                     <ul class="menu">
-                        <li>휴지통</li>
+                        <li>{{ gettext("Recycle Bin") }}</li>
                     </ul>
                 </li>
                 <li class="separator" />
-                <li data-access-key="x" data-popup>끝내기</li>
+                <li data-access-key="x" data-popup>{{ gettext("Quit") }}</li>
             </ul>
         </li>
         <li>
-            <a data-access-key="o" href="#">서식</a>
+            <a data-access-key="o" href="#">{{ gettext("Format") }}</a>
         </li>
         <li>
-            <a data-access-key="v" href="#">보기</a>
+            <a data-access-key="o" href="#">{{ gettext("View") }}</a>
         </li>
         <li>
-            <a data-access-key="h" href="#">도움말</a>
+            <a data-access-key="o" href="#">{{ gettext("Help") }}</a>
         </li>
     </ul>
     <div class="edit box-max-size">
