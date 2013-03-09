@@ -1,6 +1,6 @@
 (function( $, undefined ) {
 
-$.widget( "win.menubar", $.ui.menu, {
+$.widget( "mswin.menubar", $.ui.menu, {
     delay: 0,
     zIndex: 100,
     options: $.extend({

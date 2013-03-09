@@ -1,6 +1,6 @@
 (function($, undefined) {
 
-$.widget("win.window", {
+$.widget( "mswin.window", {
     _create: function() {
         this.element.draggable({ handle: ".title" });
         if (this.element.hasClass( "maximized" )) {
