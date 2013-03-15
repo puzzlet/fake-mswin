@@ -34,7 +34,7 @@ $(TARGET_CSS): src/css/*.scss gh-pages/.git
 	)
 
 gh-pages/.git:
-	git clone -b gh-pages git@github.com:puzzlet/fake-winxp.git gh-pages
+	git clone -b gh-pages git@github.com:puzzlet/fake-mswin.git gh-pages
 
 po/messages.pot: src/*.html
 	mkdir -p po/
