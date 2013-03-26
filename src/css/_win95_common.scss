@@ -19,6 +19,10 @@ $menubar-height: 18px;
     background-position: ($x) ($y);
 }
 
+@mixin sprite-large-icon($x, $y) {
+    @include sprite-image(-$x*32px, -$y*32px);
+}
+
 @mixin title-button-image($index) {
     @include sprite-image(-224px, (-108px - 10px*$index));
 }
@@ -210,8 +214,7 @@ ul.menu.start-menu {
             bottom: 0;
             width: 21px;
             height: 108px;
-            background-image: url(images/sprite.png);
-            background-position: -224px 0;
+            @include sprite-image(-224px, 0);
             z-index: 1;
             content: "";
         }
@@ -445,26 +448,22 @@ ul.listview, ul.desktop-listview {
             left: (70px - 32px) / 2;
             width: 32px;
             height: 32px;
-            background-image: url(images/sprite.png);
             content: "";
         }
 
-        @mixin large-icon-sprite($x, $y) {
-            background-position: (-32px * $x) (-32px * $y);
-        }
         &:before {
-            @include large-icon-sprite(2, 2);
+            @include sprite-large-icon(2, 2);
             &.selected:before {
-                @include large-icon-sprite(2, 3);
+                @include sprite-large-icon(2, 3);
             }
         }
 
         @mixin listview-large-icon($v, $x) {
             &[data-icon=#{$v}]:before {
-                @include large-icon-sprite($x, 2);
+                @include sprite-large-icon($x, 2);
             }
             &[data-icon=#{$v}].selected:before {
-                @include large-icon-sprite($x, 3);
+                @include sprite-large-icon($x, 3);
             }
         }
         @include listview-large-icon("my-computer", 0);
