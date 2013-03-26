@@ -426,30 +426,18 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
     }
 }
 
-ul.listview {
-    top: 0;
-    left: 0;
-
-    margin: 0;
-    padding: 0;
-
+ul.listview, ul.desktop-listview {
     & > li {
         list-style-type: none;
     }
-}
-
-.desktop > ul.listview * {
-    color: white;
-}
-
-.listview-largeicon {
-    li {
+    &.listview-largeicon li {
         @include box-sizing(border-box);
         margin: 2px;
         width: 70px;
         height: 76px;
         padding-top: 32px + 4px;
         text-align: center;
+
         position: relative;
         &:before {
             position: absolute;
@@ -460,8 +448,30 @@ ul.listview {
             background-image: url(images/sprite.png);
             content: "";
         }
-        &[data-icon="my-computer"   ]:before { background-position: (-32px * 0) (-32px * 2); }
-        &[data-icon="recycling-bin" ]:before { background-position: (-32px * 3) (-32px * 2); }
+
+        @mixin large-icon-sprite($x, $y) {
+            background-position: (-32px * $x) (-32px * $y);
+        }
+        &:before {
+            @include large-icon-sprite(2, 2);
+            &.selected:before {
+                @include large-icon-sprite(2, 3);
+            }
+        }
+
+        @mixin listview-large-icon($v, $x) {
+            &[data-icon=#{$v}]:before {
+                @include large-icon-sprite($x, 2);
+            }
+            &[data-icon=#{$v}].selected:before {
+                @include large-icon-sprite($x, 3);
+            }
+        }
+        @include listview-large-icon("my-computer", 0);
+        @include listview-large-icon("my-networks", 1);
+        @include listview-large-icon("folder", 2);
+        @include listview-large-icon("recycling-bin", 3);
+        @include listview-large-icon("internet-explorer", 6);
 
         span {
             padding: 2px;
@@ -471,9 +481,25 @@ ul.listview {
             border: 1px dotted rgb(255, 255, 127);  // inverted color
             @include item-selected();
         }
-        &.selected:before {
-            background-position-y: (-32px * 3);
-        }
+    }
+}
+
+ul.listview {
+    @include sunken-control();
+    background-color: white;
+    &.listview-largeicon li {
+        float: left;
+    }
+}
+
+ul.desktop-listview {
+    top: 0;
+    left: 0;
+
+    margin: 0;
+    padding: 0;
+    * {
+        color: white;
     }
 }
 
