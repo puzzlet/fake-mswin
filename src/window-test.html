@@ -1,38 +1,18 @@
 {% from '_desktop.html' import desktop -%}
 
 
-<!doctype html>
+<!DOCTYPE html>
 <html>
 
 <head>
 
     <meta charset="utf-8">
-    <link rel="stylesheet" href="win98.css" type="text/css" media="screen">
-    <link rel="stylesheet" href="winxp-classic.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../{{ theme }}.css" type="text/css" media="screen">
 
 <style>
-body {
-    padding: 0;
-    margin: 0;
-}
-.windows {
-    width: 600px;
-    height: 600px;
-    display: inline-block;
-    position: relative;
-    margin: 10px;
-}
-
-.notepad {
-    width: 300px;
-    height: 200px;
-    margin: 5em auto;
-    position: absolute;
-    top: 0;
-}
-
-.notepad .title-bar .title-icon {
-    background-image: url(images/word.png);
+.word .title-bar .title-icon {
+    background-image: url(../../images/sprite.png);
+    background-position: -176px -32px;
 }
 </style>
 
@@ -40,41 +20,23 @@ body {
 
 <body>
 
-{% call desktop('windows-98') %}
-    {% include '_notepad.html' %}
-
-    <div class="slide slide-down">
-    <ul class="menu">
-        <li class="default" data-access-key="n">새로 만들기</li>
-        <li class="disabled" data-access-key="o" data-popup>열기</li>
-        <li class="separator" />
-        <li data-access-key="x" data-popup>끝내기</li>
-    </ul>
-    </div>
-{% endcall %}
-
-{% call desktop('windows-xp-classic') %}
-    {% include '_notepad.html' %}
-
-    <div class="slide slide-down">
-    <ul class="menu">
-        <li class="default" data-access-key="n">새로 만들기</li>
-        <li class="disabled" data-access-key="o" data-popup>열기</li>
-        <li class="separator" />
-        <li data-access-key="x" data-popup>끝내기</li>
-    </ul>
-    </div>
-{% endcall %}
-
-{% call desktop('windows-98') %}
+    {% call desktop(class_name) %}
     {% include '_word.html' %}
 {% endcall %}
 
-    <script src="vendor/jquery.min.js"></script>
-    <script src="vendor/jquery-ui.min.js"></script>
-    <script src="jquery.windows.js"></script>
+    <script src="../../vendor/jquery.min.js"></script>
+    <script src="../../vendor/jquery-ui.min.js"></script>
+    <script src="../../jquery.mswin.js"></script>
+    <script src="../../jquery.mswin.menu.js"></script>
     <script>
 $('.window').window();
+$('.menu-bar').menubar();
+$('.taskbar ul.start').menubar({
+    position_toplevel: {
+        my: "left bottom",
+        at: "left top",
+    },
+});
     </script>
 
 </body>

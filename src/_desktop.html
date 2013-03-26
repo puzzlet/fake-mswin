@@ -1,46 +1,50 @@
-{% macro desktop(class="windows-98") %}
+{% macro desktop(class="windows-98", locale="en_US") %}
 
-<div class="windows {{ class }}">
+<div class="windows {{ class }} windows-locale-{{ locale }} ">
     <div class="desktop">
         <ul class="listview listview-largeicon">
-            <li data-icon="my-computer"><span>내 컴퓨터</span></li>
-            <li class="selected" data-icon="recycling-bin"><span>휴지통</span></li>
+            <li data-icon="my-computer"><span>{{ gettext("My Computer") }}</span></li>
+            <li class="selected" data-icon="recycling-bin"><span>{{ gettext("Recycle Bin") }}</span></li>
         </ul>
     </div>
 
     <div class="taskbar">
-        <div class="start selected pressed" title="시작하려면 이곳을 누르십시오."><span>시작</span></div>
-        <div class="start-menu slide slide-up">
-            <ul class="menu">
-                <div class="decorator"></div>
-                <li data-access-key="p" data-icon="programs">프로그램</li>
-                <li data-access-key="a" data-icon="favorites">즐겨찾기</li>
-                <li data-access-key="d" data-icon="documents">문서</li>
-                <li data-access-key="s" data-icon="setting">설정</li>
-                <li data-access-key="f" data-icon="find">찾기</li>
-                <li data-access-key="h" data-icon="help">도움말</li>
-                <li data-access-key="r" data-icon="run" data-popup>실행</li>
-                <li class="separator" />
-                <li data-access-key="l" data-icon="logoff" data-popup>로그오프</li>
-                <li data-access-key="u" data-icon="shutdown" data-popup>시스템 종료</li>
-            </ul>
-        </div>
-        <div class="panel">
-            <div class="handle"></div>
-            <ul class="toolbar quick-launch">
-                <li data-icon="ie5" title="Internet Explorer 브라우저 시작"></li>
-            </ul>
-        </div>
-        <div class="panel">
-            <div class="handle"></div>
-            {# XXX #}
-            <div class="task selected">
-                <img src="images/word.png"/>
-                <span>제목 없음 - 메모장</span>
+        <ul class="start" title="{{ gettext("Click here to start.") }}">
+            <li>
+                <a class="start-button" href="#">{{ gettext("Start") }}</a>
+                <ul class="start-menu menu">
+                    <div class="decorator"></div>
+                    <li data-access-key="p" data-icon="programs">{{ gettext("Programs") }}</li>
+                    <li data-access-key="a" data-icon="favorites">{{ gettext("Favorites") }}</li>
+                    <li data-access-key="d" data-icon="documents">{{ gettext("Documents") }}</li>
+                    <li data-access-key="s" data-icon="setting">{{ gettext("Settings") }}</li>
+                    <li data-access-key="f" data-icon="find">{{ gettext("Find") }}</li>
+                    <li data-access-key="h" data-icon="help">{{ gettext("Help") }}</li>
+                    <li data-access-key="r" data-icon="run" data-popup>{{ gettext("Run") }}</li>
+                    <li class="separator" />
+                    <li data-access-key="l" data-icon="logoff">{{ gettext("Log Off") }}</li>
+                    <li data-access-key="u" data-icon="shutdown" data-popup>{{ gettext("Shut Down") }}</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="band-line">
+            <div class="band">
+                <div class="gripper"></div>
+                <ul class="toolbar quick-launch">
+                    <li data-icon="ie5" title="{{ gettext("Start Internet Explorer") }}"></li>
+                </ul>
             </div>
-            <div class="task"><span>제목 없음 - 메모장</span></div>
+            <div class="band">
+                <div class="gripper"></div>
+                {# XXX #}
+                <div class="task selected">
+                    <img src="images/word.png"/>
+                    <span>제목 없음 - 메모장</span>
+                </div>
+                <div class="task"><span>제목 없음 - 메모장</span></div>
+            </div>
         </div>
-        <div class="panel panel-notification-area">
+        <div class="taskbar-notification-area">
             <div class="notification-area">
                 오후 3:31
             </div>

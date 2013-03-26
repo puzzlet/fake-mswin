@@ -97,5 +97,3 @@
 @include transform-animation(slide_down, translateY(-100%), translateY(0));
 @include transform-animation(slide_up, translateY(100%), translateY(0));
 @include transform-animation(slide_context, translate(-100%, -100%), translate(0, 0));
-
-// vim: et ts=2 sts=2 sw=2

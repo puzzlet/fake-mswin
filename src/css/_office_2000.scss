@@ -1,9 +1,5 @@
 .office {
-    .panel {
-        @include flat-raised-control();
-        float: none;
-        height: auto;
-        min-height: 19px;
+    .rebar .band {
         .menu-bar {
             float: left;
             width: auto;

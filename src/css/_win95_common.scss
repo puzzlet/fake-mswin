@@ -9,6 +9,9 @@ $menubar-height: 18px;
 @mixin item-selected() {
     background-color: rgb(0, 0, 128);
     color: white;
+    & > * {
+        color: white;
+    }
 }
 
 @mixin sprite-image($x, $y) {
@@ -22,6 +25,8 @@ $menubar-height: 18px;
 
 * {
     @include system-font();
+    color: black;
+    text-decoration: none;
     cursor: default;
     // disable highlighting selection
     -webkit-touch-callout: none;
@@ -35,6 +40,10 @@ $menubar-height: 18px;
     margin: 0;
 }
 
+*:focus {
+    outline: none;
+}
+
 .desktop {
     background-color: $color-desktop-background;
 
@@ -44,6 +53,39 @@ $menubar-height: 18px;
     padding: 0;
     margin: 0;
     border: 0;
+}
+
+// rebar or taskbar has one or more band-lines
+// band-line has one ore more bands
+// band-line can be dropped out if it has only one band
+.band-line {
+    & > .band {
+        float: left;
+    }
+}
+
+.rebar {
+    .band {
+        @include flat-raised-control();
+    }
+}
+
+.band {
+    min-height: 19px;
+
+    padding: 2px 2px 2px (2px + 6px);
+    position: relative;
+
+    // :before is used at .taskbar>.band
+    .gripper {
+        @include flat-raised-control();
+        position: absolute;
+        top: 4px;
+        bottom: 4px;
+        left: 4px;
+        float: left;
+        width: 3px;
+    }
 }
 
 .taskbar {
@@ -61,7 +103,7 @@ $menubar-height: 18px;
     }
     padding-top: 1px;
 
-    .panel:before {
+    .band:before, .taskbar-notification-area:before {
         position: absolute;
         top: 2px;
         bottom: 2px;
@@ -70,27 +112,11 @@ $menubar-height: 18px;
         border-right: 1px solid $color-border-highlight;
         content: "";
     }
-}
 
-.panel {
-    float: left;
-    &.panel-notification-area {
+    .taskbar-notification-area {
+        position: relative;
         float: right;
         padding: 2px;
-    }
-    height: 22px;
-
-    padding: 2px 2px 2px (2px + 6px);
-    position: relative;
-
-    .handle {
-        @include flat-raised-control();
-        position: absolute;
-        top: 4px;
-        bottom: 4px;
-        left: 4px;
-        float: left;
-        width: 3px;
     }
 
     .quick-launch {
@@ -126,92 +152,88 @@ $menubar-height: 18px;
     }
 }
 
-div.start {
+ul.start {
     float: left;
-    margin: 2px;
-    height: 22px;
+    & > li {
+        margin: 2px;
+        height: 22px;
 
-    padding: 2px 3px 0px 0px;
-    @include button-control();
-    &.pressed {
-        @include button-control-pushed();
-    }
-
-    &:after {
-        position: absolute;
-        top: 2px;
-        bottom: 2px;
-        left: 2px;
-        right: 2px;
-
-        content: "";
-
-        z-index: -2;
-    }
-    &.selected:after {
-        border: 1px dotted black;
-    }
-
-    span {
-        &:before {
-            content: url(images/win95.gif);
-            float: left;
-            margin: 0 3px;
+        padding: 2px 3px 0px 0px;
+        @include button-control();
+        &.ui-state-open {
+            @include button-control-pushed();
         }
-        font-weight: bold;
+
+        &:after {
+            position: absolute;
+            top: 2px;
+            bottom: 2px;
+            left: 2px;
+            right: 2px;
+
+            content: "";
+
+            z-index: -2;
+        }
+        &.ui-state-open:after {  // TODO: focused
+            border: 1px dotted black;
+        }
+
+        a.start-button {
+            &:before {
+                content: url(images/win95.gif);
+                float: left;
+                margin: 0 3px;
+            }
+            font-weight: bold;
+        }
     }
 }
 
-.start-menu {
-    position: absolute;
-    left: 2px;
-    @include transform(translateY(-100%));
+ul.menu.start-menu {
+    padding-left: 21px + 2px;
+    div.decorator {
+        position: absolute;
+        left: 2px;
+        top: 2px;
+        bottom: 2px;
+        width: 21px;
+        background-color: rgb(0, 0, 120); // XXX
+        z-index: 0;
+        &:before {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 21px;
+            height: 108px;
+            background-image: url(images/sprite.png);
+            background-position: -224px 0;
+            z-index: 1;
+            content: "";
+        }
+    }
 
-    .menu {
-        padding-left: 21px + 2px;
-        div.decorator {
+    & > li:not(.separator) {
+        padding: 9px 16px 9px 32px + 9px; // XXX
+        position: relative;
+        &:before {
             position: absolute;
             left: 2px;
-            top: 2px;
-            bottom: 2px;
-            width: 21px;
-            background-color: rgb(0, 0, 120); // XXX
-            z-index: 0;
-            &:before {
-                position: absolute;
-                left: 0;
-                bottom: 0;
-                width: 21px;
-                height: 108px;
-                background-image: url(images/sprite.png);
-                background-position: -224px 0;
-                z-index: 1;
-                content: "";
-            }
+            top: 0;
+            width: 32px;
+            height: 32px;
+            background-image: url(images/sprite.png);
+            content: "";
         }
-
-        & > li:not(.separator) {
-            padding: 9px 16px 9px 32px + 9px; // XXX
-            position: relative;
-            &:before {
-                position: absolute;
-                left: 2px;
-                top: 0;
-                width: 32px;
-                height: 32px;
-                background-image: url(images/sprite.png);
-                content: "";
-            }
-            &[data-icon="programs"  ]:before { background-position: (-32px * 0) (-32px * 0); }
-            &[data-icon="favorites" ]:before { background-position: (-32px * 1) (-32px * 0); }
-            &[data-icon="documents" ]:before { background-position: (-32px * 2) (-32px * 0); }
-            &[data-icon="setting"   ]:before { background-position: (-32px * 3) (-32px * 0); }
-            &[data-icon="find"      ]:before { background-position: (-32px * 4) (-32px * 0); }
-            &[data-icon="help"      ]:before { background-position: (-32px * 5) (-32px * 0); }
-            &[data-icon="run"       ]:before { background-position: (-32px * 6) (-32px * 0); }
-            &[data-icon="logoff"    ]:before { background-position: (-32px * 0) (-32px * 1); }
-            &[data-icon="shutdown"  ]:before { background-position: (-32px * 1) (-32px * 1); }
-        }
+        &[data-icon="programs"  ]:before { background-position: (-32px * 0) (-32px * 0); }
+        &[data-icon="favorites" ]:before { background-position: (-32px * 1) (-32px * 0); }
+        &[data-icon="documents" ]:before { background-position: (-32px * 2) (-32px * 0); }
+        &[data-icon="setting"   ]:before { background-position: (-32px * 3) (-32px * 0); }
+        &[data-icon="find"      ]:before { background-position: (-32px * 4) (-32px * 0); }
+        &[data-icon="help"      ]:before { background-position: (-32px * 5) (-32px * 0); }
+        &[data-icon="run"       ]:before { background-position: (-32px * 6) (-32px * 0); }
+        &[data-icon="logoff"    ]:before { background-position: (-32px * 0) (-32px * 1); }
+        &[data-icon="shutdown"  ]:before { background-position: (-32px * 1) (-32px * 1); }
     }
 }
 
@@ -229,6 +251,9 @@ div.notification-area {
     padding: 2px+$title-height 2px 2px 2px;
 
     &.maximized {
+        position: absolute;
+        top: 0;
+        width: 100%;
         border: 0;
         padding: $title-height 0 0 0;
 
@@ -259,9 +284,13 @@ ul.menu-bar {
         float: left;
         padding: 0 7px;
 
-        &:after {
-            content: "(" attr(data-access-key) ")";
-            text-transform: uppercase;
+        & > a {
+            color: black !important;
+            text-decoration: none;
+            &:after {
+                content: "(" attr(data-access-key) ")";
+                text-transform: uppercase;
+            }
         }
     }
 }
@@ -274,6 +303,8 @@ ul.menu {
     width: 182px; // XXX: arbitrary
     margin: 0; // strip default margin
     padding: 2px; // XXX: arbitrary
+
+    position: absolute;
     & > li {
         list-style-type: none;
         display: block;
@@ -324,8 +355,16 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
     position: relative;
     .title-icon {
         float: left;
-        width: 20px;
-        height: $title-height;
+        width: 16px;
+        height: 16px;
+        border: {
+            top: 1px;
+            bottom: 1px;
+            left: 2px;
+            right: 2px;
+        }
+        border-style: solid;
+        border-color: $color-active-title;
 
         background-color: $color-active-title;
     }
@@ -384,7 +423,6 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
 }
 
 ul.listview {
-    position: absolute;
     top: 0;
     left: 0;
 
@@ -396,7 +434,7 @@ ul.listview {
     }
 }
 
-.desktop > ul.listview {
+.desktop > ul.listview * {
     color: white;
 }
 
