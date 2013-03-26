@@ -92,7 +92,7 @@ $menubar-height: 18px;
     padding: 2px 2px 2px (2px + 6px);
     position: relative;
 
-    .handle {
+    .gripper {
         @include flat-raised-control();
         position: absolute;
         top: 4px;
