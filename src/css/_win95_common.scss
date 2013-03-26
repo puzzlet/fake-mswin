@@ -338,8 +338,16 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
     position: relative;
     .title-icon {
         float: left;
-        width: 20px;
-        height: $title-height;
+        width: 16px;
+        height: 16px;
+        border: {
+            top: 1px;
+            bottom: 1px;
+            left: 2px;
+            right: 2px;
+        }
+        border-style: solid;
+        border-color: $color-active-title;
 
         background-color: $color-active-title;
     }
