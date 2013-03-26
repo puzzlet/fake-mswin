@@ -448,8 +448,20 @@ ul.listview, ul.desktop-listview {
             background-image: url(images/sprite.png);
             content: "";
         }
-        &[data-icon="my-computer"   ]:before { background-position: (-32px * 0) (-32px * 2); }
-        &[data-icon="recycling-bin" ]:before { background-position: (-32px * 3) (-32px * 2); }
+
+        @mixin large-icon-sprite($x) {
+            background-position: (-32px * $x) (-32px * 2);
+        }
+        @mixin listview-large-icon($v, $x) {
+            &[data-icon=#{$v}]:before {
+                @include large-icon-sprite($x);
+            }
+        }
+        @include listview-large-icon("my-computer", 0);
+        @include listview-large-icon("my-networks", 1);
+        @include listview-large-icon("folder", 2);
+        @include listview-large-icon("recycling-bin", 3);
+        @include listview-large-icon("internet-explorer", 6);
 
         span {
             padding: 2px;
