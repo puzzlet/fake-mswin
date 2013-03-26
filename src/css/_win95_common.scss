@@ -427,18 +427,25 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
 }
 
 ul.listview {
-    top: 0;
-    left: 0;
+    @include sunken-control();
+    background-color: white;
+}
 
-    margin: 0;
-    padding: 0;
-
+ul.listview, ul.desktop-listview {
     & > li {
         list-style-type: none;
     }
 }
 
-.desktop > ul.listview * {
+ul.desktop-listview {
+    top: 0;
+    left: 0;
+
+    margin: 0;
+    padding: 0;
+}
+
+ul.desktop-listview * {
     color: white;
 }
 
