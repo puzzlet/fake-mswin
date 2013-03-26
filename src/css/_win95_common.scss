@@ -67,6 +67,7 @@ $menubar-height: 18px;
 .rebar {
     @include flat-sunken-control();
     padding: 1px;
+    margin-bottom: 2px; // .window default padding
 
     .band {
         @include flat-raised-control();
