@@ -449,16 +449,22 @@ ul.listview, ul.desktop-listview {
             content: "";
         }
 
-        @mixin large-icon-sprite($x) {
-            background-position: (-32px * $x) (-32px * 2);
+        @mixin large-icon-sprite($x, $y) {
+            background-position: (-32px * $x) (-32px * $y);
         }
         &:before {
-            @include large-icon-sprite(2);
+            @include large-icon-sprite(2, 2);
+            &.selected:before {
+                @include large-icon-sprite(2, 3);
+            }
         }
 
         @mixin listview-large-icon($v, $x) {
             &[data-icon=#{$v}]:before {
-                @include large-icon-sprite($x);
+                @include large-icon-sprite($x, 2);
+            }
+            &[data-icon=#{$v}].selected:before {
+                @include large-icon-sprite($x, 3);
             }
         }
         @include listview-large-icon("my-computer", 0);
@@ -474,9 +480,6 @@ ul.listview, ul.desktop-listview {
         &.selected span {
             border: 1px dotted rgb(255, 255, 127);  // inverted color
             @include item-selected();
-        }
-        &.selected:before {
-            background-position-y: (-32px * 3);
         }
     }
 }
