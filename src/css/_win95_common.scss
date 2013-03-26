@@ -426,37 +426,18 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
     }
 }
 
-ul.listview {
-    @include sunken-control();
-    background-color: white;
-}
-
 ul.listview, ul.desktop-listview {
     & > li {
         list-style-type: none;
     }
-}
-
-ul.desktop-listview {
-    top: 0;
-    left: 0;
-
-    margin: 0;
-    padding: 0;
-}
-
-ul.desktop-listview * {
-    color: white;
-}
-
-.listview-largeicon {
-    li {
+    &.listview-largeicon li {
         @include box-sizing(border-box);
         margin: 2px;
         width: 70px;
         height: 76px;
         padding-top: 32px + 4px;
         text-align: center;
+
         position: relative;
         &:before {
             position: absolute;
@@ -481,6 +462,25 @@ ul.desktop-listview * {
         &.selected:before {
             background-position-y: (-32px * 3);
         }
+    }
+}
+
+ul.listview {
+    @include sunken-control();
+    background-color: white;
+    &.listview-largeicon li {
+        float: left;
+    }
+}
+
+ul.desktop-listview {
+    top: 0;
+    left: 0;
+
+    margin: 0;
+    padding: 0;
+    * {
+        color: white;
     }
 }
 
