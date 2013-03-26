@@ -63,8 +63,16 @@ $menubar-height: 18px;
 // band-line has one ore more bands
 // band-line can be dropped out if it has only one band
 .band-line {
+    position: relative;
+
     & > .band {
         float: left;
+    }
+    &:after {
+        content: "";
+        display: block;
+        height: 0;
+        clear: both;
     }
 }
 
