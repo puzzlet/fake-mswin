@@ -62,11 +62,23 @@ $menubar-height: 18px;
 // rebar or taskbar has one or more band-lines
 // band-line has one ore more bands
 // band-line can be dropped out if it has only one band
+@mixin band-line-separator() {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    border-left: 1px solid $color-border-shadow;
+    border-right: 1px solid $color-border-highlight;
+    content: "";
+}
 .band-line {
     position: relative;
 
     & > .band {
         float: left;
+    }
+    & > .band + .band:before {
+        @include band-line-separator();
     }
     &:after {
         content: "";
@@ -120,6 +132,7 @@ $menubar-height: 18px;
     padding-top: 1px;
 
     .band:before, .taskbar-notification-area:before {
+        // TODO dup of band-line-separator?
         position: absolute;
         top: 2px;
         bottom: 2px;
@@ -551,6 +564,7 @@ ul.toolbar {
         }
 
         &.separator {
+            // TODO dup of band-line-separator?
             height: 100%;
             margin: 0 4px;
 
