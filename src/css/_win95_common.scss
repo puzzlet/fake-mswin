@@ -70,7 +70,7 @@ $menubar-height: 18px;
     }
     padding-top: 1px;
 
-    .panel:before {
+    .band:before {
         position: absolute;
         top: 2px;
         bottom: 2px;
@@ -81,13 +81,23 @@ $menubar-height: 18px;
     }
 }
 
-.panel {
-    float: left;
-    &.panel-notification-area {
-        float: right;
-        padding: 2px;
+// rebar or taskbar has one or more band-lines
+// band-line has one ore more bands
+// band-line can be dropped out if it has only one band
+.band-line {
+    & > .band {
+        float: left;
     }
-    height: 22px;
+}
+
+.rebar {
+    .band {
+        @include flat-raised-control();
+    }
+}
+
+.band {
+    min-height: 19px;
 
     padding: 2px 2px 2px (2px + 6px);
     position: relative;
@@ -100,6 +110,13 @@ $menubar-height: 18px;
         left: 4px;
         float: left;
         width: 3px;
+    }
+}
+
+.taskbar .band-line {
+    &.taskbar-notification-area {
+        float: right;
+        padding: 2px;
     }
 
     .quick-launch {
@@ -406,7 +423,6 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
 }
 
 ul.listview {
-    position: absolute;
     top: 0;
     left: 0;
 
