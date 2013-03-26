@@ -73,7 +73,7 @@ $menubar-height: 18px;
     padding: 1px;
     margin-bottom: 2px; // .window default padding
 
-    .band {
+    & > .band-line, & > .band {
         @include flat-raised-control();
     }
 }
