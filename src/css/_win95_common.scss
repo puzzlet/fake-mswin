@@ -452,6 +452,10 @@ ul.listview, ul.desktop-listview {
         @mixin large-icon-sprite($x) {
             background-position: (-32px * $x) (-32px * 2);
         }
+        &:before {
+            @include large-icon-sprite(2);
+        }
+
         @mixin listview-large-icon($v, $x) {
             &[data-icon=#{$v}]:before {
                 @include large-icon-sprite($x);
