@@ -1,0 +1,92 @@
+{% from '_desktop.html' import desktop -%}
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../{{ theme }}.css" type="text/css" media="screen">
+
+<style>
+.explorer {
+    width: 350px;
+    height: 300px;
+    position: absolute;
+    top: 0;
+}
+
+.explorer .title-bar .title-icon {
+    background-image: url(../../images/sprite.png);
+    background-position: -144px -32px;
+}
+
+.explorer .listview {
+    height: 245px;
+}
+</style>
+
+</head>
+
+<body>
+
+{% call desktop(class_name) %}
+
+<div class="window explorer">
+    <div class="title-bar">
+        <div class="title-icon"></div>
+        <div class="title">System32</div>
+        <div class="title-button-group">
+            <div class="title-button minimize"></div>
+            <div class="title-button maximize"></div>
+            <div class="title-button close"></div>
+        </div>
+    </div>
+    <div class="rebar">
+    <div class="band">
+        <div class="gripper"></div>
+        <ul class="menu-bar">
+            <li data-access-key="f">{{ gettext("File") }}</li>
+            <li data-access-key="e">{{ gettext("Edit") }}</li>
+            <li data-access-key="v">{{ gettext("View") }}</li>
+            <li data-access-key="g">{{ gettext("Go") }}</li>
+            <li data-access-key="f">{{ gettext("Favorites") }}</li>
+            <li data-access-key="h">{{ gettext("Help") }}</li>
+        </ul>
+    </div>
+    </div>
+    <ul class="listview listview-largeicon">
+        <li>New Folder</li>
+        <li>New Folder (2)</li>
+        <li>New Folder (3)</li>
+        <li>New Folder (4)</li>
+        <li data-icon="recycling-bin">New Folder (5)</li>
+    </ul>
+</div>
+
+{% endcall %}
+
+    <script src="../../vendor/jquery.min.js"></script>
+    <script src="../../vendor/jquery-ui.min.js"></script>
+    <script src="../../jquery.mswin.js"></script>
+    <script src="../../jquery.mswin.menu.js"></script>
+    <script>
+$('.window').window();
+$('.menu-bar').menubar();
+$('.taskbar ul.start').menubar({
+    position_toplevel: {
+        my: "left bottom",
+        at: "left top",
+    },
+});
+    </script>
+
+</body>
+
+</html>
+
+
+{#-
+vim: filetype=jinjahtml
+#}
