@@ -55,32 +55,6 @@ $menubar-height: 18px;
     border: 0;
 }
 
-.taskbar {
-    @include make-inner-box();
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 28px;
-
-    background-color: $color-face;
-    border-top: 1px solid $color-border-light;
-    &:before {
-        border-top: 1px solid $color-border-highlight;
-    }
-    padding-top: 1px;
-
-    .band:before {
-        position: absolute;
-        top: 2px;
-        bottom: 2px;
-        left: 0;
-        border-left: 1px solid $color-border-shadow;
-        border-right: 1px solid $color-border-highlight;
-        content: "";
-    }
-}
-
 // rebar or taskbar has one or more band-lines
 // band-line has one ore more bands
 // band-line can be dropped out if it has only one band
@@ -102,6 +76,7 @@ $menubar-height: 18px;
     padding: 2px 2px 2px (2px + 6px);
     position: relative;
 
+    // :before is used at .taskbar>.band
     .gripper {
         @include flat-raised-control();
         position: absolute;
@@ -113,8 +88,33 @@ $menubar-height: 18px;
     }
 }
 
-.taskbar .band-line {
-    &.taskbar-notification-area {
+.taskbar {
+    @include make-inner-box();
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 28px;
+
+    background-color: $color-face;
+    border-top: 1px solid $color-border-light;
+    &:before {
+        border-top: 1px solid $color-border-highlight;
+    }
+    padding-top: 1px;
+
+    .band:before, .taskbar-notification-area:before {
+        position: absolute;
+        top: 2px;
+        bottom: 2px;
+        left: 0;
+        border-left: 1px solid $color-border-shadow;
+        border-right: 1px solid $color-border-highlight;
+        content: "";
+    }
+
+    .taskbar-notification-area {
+        position: relative;
         float: right;
         padding: 2px;
     }
