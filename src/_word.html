@@ -1,3 +1,4 @@
+{% macro word() %}
 <div class="office word maximized window">
     <div class="title-bar">
         <div class="title-icon"></div>
@@ -86,13 +87,19 @@
             </ul>
         </div>
     </div>
-    <div>
+    <div class="body">
+        <div class="wrapper">
+            <div class="content" contenteditable="true">
+                {{ caller() }}
+            </div>
+        </div>
     </div>
     <div class="pane">
         Page 1 Sec 1
         REC TRK EXT OVR
     </div>
 </div>
+{% endmacro %}
 
 
 {#-
