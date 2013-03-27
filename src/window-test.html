@@ -1,4 +1,5 @@
-{% from '_desktop.html' import desktop -%}
+{% from '_desktop.html' import desktop %}
+{% from '_word.html' import word -%}
 
 
 <!DOCTYPE html>
@@ -20,11 +21,11 @@
 
 <body>
 
-    {% call word() %}
-        <div>Hello, world!</div>
+    {% call desktop(class_name) %}
+        {% call word() %}
+            <div>Hello, world!</div>
+        {% endcall %}
     {% endcall %}
-    {% include '_word.html' %}
-{% endcall %}
 
     <script src="../../vendor/jquery.min.js"></script>
     <script src="../../vendor/jquery-ui.min.js"></script>
