@@ -450,11 +450,13 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
     }
 }
 
-ul.listview, ul.desktop-listview {
+.listview ul, ul.desktop-listview {
     & > li {
         list-style-type: none;
     }
-    &.listview-largeicon li {
+}
+.listview.listview-largeicon ul, ul.desktop-listview.listview-largeicon {
+    & li {
         @include box-sizing(border-box);
         margin: 2px;
         width: 70px;
@@ -504,11 +506,17 @@ ul.listview, ul.desktop-listview {
     }
 }
 
-ul.listview {
+.listview {
     @include sunken-control();
     background-color: white;
-    &.listview-largeicon li {
-        float: left;
+
+    &.listview-largeicon ul {
+        height: 100%;
+        position: relative;
+        overflow: auto;
+        li {
+            float: left;
+        }
     }
 }
 
