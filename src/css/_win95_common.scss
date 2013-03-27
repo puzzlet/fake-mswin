@@ -14,19 +14,6 @@ $menubar-height: 18px;
     }
 }
 
-@mixin sprite-image($x, $y) {
-    background-image: url(images/sprite.png);
-    background-position: ($x) ($y);
-}
-
-@mixin sprite-large-icon($x, $y) {
-    @include sprite-image(-$x*32px, -$y*32px);
-}
-
-@mixin title-button-image($index) {
-    @include sprite-image(-224px, (-108px - 10px*$index));
-}
-
 * {
     @include system-font();
     color: black;
