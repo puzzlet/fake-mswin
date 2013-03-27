@@ -23,9 +23,9 @@ $.widget( "mswin.window", {
                 }
             },
         });
-        $(window).resize(function() {
+        $(window).resize($.proxy(function() {
             this.resize();
-        });
+        }, this));
         if (this.element.hasClass( "maximized" )) {
             this.maximize();
         }
