@@ -3,9 +3,6 @@
 $.widget( "mswin.window", {
     _create: function() {
         this.element.draggable({ handle: ".title" });
-        if (this.element.hasClass( "maximized" )) {
-            this.element.draggable( "disable" );
-        }
         this._on({
             "click .title-button.maximize": function( event ) {
                 this.maximize();
@@ -28,6 +25,12 @@ $.widget( "mswin.window", {
         $(window).resize(function() {
             this.resize();
         });
+        if (this.element.hasClass( "maximized" )) {
+            this.maximize();
+        }
+        else {
+            this.restore();
+        }
     },
 
     maximize: function() {
