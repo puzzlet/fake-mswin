@@ -271,6 +271,18 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
     }
 }
 
+.band.windows-logo {
+    float: right;
+    width: 36px;
+    height: 20px;
+
+    @include sprite-image(-200px, -216px);
+
+    // TODO why are they necessary?
+    padding: 1px;
+    margin: 1px;
+}
+
 .listview ul, ul.desktop-listview {
     & > li {
         list-style-type: none;
