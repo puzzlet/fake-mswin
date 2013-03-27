@@ -54,22 +54,119 @@
 
 .office.word {
     padding-bottom: 100px;  // XXX
-    > .body {
+    > .child {  // for border
         position: relative;
         height: 100%;
-        > .wrapper {
+        @include sunken-control();
+        background-color: #808080;
+        > .stretch {  // the name tells it
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
             overflow: scroll;
-            > .content {
-                margin: 5px auto;
-                width: 770px;
-                background: #FFF;
-                * {
-                    @include user-select(text);
+            > .ruler-wrapper {
+                min-width: 770px;
+                position: relative;
+                > .top-ruler {
+                    @include box-sizing(border-box);
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    height: 24px;
+                    background-color: #C0C0C0;
+                    z-index: 1;
+                    .ruler {
+                        margin: 5px 5px 5px 24px;
+                        height: 13px;
+                        background-image: url(images/word_hr.gif);
+                        background-repeat: repeat-x;
+                    }
+                    > .mode {
+                        float: left;
+                        margin: (24px - 10px) / 2;
+                        width: 10px;
+                        height: 10px;
+                        background-image: url(images/sprite.png);
+                        background-position: -246px -61px;
+                        @include make-inner-box();
+                        border-top: 1px solid $color-border-light;
+                        &:before {
+                            border-top: 1px solid $color-border-highlight;
+                        }
+                    }
+                }
+                > .left-ruler {
+                    position: absolute;
+                    top: 24px;
+                    left: 0;
+                    bottom: 0;
+                    width: 24px;
+                    background-color: #C0C0C0;
+                    .ruler {
+                        margin: 5px;
+                        width: 13px;
+                        height: 100%;
+                        background-image: url(images/word_vr.gif);
+                        background-repeat: repeat-y;
+                    }
+                }
+                > .content-wrapper {
+                    padding-top: 24px + 24px;
+                    padding-bottom: 24px;
+                    > .content {
+                        margin: 0 auto;
+                        @include box-sizing(border-box);
+                        width: 770px;
+                        min-height: 1000px;
+                        border: 1px solid black;
+                        padding: 35px;
+                        background: #FFF;
+                        @include user-select(text);
+                        * {
+                            @include user-select(text);
+                            font-family: "Times New Roman", "바탕", serif;
+                            font-size: 11pt;
+                        }
+                        h1, h2, h3, h4, h5, h6 {
+                            font-family: Arial, sans-serif;
+                            font-weight: bold;
+                            margin: 1em 0 0.5em;
+                        }
+                        h1 {
+                            font-size: 18pt;
+                        }
+                        h2 {
+                            font-size: 16pt;
+                        }
+                        h3 {
+                            font-size: 14pt;
+                            font-style: italic;
+                        }
+                        h4 {
+                            font-size: 13pt;
+                        }
+                        li {
+                            margin-left: 3.5em;
+                            padding-left: 0.5em;
+                        }
+                        dd {
+                            margin-left: 3em;
+                        }
+                        a {
+                            color: #0000EE;
+                            text-decoration: underline;
+                            cursor: pointer;
+                            &:visited {
+                                color: #551A8B;
+                            }
+                            &:active {
+                                color: #FF0000;
+                            }
+                        }
+                    }
                 }
             }
         }

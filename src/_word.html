@@ -89,10 +89,21 @@
             </ul>
         </div>
     </div>
-    <div class="body">
-        <div class="wrapper">
-            <div class="content" contenteditable="true">
-                {{ caller() }}
+    <div class="child">
+        <div class="stretch">
+            <div class="ruler-wrapper">
+                <div class="top-ruler">
+                    <div class="mode"></div>
+                    <div class="ruler"></div>
+                </div>
+                <div class="left-ruler">
+                    <div class="ruler"></div>
+                </div>
+                <div class="content-wrapper">
+                    <div class="content" contenteditable="true">
+                        {{ caller() }}
+                    </div>
+                </div>
             </div>
         </div>
     </div>
