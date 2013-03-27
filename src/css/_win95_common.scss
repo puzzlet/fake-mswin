@@ -55,9 +55,18 @@ $menubar-height: 18px;
     border: 0;
 }
 
-// rebar or taskbar has one or more band-lines
+// rebar has one or more band-lines or bands
 // band-line has one ore more bands
 // band-line can be dropped out if it has only one band
+
+// due to nature of "float:" property (bands cannot fill band-line width)
+// band in band-line cannot have flat borders directly.
+// solution:
+// * exterior borders are drawn by band-line (flat-raised-control)
+// * interior borders (between bands) are drawn by band:before
+//   (thus bands must have normal borders only)
+
+// interior borders for band
 @mixin band-line-separator() {
     position: absolute;
     top: 0;
@@ -67,14 +76,15 @@ $menubar-height: 18px;
     border-right: 1px solid $color-border-highlight;
     content: "";
 }
+
 .band-line {
     position: relative;
 
     & > .band {
         float: left;
-    }
-    & > .band + .band:before {
-        @include band-line-separator();
+        &:not(:first-child):before {
+            @include band-line-separator();
+        }
     }
     &:after {
         content: "";
@@ -100,7 +110,7 @@ $menubar-height: 18px;
     padding: 2px 2px 2px (2px + 6px);
     position: relative;
 
-    // :before is used at .taskbar>.band
+    // TODO change to :after?
     .gripper {
         @include flat-raised-control();
         position: absolute;
@@ -127,15 +137,11 @@ $menubar-height: 18px;
     }
     padding-top: 1px;
 
-    .band:before, .taskbar-notification-area:before {
-        // TODO dup of band-line-separator?
-        position: absolute;
-        top: 2px;
-        bottom: 2px;
-        left: 0;
-        border-left: 1px solid $color-border-shadow;
-        border-right: 1px solid $color-border-highlight;
-        content: "";
+    & > * {
+        float: left;  // NOTE taskbar-notification-area floats right
+        &:not(:first-child):before {
+            @include band-line-separator();
+        }
     }
 
     .taskbar-notification-area {
@@ -178,7 +184,6 @@ $menubar-height: 18px;
 }
 
 ul.start {
-    float: left;
     & > li {
         margin: 2px;
         height: 22px;
