@@ -28,71 +28,6 @@ $menubar-height: 18px;
     outline: none;
 }
 
-// rebar has one or more band-lines or bands
-// band-line has one ore more bands
-// band-line can be dropped out if it has only one band
-
-// due to nature of "float:" property (bands cannot fill band-line width)
-// band in band-line cannot have flat borders directly.
-// solution:
-// * exterior borders are drawn by band-line (flat-raised-control)
-// * interior borders (between bands) are drawn by band:before
-//   (thus bands must have normal borders only)
-
-// interior borders for band
-@mixin band-line-separator() {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    border-left: 1px solid $color-border-shadow;
-    border-right: 1px solid $color-border-highlight;
-    content: "";
-}
-
-.band-line {
-    position: relative;
-
-    & > .band {
-        float: left;
-        &:not(:first-child):before {
-            @include band-line-separator();
-        }
-    }
-    &:after {
-        content: "";
-        display: block;
-        height: 0;
-        clear: both;
-    }
-}
-
-.rebar {
-    @include flat-sunken-control();
-    padding: 1px;
-    margin-bottom: 2px; // .window default padding
-
-    & > .band-line, & > .band {
-        @include flat-raised-control();
-    }
-}
-
-.band {
-    padding: 2px 2px 2px (2px + 6px);
-    position: relative;
-
-    // TODO change to :after?
-    .gripper {
-        @include flat-raised-control();
-        position: absolute;
-        top: 4px;
-        bottom: 4px;
-        left: 4px;
-        float: left;
-        width: 3px;
-    }
-}
-
 .window {
     @include raised-control();
 
@@ -268,6 +203,71 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
             margin-left: 2px;
             @include title-button-image(3);
         }
+    }
+}
+
+// rebar has one or more band-lines or bands
+// band-line has one ore more bands
+// band-line can be dropped out if it has only one band
+
+// due to nature of "float:" property (bands cannot fill band-line width)
+// band in band-line cannot have flat borders directly.
+// solution:
+// * exterior borders are drawn by band-line (flat-raised-control)
+// * interior borders (between bands) are drawn by band:before
+//   (thus bands must have normal borders only)
+
+// interior borders for band
+@mixin band-line-separator() {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    border-left: 1px solid $color-border-shadow;
+    border-right: 1px solid $color-border-highlight;
+    content: "";
+}
+
+.band-line {
+    position: relative;
+
+    & > .band {
+        float: left;
+        &:not(:first-child):before {
+            @include band-line-separator();
+        }
+    }
+    &:after {
+        content: "";
+        display: block;
+        height: 0;
+        clear: both;
+    }
+}
+
+.rebar {
+    @include flat-sunken-control();
+    padding: 1px;
+    margin-bottom: 2px; // .window default padding
+
+    & > .band-line, & > .band {
+        @include flat-raised-control();
+    }
+}
+
+.band {
+    padding: 2px 2px 2px (2px + 6px);
+    position: relative;
+
+    // TODO change to :after?
+    .gripper {
+        @include flat-raised-control();
+        position: absolute;
+        top: 4px;
+        bottom: 4px;
+        left: 4px;
+        float: left;
+        width: 3px;
     }
 }
 
