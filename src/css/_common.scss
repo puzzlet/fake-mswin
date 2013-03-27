@@ -97,3 +97,11 @@
 @include transform-animation(slide_down, translateY(-100%), translateY(0));
 @include transform-animation(slide_up, translateY(100%), translateY(0));
 @include transform-animation(slide_context, translate(-100%, -100%), translate(0, 0));
+
+@mixin user-select($arg) {
+    -webkit-user-select: $arg;
+    -khtml-user-select: $arg;
+    -moz-user-select: $arg;
+    -ms-user-select: $arg;
+    user-select: $arg;
+}
