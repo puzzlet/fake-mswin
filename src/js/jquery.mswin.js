@@ -25,6 +25,9 @@ $.widget( "mswin.window", {
                 }
             },
         });
+        $(window).resize(function() {
+            this.resize();
+        });
     },
 
     maximize: function() {
@@ -32,7 +35,6 @@ $.widget( "mswin.window", {
         this._offset = this.element.offset();
         this._width = this.element.width();
         this._height = this.element.height();
-        var taskbar_height = $( ".taskbar" ).height();
         this.element
             .draggable( "disable" )
             .addClass( "maximized" )
@@ -41,11 +43,11 @@ $.widget( "mswin.window", {
                 top: "0",
                 width: "100%",
                 height: "auto",
-                bottom: taskbar_height + "px",
             });
         this.element.find( ".title-button.maximize" )
             .removeClass( "maximize" )
             .addClass( "restore" );
+        this.resize();
     },
 
     restore: function() {
@@ -60,6 +62,15 @@ $.widget( "mswin.window", {
         this.element.find( ".title-button.restore" )
             .removeClass( "restore" )
             .addClass( "maximize" );
+    },
+
+    resize: function() {
+        if (this.element.hasClass( "maximized" )) {
+            var taskbar_height = $( ".taskbar" ).height();
+            this.element.css({
+                bottom: taskbar_height + "px",
+            });
+        }
     },
 });
 
