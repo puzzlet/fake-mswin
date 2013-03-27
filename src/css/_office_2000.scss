@@ -51,3 +51,27 @@
         &[data-icon="font-color"    ]:before { @include sprite(10, 2); }
     }
 }
+
+.office.word {
+    padding-bottom: 100px;  // XXX
+    > .body {
+        position: relative;
+        height: 100%;
+        > .wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: scroll;
+            > .content {
+                margin: 5px auto;
+                width: 770px;
+                background: #FFF;
+                * {
+                    @include user-select(text);
+                }
+            }
+        }
+    }
+}
