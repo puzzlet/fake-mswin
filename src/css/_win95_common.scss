@@ -52,6 +52,35 @@ $menubar-height: 18px;
             margin-top: -($title-height+$menubar-height);
         }
     }
+
+    .ui-resizable-handle {
+        position: absolute;
+
+        &.ui-resizable-n, &.ui-resizable-s {
+            left: 0;
+            height: 4px;
+            width: 100%;
+            cursor: ns-resize;
+        }
+        &.ui-resizable-n {
+            top: -2px;
+        }
+        &.ui-resizable-s {
+            bottom: -2px;
+        }
+        &.ui-resizable-w, &.ui-resizable-e {
+            top: 0;
+            width: 4px;
+            height: 100%;
+            cursor: ew-resize;
+        }
+        &.ui-resizable-w {
+            left: -2px;
+        }
+        &.ui-resizable-e {
+            right: -2px;
+        }
+    }
 }
 
 ul.menu-bar {
