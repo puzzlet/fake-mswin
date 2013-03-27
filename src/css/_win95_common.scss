@@ -1,11 +1,6 @@
 $title-height: 18px;
 $menubar-height: 18px;
 
-@mixin system-font() {
-    font-family: "굴림", "Gulim", "Tahoma", sans-serif;
-    font-size: 9pt;
-}
-
 @mixin item-selected() {
     background-color: rgb(0, 0, 128);
     color: white;
@@ -15,7 +10,9 @@ $menubar-height: 18px;
 }
 
 * {
-    @include system-font();
+    font-family: "굴림", "Gulim", "Tahoma", sans-serif;
+    font-size: 9pt;
+
     color: black;
     text-decoration: none;
     cursor: default;
