@@ -8,6 +8,8 @@
         </ul>
     </div>
 
+    {{ caller() }}
+
     <div class="taskbar">
         <ul class="start" title="{{ gettext("Click here to start.") }}">
             <li>
@@ -50,7 +52,6 @@
             </div>
         </div>
     </div>
-    {{ caller() }}
 </div>
 {% endmacro %}
 
