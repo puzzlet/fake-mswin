@@ -2,7 +2,7 @@
 
 $.widget( "mswin.window", {
     _create: function() {
-        this.taskbar = $( ".taskbar" );
+        this.taskbar = $( ".taskbar" );  // TODO: specify as an argument
         this.element.resizable({
             handles: "all",
             alsoResize: ".window-content"
@@ -36,6 +36,12 @@ $.widget( "mswin.window", {
         else {
             this.restore();
         }
+        this.task_element = $("<div class='task'></div>");
+        var tasks = this.taskbar.find(".tasks");
+        tasks.append(this.task_element);
+        this.task_element
+            .append(this.element.find(".title-icon").clone())
+            .append($("<span>" + this.element.find(".title").text() + "</span>"));
     },
 
     maximize: function() {
