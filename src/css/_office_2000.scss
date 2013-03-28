@@ -84,17 +84,27 @@
                         background-image: url(images/word_hr.gif);
                         background-repeat: repeat-x;
                     }
-                    > .mode {
+                    > .button {
                         float: left;
-                        margin: (24px - 10px) / 2;
-                        width: 10px;
-                        height: 10px;
-                        background-image: url(images/sprite.png);
-                        background-position: -246px -61px;
+                        margin: 3px;
+                        width: 17px;
+                        height: 17px;
+                        padding: 3px;
                         @include make-inner-box();
-                        border-top: 1px solid $color-border-light;
+                        border-top: 1px solid $color-border-shadow;
+                        border-left: 1px solid $color-border-shadow;
+                        border-right: 1px solid $color-border-shadow;
+                        border-bottom: 1px solid $color-border-highlight;
                         &:before {
                             border-top: 1px solid $color-border-highlight;
+                            border-left: 1px solid $color-border-highlight;
+                            border-bottom: 1px solid $color-border-shadow;
+                        }
+                        .mode {
+                            width: 10px;
+                            height: 10px;
+                            background-image: url(images/sprite.png);
+                            background-position: -246px -61px;
                         }
                     }
                 }
