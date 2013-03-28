@@ -2,7 +2,10 @@
 
 $.widget( "mswin.window", {
     _create: function() {
-        this.element.resizable({ handles: "all" });
+        this.element.resizable({
+            handles: "all",
+            alsoResize: ".window-content"
+        });
         this.element.draggable({ handle: ".title" });
         this._on({
             "click .title-button.maximize": function( event ) {
