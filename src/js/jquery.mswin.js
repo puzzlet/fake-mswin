@@ -9,6 +9,10 @@ $.widget( "mswin.window", {
         });
         this.element.draggable({ handle: ".title" });
         this._on({
+            "click .title-button.minimize": function( event ) {
+                this.element.hide();
+                this.unselect();
+            },
             "click .title-button.maximize": function( event ) {
                 this.maximize();
             },
@@ -16,7 +20,7 @@ $.widget( "mswin.window", {
                 this.restore();
             },
             "click .title-button.close": function( event ) {
-                this.element.hide();
+                this.element.hide();  // XXX: should it be really closed or what
             },
             "dblclick .title": function( event ) {
                 if (this.element.hasClass( "maximized" )) {
@@ -41,7 +45,9 @@ $.widget( "mswin.window", {
         tasks.append(this.task_element);
         this.task_element
             .append(this.element.find(".title-icon").clone())
-            .append($("<span>" + this.element.find(".title").text() + "</span>"));
+            .append($("<span>" + this.element.find(".title").text() + "</span>"))
+            .on("click", $.proxy( this.taskClick, this ));
+        this.select();
     },
 
     maximize: function() {
@@ -83,6 +89,28 @@ $.widget( "mswin.window", {
             this.element.css({
                 bottom: this.taskbar.height() + "px",
             });
+        }
+    },
+
+    select: function() {
+        // TODO: unselect every other task
+        this.task_element.addClass( "selected" );
+        if (!this.element.is( ":visible" )) {
+            this.element.show();
+        }
+    },
+
+    unselect: function() {
+        this.task_element.removeClass( "selected" );
+    },
+
+    taskClick: function() {
+        if (this.task_element.is( ".selected" )) {
+            this.unselect();
+            this.element.hide();
+        }
+        else {
+            this.select();
         }
     },
 });
