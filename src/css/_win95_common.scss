@@ -57,28 +57,52 @@ $menubar-height: 18px;
         position: absolute;
 
         &.ui-resizable-n, &.ui-resizable-s {
-            left: 0;
+            left: 2px;
+            right: 2px;
             height: 4px;
             width: 100%;
             cursor: ns-resize;
         }
-        &.ui-resizable-n {
-            top: -2px;
-        }
-        &.ui-resizable-s {
-            bottom: -2px;
-        }
         &.ui-resizable-w, &.ui-resizable-e {
-            top: 0;
+            top: 2px;
+            bottom: 2px;
             width: 4px;
             height: 100%;
             cursor: ew-resize;
         }
-        &.ui-resizable-w {
-            left: -2px;
+
+        @each $v in ne, nw, se, sw {
+            &.ui-resizable-#{$v} {
+                width: 4px;
+                height: 4px;
+            }
         }
-        &.ui-resizable-e {
-            right: -2px;
+        &.ui-resizable-ne, &.ui-resizable-sw {
+            cursor: nesw-resize;
+        }
+        &.ui-resizable-nw, &.ui-resizable-se {
+            cursor: nwse-resize;
+        }
+
+        @each $v in n, ne, nw {
+            &.ui-resizable-#{$v} {
+                top: -2px;
+            }
+        }
+        @each $v in s, se, sw {
+            &.ui-resizable-#{$v} {
+                bottom: -2px;
+            }
+        }
+        @each $v in w, sw, nw {
+            &.ui-resizable-#{$v} {
+                left: -2px;
+            }
+        }
+        @each $v in e, se, ne {
+            &.ui-resizable-#{$v} {
+                right: -2px;
+            }
         }
     }
 }
