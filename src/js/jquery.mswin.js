@@ -2,6 +2,7 @@
 
 $.widget( "mswin.window", {
     _create: function() {
+        this.taskbar = $( ".taskbar" );
         this.element.resizable({
             handles: "all",
             alsoResize: ".window-content"
@@ -26,7 +27,7 @@ $.widget( "mswin.window", {
                 }
             },
         });
-        $(window).resize($.proxy(function() {
+        $( window ).resize($.proxy(function() {
             this.resize();
         }, this));
         if (this.element.hasClass( "maximized" )) {
@@ -73,9 +74,8 @@ $.widget( "mswin.window", {
 
     resize: function() {
         if (this.element.hasClass( "maximized" )) {
-            var taskbar_height = $( ".taskbar" ).height();
             this.element.css({
-                bottom: taskbar_height + "px",
+                bottom: this.taskbar.height() + "px",
             });
         }
     },
