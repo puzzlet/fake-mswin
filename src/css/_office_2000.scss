@@ -54,12 +54,12 @@
 
 .office.word {
     padding-bottom: 100px;  // XXX
-    > .child {  // for border
+    > .window-content {
         position: relative;
         height: 100%;
         @include sunken-control();
         background-color: #808080;
-        > .stretch {  // the name tells it
+        > .stretch {
             position: absolute;
             top: 0;
             left: 0;
