@@ -45,7 +45,7 @@ $.widget( "mswin.window", {
         tasks.append(this.task_element);
         this.task_element
             .append(this.element.find(".title-icon").clone())
-            .append($("<span>" + this.element.find(".title").text() + "</span>"))
+            .append($("<div class='title-wrapper'><span>" + this.element.find(".title").text() + "</span></div>"))
             .on("click", $.proxy( this.taskClick, this ));
         this.select();
     },

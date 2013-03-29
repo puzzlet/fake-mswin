@@ -545,9 +545,15 @@ ul.toolbar {
         img {
             float: left;
         }
-        span {
-            float: left;
+
+        .title-wrapper {
             margin-top: 2px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            span {
+                white-space: nowrap;
+            }
         }
     }
 }

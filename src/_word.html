@@ -1,8 +1,14 @@
-{% macro word() %}
+{% macro word(title=None) %}
 <div class="office word maximized window">
     <div class="title-bar">
         <div class="title-icon"></div>
-        <div class="title">{{ gettext("Document") }}1 - Microsoft Word</div>
+        <div class="title">
+            {%- if title -%}
+                {{ title }}
+            {%- else -%}
+                {{ gettext("Document") }}1
+            {%- endif %} - Microsoft Word
+        </div>
         <div class="title-button-group">
             <div class="title-button minimize"></div>
             <div class="title-button restore"></div>
