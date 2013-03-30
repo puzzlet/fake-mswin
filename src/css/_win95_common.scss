@@ -399,11 +399,13 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
             display: block;
             height: 0;
         }
+        clear: both;
     }
 
     thead {
         position: absolute;
         top: 0;
+        height: 18px;
         tr {
             td {
                 @include button-control();
@@ -426,6 +428,14 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
                 }
             }
         }
+    }
+    tbody {
+        position: absolute;
+        top: 18px;
+        tr {
+            clear: both;
+        }
+        clear: both;
     }
 }
 .listview.listview-report-icon tbody td:first-child {
