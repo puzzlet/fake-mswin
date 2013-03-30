@@ -53,7 +53,7 @@ $menubar-height: 18px;
         }
     }
 
-    .ui-resizable-handle {
+    &:not(.maximized) .ui-resizable-handle {
         position: absolute;
 
         &.ui-resizable-n, &.ui-resizable-s {
