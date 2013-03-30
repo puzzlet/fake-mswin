@@ -426,6 +426,26 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
         }
     }
 }
+.listview.listview-report-icon tbody td:first-child {
+    position: relative;
+    padding-left: 16px;
+    margin-right: -16px;
+    &:before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        content: "";
+        @include sprite-small-icon(9, 2);
+        width: 16px;
+        height: 16px;
+    }
+    @mixin listview-small-icon($v, $x, $y) {
+        &[data-icon=#{$v}]:before {
+            @include sprite-small-icon($x, $y);
+        }
+    }
+    @include listview-small-icon("word", 11, 3);
+}
 
 .listview.listview-largeicon ul, ul.desktop-listview.listview-largeicon {
     & li {
