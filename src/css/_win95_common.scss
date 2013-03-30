@@ -435,6 +435,11 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
         top: 18px;
         tr {
             clear: both;
+            td {
+                overflow-x: hidden;
+                text-overflow: "...";
+                white-space: nowrap;
+            }
         }
         clear: both;
     }
