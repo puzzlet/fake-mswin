@@ -402,6 +402,8 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
     }
 
     thead {
+        position: absolute;
+        top: 0;
         tr {
             td {
                 @include button-control();
