@@ -11,16 +11,62 @@
     {{ caller() }}
 
     <div class="taskbar">
-        <ul class="start" title="{{ gettext("Click here to start.") }}">
+        <ul class="start">
             <li>
-                <a class="start-button" href="#">{{ gettext("Start") }}</a>
+                <a class="start-button" href="#" title="{{ gettext("Click here to start.") }}">{{ gettext("Start") }}</a>
                 <ul class="start-menu menu">
                     <div class="decorator"></div>
-                    <li data-access-key="p" data-icon="programs">{{ gettext("Programs") }}</li>
-                    <li data-access-key="a" data-icon="favorites">{{ gettext("Favorites") }}</li>
-                    <li data-access-key="d" data-icon="documents">{{ gettext("Documents") }}</li>
-                    <li data-access-key="s" data-icon="setting">{{ gettext("Settings") }}</li>
-                    <li data-access-key="f" data-icon="find">{{ gettext("Find") }}</li>
+                    <li data-access-key="p" data-icon="programs">
+                        {{ gettext("Programs") }}
+                        <ul class="menu">
+                            <li>
+                                {{ gettext("Accessories") }}
+                                <ul class="menu">
+                                    <li>
+                                        {{ gettext("Games") }}
+                                        <ul class="menu">
+                                            <li><a href="#">{{ gettext("Freecell") }}</a></li>
+                                            <li><a href="#">{{ gettext("Minesweeper") }}</a></li>
+                                            <li><a href="#">{{ gettext("Solitare") }}</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="#">{{ gettext("Microsoft Word") }}</a></li>
+                        </ul>
+                    </li>
+                    <li data-access-key="a" data-icon="favorites">
+                        {{ gettext("Favorites") }}
+                        <ul class="menu">
+                            <li class="ui-state-disabled">
+                                <a href="#">{{ gettext("(Empty)") }}</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li data-access-key="d" data-icon="documents">
+                        {{ gettext("Documents") }}
+                        <ul class="menu">
+                            <li class="ui-state-disabled">
+                                <a href="#">{{ gettext("(Empty)") }}</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li data-access-key="s" data-icon="setting">
+                        {{ gettext("Settings") }}
+                        <ul class="menu">
+                            <li class="ui-state-disabled">
+                                <a href="#">{{ gettext("(Empty)") }}</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li data-access-key="f" data-icon="find">
+                        {{ gettext("Find") }}
+                        <ul class="menu">
+                            <li class="ui-state-disabled">
+                                <a href="#">{{ gettext("(Empty)") }}</a>
+                            </li>
+                        </ul>
+                    </li>
                     <li data-access-key="h" data-icon="help">{{ gettext("Help") }}</li>
                     <li data-access-key="r" data-icon="run" data-popup>{{ gettext("Run") }}</li>
                     <li class="separator" />

@@ -159,7 +159,7 @@ ul.menu {
             font-weight: bold;
         }
 
-        &.disabled {
+        &.ui-state-disabled {
             color: $color-border-shadow;
             text-shadow: $color-border-highlight 1px 1px;
             &:hover {
@@ -175,6 +175,21 @@ ul.menu {
 
             border-top: 1px solid $color-border-shadow;
             border-bottom: 1px solid $color-border-highlight;
+        }
+
+        .arrow-wrapper {
+            position: absolute;
+            right: 7px;
+        }
+        .arrow {
+            margin: 3px 0;
+            width: 4px;
+            height: 7px;
+            background-image: url(images/sprite.png);
+            background-position: -246px -94px;
+        }
+        &:not(.separator):hover > .arrow-wrapper .arrow {
+            background-position: -251px -94px;
         }
     }
 }

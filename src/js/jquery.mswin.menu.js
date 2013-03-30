@@ -30,13 +30,22 @@ $.widget( "mswin.menubar", $.ui.menu, {
                 this.focus( event, target );
             },
             blur: function( event ) {
-                console.log( "blur" );
                 if ( !$.contains( this.element[0], this.document[0].activeElement ) ) {
                     this.element.find( ".ui-state-open" ).removeClass( "ui-state-open" );
                     this.collapseAll( event );
                 }
             },
         });
+    },
+
+    refresh: function() {
+        $.ui.menu.prototype.refresh.call(this);
+        this.element.find( ".ui-menu-item:has(ul.ui-menu):not(:has(.arrow-wrapper))" )
+            .each(function () {
+                var menu = $( this );
+                menu.prepend($( "<div class='arrow-wrapper'><div class='arrow'></div></div>" ));
+                console.log(menu);
+            });
     },
 
     focus: function( event, item ) {
