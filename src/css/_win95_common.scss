@@ -519,10 +519,10 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
     @include sunken-control();
     background-color: white;
 
+    overflow: scroll;
+
     &.listview-largeicon ul {
-        height: 100%;
         position: relative;
-        overflow: auto;
         li {
             float: left;
         }
