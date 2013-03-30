@@ -392,12 +392,12 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
             float: left;
             width: 80px; // XXX arbitrary
             height: 18px;
-            &:last-child:after {
-                clear: both;
-                content: "";
-                display: block;
-                height: 0;
-            }
+        }
+        &:last-child:after {
+            clear: both;
+            content: "";
+            display: block;
+            height: 0;
         }
     }
 
