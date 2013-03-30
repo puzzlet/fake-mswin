@@ -115,6 +115,10 @@
     @include sprite-image(-$x*32px, -$y*32px);
 }
 
+@mixin sprite-small-icon($x, $y) {
+    @include sprite-image(-$x*16px, -$y*16px);
+}
+
 @mixin title-button-image($index) {
     @include sprite-image(-224px, (-108px - 10px*$index));
 }
