@@ -19,20 +19,20 @@
                     <li data-access-key="p" data-icon="programs">
                         {{ gettext("Programs") }}
                         <ul class="menu">
-                            <li>
-                                {{ gettext("Accessories") }}
+                            <li data-icon="group">
+                                <span>{{ gettext("Accessories") }}</span>
                                 <ul class="menu">
-                                    <li>
-                                        {{ gettext("Games") }}
+                                    <li data-icon="group">
+                                        <span>{{ gettext("Games") }}</span>
                                         <ul class="menu">
-                                            <li><a href="#">{{ gettext("Freecell") }}</a></li>
-                                            <li><a href="#">{{ gettext("Minesweeper") }}</a></li>
-                                            <li><a href="#">{{ gettext("Solitare") }}</a></li>
+                                            <li data-icon="freecell"><a href="#"><span>{{ gettext("Freecell") }}</span></a></li>
+                                            <li data-icon="winmine"><a href="#"><span>{{ gettext("Minesweeper") }}</span></a></li>
+                                            <li data-icon="sol"><a href="#"><span>{{ gettext("Solitare") }}</span></a></li>
                                         </ul>
                                     </li>
                                 </ul>
                             </li>
-                            <li><a href="#">{{ gettext("Microsoft Word") }}</a></li>
+                            <li data-icon="word"><a href="#"><span>{{ gettext("Microsoft Word") }}</span></a></li>
                         </ul>
                     </li>
                     <li data-access-key="a" data-icon="favorites">

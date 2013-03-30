@@ -147,12 +147,20 @@ ul.menu {
         display: block;
         padding: 2px 16px; // arbitrary
 
+        & > span {
+            display: block;
+            margin: 1px 0;
+        }
+
         &[data-popup]:after {
             content: "...";
         }
 
         &:not(.separator):hover {
             @include item-selected();
+            & > a {
+                @include item-selected();
+            }
         }
 
         &.default {
@@ -176,6 +184,23 @@ ul.menu {
             border-top: 1px solid $color-border-shadow;
             border-bottom: 1px solid $color-border-highlight;
         }
+
+        &[data-icon] {
+            padding-left: 1px;
+            &:before {
+                float: left;
+                margin-right: 10px;
+                width: 16px;
+                height: 16px;
+                background-image: url(images/sprite.png);
+                content: "";
+            }
+        }
+        &[data-icon="group"     ]:before { background-position: (-16px * 10) (-16px * 2); }
+        &[data-icon="word"      ]:before { background-position: (-16px * 11) (-16px * 2); }
+        &[data-icon="winmine"   ]:before { background-position: (-16px *  7) (-16px * 3); }
+        &[data-icon="sol"       ]:before { background-position: (-16px *  8) (-16px * 3); }
+        &[data-icon="freecell"  ]:before { background-position: (-16px *  9) (-16px * 3); }
 
         .arrow-wrapper {
             position: absolute;
