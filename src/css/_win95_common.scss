@@ -381,6 +381,35 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
         list-style-type: none;
     }
 }
+
+.listview.listview-report table {
+    &, * {
+        border: 0;
+        display: block;
+    }
+    tr {
+        td {
+            float: left;
+            width: 80px; // XXX arbitrary
+            height: 18px;
+            &:last-child:after {
+                clear: both;
+                content: "";
+                display: block;
+                height: 0;
+            }
+        }
+    }
+
+    thead {
+        tr {
+            td {
+                @include button-control();
+            }
+        }
+    }
+}
+
 .listview.listview-largeicon ul, ul.desktop-listview.listview-largeicon {
     & li {
         @include box-sizing(border-box);

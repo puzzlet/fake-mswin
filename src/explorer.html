@@ -15,6 +15,13 @@
     height: 300px;
     position: absolute;
     top: 0;
+    left: 0;
+}
+
+.explorer + .explorer {
+    position: absolute;
+    top: 0;
+    left: 400px;
 }
 
 .explorer .title-bar .title-icon {
@@ -89,6 +96,73 @@
         <li>New Folder (4)</li>
         <li data-icon="recycling-bin">New Folder (5)</li>
     </ul>
+    </div>
+</div>
+
+<div class="window explorer">
+    <div class="title-bar">
+        <div class="title-icon"></div>
+        <div class="title">System32</div>
+        <div class="title-button-group">
+            <div class="title-button minimize"></div>
+            <div class="title-button maximize"></div>
+            <div class="title-button close"></div>
+        </div>
+    </div>
+    <div class="rebar">
+        <div class="band-line">
+            <div class="band">
+                <div class="gripper"></div>
+                <ul class="menu-bar">
+                    <li data-access-key="f">{{ gettext("File") }}</li>
+                    <li data-access-key="e">{{ gettext("Edit") }}</li>
+                    <li data-access-key="v">{{ gettext("View") }}</li>
+                    <li data-access-key="g">{{ gettext("Go") }}</li>
+                    <li data-access-key="f">{{ gettext("Favorites") }}</li>
+                    <li data-access-key="h">{{ gettext("Help") }}</li>
+                </ul>
+            </div>
+            <div class="band windows-logo">
+            </div>
+        </div>
+    </div>
+    <div class="window-content listview listview-report listview-report-icon">
+        <table>
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Size</td>
+                    <td>Type</td>
+                    <td>Modified</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>New Folder</td>
+                    <td></td>
+                    <td>File Folder</td>
+                    <td>7/6/99 3:20 AM</td>
+                </tr>
+                <tr>
+                    <td>New Folder (2)</td>
+                    <td></td>
+                    <td>File Folder</td>
+                    <td>7/6/99 3:20 AM</td>
+                </tr>
+                <tr>
+                    <td>New Folder (3)</td>
+                    <td></td>
+                    <td>File Folder</td>
+                    <td>7/6/99 3:20 AM</td>
+                </tr>
+                <tr>
+                    <td data-icon="recycling-bin">New Folder (4)</td>
+                    <td></td>
+                    <td>File Folder</td>
+                    <td>7/6/99 3:20 AM</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
 
