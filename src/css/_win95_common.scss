@@ -406,6 +406,23 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
             td {
                 @include button-control();
             }
+            // endless bar!
+            background-color: $color-face;
+            box-shadow:
+                inset 0 1px 0 0 $color-border-highlight,
+                inset 0 -1px 0 0 $color-border-darkshadow,
+                inset 0 1px 0 1px $color-face,
+                inset 0 -1px 0 1px $color-border-shadow;
+
+            td:last-child {
+                &:before {
+                    position: absolute;
+                    content: "";
+                    z-index: -1;
+                    border-right: 1px solid $color-border-highlight;
+                    right: -3px;
+                }
+            }
         }
     }
 }
