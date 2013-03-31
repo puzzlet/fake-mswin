@@ -404,6 +404,8 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
     thead {
         position: absolute;
         top: 0;
+        left: 0;
+        right: 0;
         height: 18px;
         tr {
             td {
@@ -431,6 +433,12 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
     tbody {
         position: absolute;
         top: 18px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow-x: hidden;
+        overflow-y: auto;
+        @include clear-list();
         tr {
             td {
                 overflow-x: hidden;
@@ -515,10 +523,10 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
     @include sunken-control();
     background-color: white;
 
-    overflow: scroll;
-
     &.listview-largeicon ul {
         position: relative;
+        overflow: auto;
+        height: 100%;
         li {
             float: left;
         }
