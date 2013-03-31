@@ -1,0 +1,46 @@
+{% from '_desktop.html' import desktop %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="win98.css" type="text/css" media="screen">
+</head>
+
+<body>
+
+<div class="windows windows-98 windows-locale-en_US ">
+    <div class="desktop">
+        <ul class="desktop-listview listview-largeicon">
+            <li data-icon="my-computer"><span><a href="win98/en_US/demo.html">English</a></span></li>
+            <li data-icon="my-computer"><span><a href="win98/ko_KR/demo.html">Korean</a></span></li>
+        </ul>
+    </div>
+</div>
+
+    <script src="../../vendor/jquery.min.js"></script>
+    <script src="../../vendor/jquery-ui.min.js"></script>
+    <script src="../../jquery.mswin.js"></script>
+    <script src="../../jquery.mswin.listview.js"></script>
+    <script src="../../jquery.mswin.menu.js"></script>
+    <script>
+$('.window').window();
+$('.desktop-listview').listview();
+$('.menu-bar').menubar();
+$('.taskbar ul.start').menubar({
+    position_toplevel: {
+        my: "left bottom",
+        at: "left top",
+    },
+});
+    </script>
+
+</body>
+
+</html>
+
+
+{#-
+vim: filetype=jinjahtml
+#}

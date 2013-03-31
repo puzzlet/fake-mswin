@@ -32,7 +32,11 @@ def main():
     for file_path in glob.glob(os.path.join(template_path, '*.html')):
         _, _, file_name = file_path.partition(template_path)
         file_name = file_name.lstrip(os.path.sep)
-        if file_name.startswith('_'):
+        if file_name == '_index.html':
+            # XXX redundant
+            open(os.path.join(base_path, 'gh-pages', 'index.html'), 'w+').write(
+                env.get_template(file_name).render(**kwargs).encode('utf-8'))
+        elif file_name.startswith('_'):
             continue
         open(os.path.join(target_path, file_name), 'w+').write(
             env.get_template(file_name).render(**kwargs).encode('utf-8'))
