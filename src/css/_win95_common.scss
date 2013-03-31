@@ -452,7 +452,7 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
         overflow-y: auto;
         @include clear-list();
         tr {
-            td {
+            td, td span {
                 overflow-x: hidden;
                 text-overflow: "...";
                 white-space: nowrap;
@@ -493,6 +493,7 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
             border: 1px solid transparent;
             float: left;
             padding: 1px 6px 1px 1px;
+            width: 100%;
         }
         &.ui-focused span {
             @include item-selected();
