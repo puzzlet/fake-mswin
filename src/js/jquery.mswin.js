@@ -5,7 +5,7 @@ $.widget( "mswin.window", {
         this.taskbar = $( ".taskbar" );  // TODO: specify as an argument
         this.element.resizable({
             handles: "all",
-            alsoResize: ".window-content"
+            alsoResize: this.element.find( ".window-content" ),
         });
         this.element.draggable({ handle: ".title" });
         this._on({
