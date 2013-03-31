@@ -2,6 +2,7 @@
 
 $.widget( "mswin.window", {
     _create: function() {
+        var _this = this;
         this.taskbar = $( ".taskbar" );  // TODO: specify as an argument
         this.element.resizable({
             handles: "all",
@@ -11,8 +12,7 @@ $.widget( "mswin.window", {
             handle: ".title",
             start: function( event ) {
                 // XXX: should bring the window to front on mousedown, not just dragstart
-                $( ".window" ).css({ "z-index": 0 });
-                $( this ).css({ "z-index": 1000 });  // TODO: should be less than taskbar
+                _this.select();
             },
         });
         this._on({
@@ -100,15 +100,21 @@ $.widget( "mswin.window", {
     },
 
     select: function() {
-        // TODO: unselect every other task
+        $( ":mswin-window" ).each( function() {
+            $( this ).data( "mswin-window" ).unselect();
+        });
         this.task_element.addClass( "selected" );
         if (!this.element.is( ":visible" )) {
             this.element.show();
         }
+        // bring window to the front
+        this.element.css({ "z-index": 1000 });  // TODO: should be less than taskbar
     },
 
     unselect: function() {
+        console.log( "unselect" );
         this.task_element.removeClass( "selected" );
+        this.element.css({ "z-index": 0 });
     },
 
     taskClick: function() {
