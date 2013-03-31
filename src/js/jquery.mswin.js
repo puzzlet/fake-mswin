@@ -56,8 +56,16 @@ $.widget( "mswin.window", {
         this.task_element = $("<div class='task'></div>");
         var tasks = this.taskbar.find(".tasks");
         tasks.append(this.task_element);
+
+        var title_icon = this.element.find(".title-icon");
+        var title_icon_clone = title_icon.clone();
+        var p = 'background-image';
+        title_icon_clone.css(p, title_icon.css(p));
+        p = 'background-position';
+        title_icon_clone.css(p, title_icon.css(p));
+
         this.task_element
-            .append(this.element.find(".title-icon").clone())
+            .append(title_icon_clone)
             .append($("<div class='title-wrapper'><span>" + this.element.find(".title").text() + "</span></div>"))
             .on("click", $.proxy( this.taskClick, this ));
         this.select();
