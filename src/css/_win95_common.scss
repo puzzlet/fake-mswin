@@ -263,6 +263,8 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
         right: $title-button-group-width;
         color: #C0C0C0;
         background-color: #808080;
+        white-space: nowrap;
+        overflow: hidden;
     }
 
     &.ui-selected {
@@ -600,6 +602,7 @@ ul.desktop-listview {
 
 ul.toolbar {
     height: 16px + (2px + 1px) * 2;
+    overflow: hidden;
     li {
         list-style-type: none;
         float: left;
