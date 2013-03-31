@@ -112,7 +112,6 @@ $.widget( "mswin.window", {
     },
 
     unselect: function() {
-        console.log( "unselect" );
         this.task_element.removeClass( "selected" );
         this.element.css({ "z-index": 0 });
     },

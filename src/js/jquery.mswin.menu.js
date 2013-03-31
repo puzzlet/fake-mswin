@@ -44,7 +44,6 @@ $.widget( "mswin.menubar", $.ui.menu, {
             .each(function () {
                 var menu = $( this );
                 menu.prepend($( "<div class='arrow-wrapper'><div class='arrow'></div></div>" ));
-                console.log(menu);
             });
     },
 
