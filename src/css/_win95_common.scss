@@ -485,16 +485,16 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
 
         &:before {
             @include sprite-large-icon(2, 2);
-            &.selected:before {
-                @include sprite-large-icon(2, 3);
-            }
+        }
+        &.ui-focused:before {
+            @include sprite-large-icon(2, 3);
         }
 
         @mixin listview-large-icon($v, $x) {
             &[data-icon=#{$v}]:before {
                 @include sprite-large-icon($x, 2);
             }
-            &[data-icon=#{$v}].selected:before {
+            &[data-icon=#{$v}].ui-focused:before {
                 @include sprite-large-icon($x, 3);
             }
         }
@@ -508,7 +508,7 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
             padding: 2px;
         }
 
-        &.selected span {
+        &.ui-focused span {
             border: 1px dotted rgb(255, 255, 127);  // inverted color
             @include item-selected();
         }

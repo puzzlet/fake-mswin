@@ -69,31 +69,31 @@
     </div>
     <div class="window-content listview listview-largeicon">
     <ul>
-        <li>New Folder</li>
-        <li>New Folder (2)</li>
-        <li>New Folder (3)</li>
-        <li>New Folder (4)</li>
-        <li>New Folder (2)</li>
-        <li>New Folder (3)</li>
-        <li>New Folder (4)</li>
-        <li>New Folder (2)</li>
-        <li>New Folder (3)</li>
-        <li>New Folder (4)</li>
-        <li>New Folder (2)</li>
-        <li>New Folder (3)</li>
-        <li>New Folder (4)</li>
-        <li>New Folder (2)</li>
-        <li>New Folder (3)</li>
-        <li>New Folder (4)</li>
-        <li>New Folder (2)</li>
-        <li>New Folder (3)</li>
-        <li>New Folder (4)</li>
-        <li>New Folder (2)</li>
-        <li>New Folder (3)</li>
-        <li>New Folder (4)</li>
-        <li>New Folder (2)</li>
-        <li>New Folder (3)</li>
-        <li>New Folder (4)</li>
+        <li><span>New Folder</span></li>
+        <li><span>New Folder (2)</span></li>
+        <li><span>New Folder (3)</span></li>
+        <li><span>New Folder (4)</span></li>
+        <li><span>New Folder (2)</span></li>
+        <li><span>New Folder (3)</span></li>
+        <li><span>New Folder (4)</span></li>
+        <li><span>New Folder (2)</span></li>
+        <li><span>New Folder (3)</span></li>
+        <li><span>New Folder (4)</span></li>
+        <li><span>New Folder (2)</span></li>
+        <li><span>New Folder (3)</span></li>
+        <li><span>New Folder (4)</span></li>
+        <li><span>New Folder (2)</span></li>
+        <li><span>New Folder (3)</span></li>
+        <li><span>New Folder (4)</span></li>
+        <li><span>New Folder (2)</span></li>
+        <li><span>New Folder (3)</span></li>
+        <li><span>New Folder (4)</span></li>
+        <li><span>New Folder (2)</span></li>
+        <li><span>New Folder (3)</span></li>
+        <li><span>New Folder (4)</span></li>
+        <li><span>New Folder (2)</span></li>
+        <li><span>New Folder (3)</span></li>
+        <li><span>New Folder (4)</span></li>
         <li data-icon="recycling-bin">New Folder (5)</li>
     </ul>
     </div>
@@ -255,9 +255,13 @@
     <script src="../../vendor/jquery.min.js"></script>
     <script src="../../vendor/jquery-ui.min.js"></script>
     <script src="../../jquery.mswin.js"></script>
+    <script src="../../jquery.mswin.listview.js"></script>
     <script src="../../jquery.mswin.menu.js"></script>
+    <script src="../../jquery.mswin.taskbar.js"></script>
     <script>
 $('.window').window();
+$('.listview').listview();
+$('.desktop-listview').listview();
 $('.menu-bar').menubar();
 $('.taskbar ul.start').menubar({
     position_toplevel: {
