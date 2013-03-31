@@ -205,11 +205,11 @@ ul.menu {
                 content: "";
             }
         }
-        &[data-icon="group"     ]:before { background-position: (-16px * 10) (-16px * 2); }
+        &[data-icon="group"     ]:before { background-position: (-16px *  9) (-16px * 3); }
         &[data-icon="word"      ]:before { background-position: (-16px * 11) (-16px * 2); }
-        &[data-icon="winmine"   ]:before { background-position: (-16px *  7) (-16px * 3); }
-        &[data-icon="sol"       ]:before { background-position: (-16px *  8) (-16px * 3); }
-        &[data-icon="freecell"  ]:before { background-position: (-16px *  9) (-16px * 3); }
+        &[data-icon="winmine"   ]:before { background-position: (-16px *  8) (-16px * 2); }
+        &[data-icon="sol"       ]:before { background-position: (-16px *  9) (-16px * 2); }
+        &[data-icon="freecell"  ]:before { background-position: (-16px * 10) (-16px * 2); }
 
         .arrow-wrapper {
             position: absolute;
@@ -463,13 +463,19 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
             left: 1px;
             top: 2px;
             content: "";
-            @include sprite-small-icon(9, 2);
             width: 16px;
             height: 16px;
+            @include sprite-small-icon(10, 3);
         }
-        @mixin listview-small-icon($v, $x, $y) {
+        &.ui-focused:before {
+            @include sprite-small-icon(10, 4);
+        }
+        @mixin listview-small-icon($v, $x) {
             &[data-icon=#{$v}]:before {
-                @include sprite-small-icon($x, $y);
+                @include sprite-small-icon($x, 3);
+            }
+            &[data-icon=#{$v}].ui-focused:before {
+                @include sprite-small-icon($x, 4);
             }
         }
         @include listview-small-icon("word", 11);
@@ -532,7 +538,7 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
         @include listview-large-icon("my-networks", 1);
         @include listview-large-icon("folder", 2);
         @include listview-large-icon("recycling-bin", 3);
-        @include listview-large-icon("internet-explorer", 6);
+        @include listview-large-icon("internet-explorer", 4);
 
         span {
             border: 1px solid transparent;
