@@ -215,7 +215,7 @@
         </div>
         <div class="taskbar-notification-area">
             <div class="notification-area">
-                오후 3:31
+                <span class="clock">12:00 AM</span>
             </div>
         </div>
     </div>
@@ -225,10 +225,12 @@
     <script src="../../vendor/jquery.min.js"></script>
     <script src="../../vendor/jquery-ui.min.js"></script>
     <script src="../../jquery.mswin.js"></script>
+    <script src="../../jquery.mswin.taskbar.js"></script>
     <script src="../../jquery.mswin.listview.js"></script>
     <script src="../../jquery.mswin.menu.js"></script>
     <script>
 $('.window').window();
+$('.taskbar').taskbar();
 $('.desktop-listview').listview();
 $('.menu-bar').menubar();
 $('.taskbar ul.start').menubar({
