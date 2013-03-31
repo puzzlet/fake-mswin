@@ -9,6 +9,15 @@ $menubar-height: 18px;
     }
 }
 
+@mixin clear-list() {
+    &:after {
+        content: "";
+        display: block;
+        height: 0;
+        clear: both;
+    }
+}
+
 * {
     font-family: "굴림", "Gulim", "Tahoma", sans-serif;
     font-size: 9pt;
@@ -330,12 +339,7 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
             @include band-line-separator();
         }
     }
-    &:after {
-        content: "";
-        display: block;
-        height: 0;
-        clear: both;
-    }
+    @include clear-list();
 }
 
 .rebar {
@@ -394,18 +398,14 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
             width: 80px; // XXX arbitrary
             height: 18px;
         }
-        &:last-child:after {
-            clear: both;
-            content: "";
-            display: block;
-            height: 0;
-        }
-        clear: both;
+        @include clear-list();
     }
 
     thead {
         position: absolute;
         top: 0;
+        left: 0;
+        right: 0;
         height: 18px;
         tr {
             td {
@@ -433,15 +433,19 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
     tbody {
         position: absolute;
         top: 18px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow-x: hidden;
+        overflow-y: auto;
+        @include clear-list();
         tr {
-            clear: both;
             td {
                 overflow-x: hidden;
                 text-overflow: "...";
                 white-space: nowrap;
             }
         }
-        clear: both;
     }
 }
 .listview.listview-report-icon tbody td:first-child {
@@ -519,10 +523,10 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
     @include sunken-control();
     background-color: white;
 
-    overflow: scroll;
-
     &.listview-largeicon ul {
         position: relative;
+        overflow: auto;
+        height: 100%;
         li {
             float: left;
         }
