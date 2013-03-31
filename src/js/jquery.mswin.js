@@ -17,6 +17,9 @@ $.widget( "mswin.window", {
         });
         this._on({
             "click": function( event ) {
+                if ($( event.target ).is( ".title-button" )) {
+                    return;
+                }
                 this.select();
             },
             "click .title-button.minimize": function( event ) {
