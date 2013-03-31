@@ -1,5 +1,16 @@
-{% macro word(title=None) %}
-<div class="office word maximized window">
+{% macro word(title=None, width=None, height=None) %}
+<div class="office word window" style="position: absolute; left: 50px; top: 100px;
+    {%- if width -%}
+        width: {{ width }};
+    {%- else -%}
+        width: 850px;
+    {%- endif -%}
+    {%- if height -%}
+        height: {{ height }};
+    {%- else -%}
+        height: 700px;
+    {%- endif -%}
+">
     <div class="title-bar">
         <div class="title-icon"></div>
         <div class="title">
