@@ -120,7 +120,7 @@ $.widget( "mswin.window", {
 
     select: function() {
         var _this = this;
-        $( ":mswin-window .title-bar.ui-selected" ).removeClass( "ui-selected" );
+        $( ".window .title-bar.ui-selected" ).removeClass( "ui-selected" );
         this.element.find( ".title-bar" ).addClass( "ui-selected" );
         if (!this.element.is( ":visible" )) {
             this.element.show();
