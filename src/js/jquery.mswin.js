@@ -16,6 +16,9 @@ $.widget( "mswin.window", {
             },
         });
         this._on({
+            "click": function( event ) {
+                this.select();
+            },
             "click .title-button.minimize": function( event ) {
                 this.element.hide();
                 this.unselect();
@@ -100,13 +103,16 @@ $.widget( "mswin.window", {
     },
 
     select: function() {
+        $( ":mswin-window .title-bar.ui-selected" ).removeClass( "ui-selected" );
+        this.element.find( ".title-bar" ).addClass( "ui-selected" );
+        if (!this.element.is( ":visible" )) {
+            this.element.show();
+        }
+        // taskbar
         $( ":mswin-window" ).each( function() {
             $( this ).data( "mswin-window" ).unselect();
         });
         this.task_element.addClass( "selected" );
-        if (!this.element.is( ":visible" )) {
-            this.element.show();
-        }
         // bring window to the front
         this.element.css({ "z-index": 1000 });  // TODO: should be less than taskbar
     },

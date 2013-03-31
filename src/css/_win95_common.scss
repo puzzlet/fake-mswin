@@ -236,7 +236,7 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
     margin-bottom: 1px;
     padding-right: 2px;
 
-    background-color: $color-gradient-active-title;
+    background-color: #808080;
 
     position: relative;
     .title-icon {
@@ -250,9 +250,8 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
             right: 2px;
         }
         border-style: solid;
-        border-color: $color-active-title;
-
-        background-color: $color-active-title;
+        border-color: #808080;  // XXX
+        background-color: #808080;
     }
     .title {
         @include box-sizing(border-box);
@@ -262,11 +261,21 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
         bottom: 0;
         left: 20px;
         right: $title-button-group-width;
+        color: #C0C0C0;
+        background-color: #808080;
+    }
 
-        font-weight: bold;
-        color: white;
-
-        @include linear-gradient-hor($color-active-title, $color-gradient-active-title);
+    &.ui-selected {
+        background-color: $color-gradient-active-title;
+        .title-icon {
+            border-color: $color-active-title;
+            background-color: $color-active-title;
+        }
+        .title {
+            font-weight: bold;
+            color: white;
+            @include linear-gradient-hor($color-active-title, $color-gradient-active-title);
+        }
     }
 }
 
