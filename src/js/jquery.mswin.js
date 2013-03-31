@@ -7,7 +7,14 @@ $.widget( "mswin.window", {
             handles: "all",
             alsoResize: this.element.find( ".window-content" ),
         });
-        this.element.draggable({ handle: ".title" });
+        this.element.draggable({
+            handle: ".title",
+            start: function( event ) {
+                // XXX: should bring the window to front on mousedown, not just dragstart
+                $( ".window" ).css({ "z-index": 0 });
+                $( this ).css({ "z-index": 1000 });  // TODO: should be less than taskbar
+            },
+        });
         this._on({
             "click .title-button.minimize": function( event ) {
                 this.element.hide();
