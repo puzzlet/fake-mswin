@@ -658,10 +658,19 @@ ul.toolbar {
             border-right: 1px solid $color-border-highlight;
         }
 
-        &[data-icon="show-desktop"  ]:before { background-position: (-16px * 4) (-16px * 2); }
-        &[data-icon="ie5"           ]:before { background-position: (-16px * 5) (-16px * 2); }
-        &[data-icon="outlook"       ]:before { background-position: (-16px * 6) (-16px * 2); }
-        &[data-icon="github"        ]:before { background-position: (-16px * 6) (-16px * 3); }
+        &[data-icon="show-desktop"  ]:before { background-position: (-16px *  4) (-16px * 2); }
+        &[data-icon="ie5"           ]:before { background-position: (-16px *  5) (-16px * 2); }
+        &[data-icon="outlook"       ]:before { background-position: (-16px *  6) (-16px * 2); }
+        &[data-icon="twitter"       ]:before { background-position: (-16px * 10) (-16px * 5); }
+        &[data-icon="facebook"      ]:before { background-position: (-16px * 11) (-16px * 5); }
+        &[data-icon="github"        ]:before { background-position: (-16px * 12) (-16px * 5); }
+
+        a {
+            // XXX
+            display: block;
+            width: 16px;
+            height: 16px;
+        }
     }
 }
 
