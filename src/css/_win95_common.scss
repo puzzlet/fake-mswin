@@ -733,7 +733,7 @@ ul.toolbar {
         .title-wrapper {
             margin-top: 2px;
             overflow: hidden;
-            text-overflow: ellipsis;
+            text-overflow: "...";
 
             span {
                 white-space: nowrap;
