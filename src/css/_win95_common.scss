@@ -281,6 +281,14 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
     }
 }
 
+.explorer {
+    min-width: 350px;
+    min-height: 150px;
+    padding-bottom: 31px;  // XXX
+    .window-content {
+        height: 100%;
+    }
+}
 .explorer .title-bar .title-icon {
     background-image: url(images/sprite.png);
     background-position: -128px -48px;

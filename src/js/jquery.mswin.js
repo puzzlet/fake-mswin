@@ -4,17 +4,21 @@ $.widget( "mswin.window", {
     _create: function() {
         var _this = this;
         this.taskbar = $( ".taskbar" );  // TODO: specify as an argument
-        this.element.resizable({
-            handles: "all",
-            alsoResize: this.element.find( ".window-content" ),
-        });
-        this.element.draggable({
-            handle: ".title",
-            start: function( event ) {
-                // XXX: should bring the window to front on mousedown, not just dragstart
-                _this.select();
-            },
-        });
+        this.element
+            .uniqueId()
+            .resizable({
+                handles: "all",
+                alsoResize: this.element.find( ".window-content" ),
+                minWidth: parseInt(this.element.css( "min-width" )),
+                minHeight: parseInt(this.element.css( "min-height" )),
+            })
+            .draggable({
+                handle: ".title",
+                start: function( event ) {
+                    // XXX: should bring the window to front on mousedown, not just dragstart
+                    _this.select();
+                },
+            });
         this._on({
             "click": function( event ) {
                 if ($( event.target ).is( ".title-button" )) {
