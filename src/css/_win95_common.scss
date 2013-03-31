@@ -448,24 +448,45 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
         }
     }
 }
-.listview.listview-report-icon tbody td:first-child {
-    position: relative;
-    padding-left: 16px;
-    &:before {
-        position: absolute;
-        left: 0;
-        top: 0;
-        content: "";
-        @include sprite-small-icon(9, 2);
-        width: 16px;
-        height: 16px;
-    }
-    @mixin listview-small-icon($v, $x, $y) {
-        &[data-icon=#{$v}]:before {
-            @include sprite-small-icon($x, $y);
+.listview.listview-report-icon tbody tr {
+    padding: 1px;
+    td:first-child {
+        position: relative;
+        padding-left: 20px;
+        &:before {
+            position: absolute;
+            left: 0;
+            top: 0;
+            content: "";
+            @include sprite-small-icon(9, 2);
+            width: 16px;
+            height: 16px;
+        }
+        @mixin listview-small-icon($v, $x, $y) {
+            &[data-icon=#{$v}]:before {
+                @include sprite-small-icon($x, $y);
+            }
+        }
+        @include listview-small-icon("word", 11);
+
+        span {
+            border: 1px solid transparent;
+            float: left;
+            padding: 1px 6px 1px 1px;
+        }
+        &.ui-focused span {
+            @include item-selected();
+        }
+        &.ui-selected span {
+            border: 1px dotted black;  // inverted color
+        }
+        &.ui-focused.ui-selected span {
+            border: 1px dotted rgb(255, 255, 127);  // inverted color
         }
     }
-    @include listview-small-icon("word", 11, 3);
+    td:not(:first-child) {
+        padding: 1px 3px + 2px;
+    }
 }
 
 .listview.listview-largeicon ul, ul.desktop-listview.listview-largeicon {
@@ -509,14 +530,22 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
         @include listview-large-icon("internet-explorer", 6);
 
         span {
+            border: 1px solid transparent;
             padding: 2px;
         }
-
         &.ui-focused span {
-            border: 1px dotted rgb(255, 255, 127);  // inverted color
             @include item-selected();
         }
+        &.ui-selected span {
+            border: 1px dotted black;  // inverted color
+        }
+        &.ui-focused.ui-selected span {
+            border: 1px dotted rgb(255, 255, 127);  // inverted color
+        }
     }
+}
+ul.desktop-listview li.ui-selected:not(.ui-focused) span {
+    border-color: invert($color-desktop-background);
 }
 
 .listview {
