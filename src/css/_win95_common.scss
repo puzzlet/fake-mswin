@@ -279,6 +279,11 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
     }
 }
 
+.explorer .title-bar .title-icon {
+    background-image: url(images/sprite.png);
+    background-position: -128px -48px;
+}
+
 .title-button-group {
     float: right;
 
