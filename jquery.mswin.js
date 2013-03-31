@@ -4,17 +4,21 @@ $.widget( "mswin.window", {
     _create: function() {
         var _this = this;
         this.taskbar = $( ".taskbar" );  // TODO: specify as an argument
-        this.element.resizable({
-            handles: "all",
-            alsoResize: this.element.find( ".window-content" ),
-        });
-        this.element.draggable({
-            handle: ".title",
-            start: function( event ) {
-                // XXX: should bring the window to front on mousedown, not just dragstart
-                _this.select();
-            },
-        });
+        this.element
+            .uniqueId()
+            .resizable({
+                handles: "all",
+                alsoResize: this.element.find( ".window-content" ),
+                minWidth: parseInt(this.element.css( "min-width" )),
+                minHeight: parseInt(this.element.css( "min-height" )),
+            })
+            .draggable({
+                handle: ".title",
+                start: function( event ) {
+                    // XXX: should bring the window to front on mousedown, not just dragstart
+                    _this.select();
+                },
+            });
         this._on({
             "click": function( event ) {
                 if ($( event.target ).is( ".title-button" )) {
@@ -24,7 +28,7 @@ $.widget( "mswin.window", {
             },
             "click .title-button.minimize": function( event ) {
                 this.element.hide();
-                this.unselect();
+                this.unselect( this.element );
             },
             "click .title-button.maximize": function( event ) {
                 this.maximize();
@@ -54,6 +58,7 @@ $.widget( "mswin.window", {
             this.restore();
         }
         this.task_element = $( "<div class='task'></div>" );
+        this.task_element.attr("for", this.element.attr( "id" ));
         var tasks = this.taskbar.find(".tasks");
         tasks.append(this.task_element);
 
@@ -114,28 +119,33 @@ $.widget( "mswin.window", {
     },
 
     select: function() {
-        $( ":mswin-window .title-bar.ui-selected" ).removeClass( "ui-selected" );
+        var _this = this;
+        $( ".window .title-bar.ui-selected" ).removeClass( "ui-selected" );
         this.element.find( ".title-bar" ).addClass( "ui-selected" );
         if (!this.element.is( ":visible" )) {
             this.element.show();
         }
         // taskbar
-        $( ":mswin-window" ).each( function() {
-            $( this ).data( "mswin-window" ).unselect();
+        $( ".window" ).each( function() {
+            _this.unselect( this );
         });
         this.task_element.addClass( "selected" );
         // bring window to the front
         this.element.css({ "z-index": 1000 });  // TODO: should be less than taskbar
     },
 
-    unselect: function() {
-        this.task_element.removeClass( "selected" );
-        this.element.css({ "z-index": 0 });
+    unselect: function( element ) {
+        element = $( element );
+        var task_element = $( "div[for='" + element.attr( "id" ) + "'].task" );
+        if (task_element) {
+            task_element.removeClass( "selected" );
+        }
+        element.css({ "z-index": 0 });
     },
 
     taskClick: function() {
         if (this.task_element.is( ".selected" )) {
-            this.unselect();
+            this.unselect( this.element );
             this.element.hide();
         }
         else {
