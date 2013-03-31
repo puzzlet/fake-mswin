@@ -389,8 +389,10 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
 .listview.listview-report table {
     &, * {
         border: 0;
-        display: block;
         @include box-sizing(border-box);
+    }
+    thead * {
+        display: block;
     }
     tr {
         td {
@@ -410,6 +412,7 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
         tr {
             td {
                 @include button-control();
+                padding: 0 3px;
             }
             // endless bar!
             background-color: $color-face;
@@ -447,16 +450,18 @@ $title-button-group-width: 16px + 16px + 2px + 16px + 2px;
             }
         }
     }
+    td.size {
+        text-align: right;
+    }
 }
 .listview.listview-report-icon tbody tr {
-    padding: 1px;
     td:first-child {
         position: relative;
         padding-left: 20px;
         &:before {
             position: absolute;
-            left: 0;
-            top: 0;
+            left: 1px;
+            top: 2px;
             content: "";
             @include sprite-small-icon(9, 2);
             width: 16px;
