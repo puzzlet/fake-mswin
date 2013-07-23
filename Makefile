@@ -1,9 +1,9 @@
 OUTDIR?=gh-pages
+SASS_ARGS ?= --style compressed
 SKINS = win98 winxp-green winxp-classic
 SOURCE_SCSS = $(patsubst %,src/css/%.scss,$(SKINS))
 TARGET_CSS = $(patsubst %,$(OUTDIR)/%.css,$(SKINS))
 LOCALES = en_US ko_KR
-SASS_ARGS = --style compressed
 
 all: html assets po/messages.pot css js
 
