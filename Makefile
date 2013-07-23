@@ -1,4 +1,4 @@
-OUTDIR?=gh-pages
+OUTDIR?=build
 SASS_ARGS ?= --style compressed
 SKINS = win98 winxp-green winxp-classic
 SOURCE_SCSS = $(patsubst %,src/css/%.scss,$(SKINS))
