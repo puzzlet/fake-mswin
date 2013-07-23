@@ -14,7 +14,7 @@ js: $(OUTDIR)/*.js
 
 assets: $(OUTDIR)/*.jpg $(OUTDIR)/*.png $(OUTDIR)/images/* vendor
 
-html: src/*.html
+html: examples/*.html
 	$(foreach skin,$(SKINS), \
 		python build.py $(skin) $(OUTDIR) ; \
 	)

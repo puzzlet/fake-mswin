@@ -8,7 +8,7 @@ import jinja2
 def main():
     _, theme, build_path = sys.argv
     base_path = os.path.abspath(os.path.dirname(__file__))
-    template_path = os.path.join(base_path, 'src')
+    template_path = os.path.join(base_path, 'examples')
     target_path = os.path.join(base_path, build_path, theme)
     try:
         os.makedirs(target_path)
