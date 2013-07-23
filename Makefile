@@ -5,7 +5,9 @@ SOURCE_SCSS = $(patsubst %,src/css/%.scss,$(SKINS))
 TARGET_CSS = $(patsubst %,$(OUTDIR)/%.css,$(SKINS))
 LOCALES = en_US ko_KR
 
-all: html assets po/messages.pot css js
+all: css js
+
+examples: all assets po/messages.pot html
 
 css: $(TARGET_CSS)
 
@@ -21,6 +23,7 @@ html: src/*.html po/*.mo
 	)
 
 $(OUTDIR)/*.js: src/js/*.js
+	mkdir -p $(OUTDIR)
 	cp src/js/*.js $(OUTDIR)/
 
 $(OUTDIR)/*.jpg $(OUTDIR)/*.png: src/css/*.jpg src/css/*.png
@@ -36,6 +39,7 @@ $(OUTDIR)/vendor/*: src/vendor/*
 	cp -rf src/vendor/* $(OUTDIR)/vendor/
 
 $(TARGET_CSS): src/css/*.scss
+	mkdir -p $(OUTDIR)
 	$(foreach skin,$(SKINS), \
 		sass src/css/$(skin).scss $(OUTDIR)/$(skin).css $(SASS_ARGS) ; \
 	)
