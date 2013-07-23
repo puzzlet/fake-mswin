@@ -45,4 +45,4 @@ $(TARGET_CSS): src/css/*.scss
 clean:
 	rm -r $(OUTDIR)
 
-.PHONY: all clean html
+.PHONY: all clean html examples css js
