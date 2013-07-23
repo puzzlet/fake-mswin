@@ -1,40 +1,38 @@
+OUTDIR?=gh-pages
 SKINS = win98 winxp-green winxp-classic
 SOURCE_SCSS = $(patsubst %,src/css/%.scss,$(SKINS))
-TARGET_CSS = $(patsubst %,gh-pages/%.css,$(SKINS))
+TARGET_CSS = $(patsubst %,$(OUTDIR)/%.css,$(SKINS))
 LOCALES = en_US ko_KR
 SASS_ARGS = --style compressed
 
-all: html po/messages.pot gh-pages/*.js gh-pages/*.jpg gh-pages/*.png gh-pages/images/* gh-pages/vendor/* $(TARGET_CSS)
+all: html po/messages.pot $(OUTDIR)/*.js $(OUTDIR)/*.jpg $(OUTDIR)/*.png $(OUTDIR)/images/* $(OUTDIR)/vendor/* $(TARGET_CSS)
 
-html: src/*.html po/*.mo gh-pages/.git
+html: src/*.html po/*.mo
 	$(foreach skin,$(SKINS), \
 		$(foreach locale,$(LOCALES), \
-			python build.py $(skin) $(locale) ; \
+			python build.py $(skin) $(locale) $(OUTDIR); \
 		) \
 	)
 
-gh-pages/*.js: src/js/*.js gh-pages/.git
-	cp src/js/*.js gh-pages/
+$(OUTDIR)/*.js: src/js/*.js
+	cp src/js/*.js $(OUTDIR)/
 
-gh-pages/*.jpg gh-pages/*.png: src/css/*.jpg src/css/*.png gh-pages/.git
-	cp src/css/*.jpg gh-pages/
-	cp src/css/*.png gh-pages/
+$(OUTDIR)/*.jpg $(OUTDIR)/*.png: src/css/*.jpg src/css/*.png
+	cp src/css/*.jpg $(OUTDIR)/
+	cp src/css/*.png $(OUTDIR)/
 
-gh-pages/images/*: src/css/images/* gh-pages/.git
-	mkdir -p gh-pages/images/
-	cp -rf src/css/images/* gh-pages/images/
+$(OUTDIR)/images/*: src/css/images/*
+	mkdir -p $(OUTDIR)/images/
+	cp -rf src/css/images/* $(OUTDIR)/images/
 
-gh-pages/vendor/*: src/vendor/* gh-pages/.git
-	mkdir -p gh-pages/vendor/
-	cp -rf src/vendor/* gh-pages/vendor/
+$(OUTDIR)/vendor/*: src/vendor/*
+	mkdir -p $(OUTDIR)/vendor/
+	cp -rf src/vendor/* $(OUTDIR)/vendor/
 
-$(TARGET_CSS): src/css/*.scss gh-pages/.git
+$(TARGET_CSS): src/css/*.scss
 	$(foreach skin,$(SKINS), \
-		sass src/css/$(skin).scss gh-pages/$(skin).css $(SASS_ARGS) ; \
+		sass src/css/$(skin).scss $(OUTDIR)/$(skin).css $(SASS_ARGS) ; \
 	)
-
-gh-pages/.git:
-	git clone -b gh-pages git@github.com:puzzlet/fake-mswin.git gh-pages
 
 po/messages.pot: src/*.html
 	mkdir -p po/
@@ -46,6 +44,6 @@ po/*.mo: po/*.po
 	)
 
 clean:
-	rm -rf gh-pages/*.html gh-pages/*.jpg gh-pages/*.png gh-pages/images/* $(TARGET_CSS) po/*.mo po/messages.pot
+	rm -rf $(OUTDIR)/*.html $(OUTDIR)/*.jpg $(OUTDIR)/*.png $(OUTDIR)/images/* $(TARGET_CSS) po/*.mo po/messages.pot
 
 .PHONY: all clean html
