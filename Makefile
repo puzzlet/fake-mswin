@@ -5,7 +5,13 @@ TARGET_CSS = $(patsubst %,$(OUTDIR)/%.css,$(SKINS))
 LOCALES = en_US ko_KR
 SASS_ARGS = --style compressed
 
-all: html po/messages.pot $(OUTDIR)/*.js $(OUTDIR)/*.jpg $(OUTDIR)/*.png $(OUTDIR)/images/* $(OUTDIR)/vendor/* $(TARGET_CSS)
+all: html assets po/messages.pot css js
+
+css: $(TARGET_CSS)
+
+js: $(OUTDIR)/*.js
+
+assets: $(OUTDIR)/*.jpg $(OUTDIR)/*.png $(OUTDIR)/images/* $(OUTDIR)/vendor/*
 
 html: src/*.html po/*.mo
 	$(foreach skin,$(SKINS), \
