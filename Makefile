@@ -13,7 +13,7 @@ css: $(TARGET_CSS) $(OUTDIR)/images/*
 
 js: $(OUTDIR)/*.js
 
-assets: $(OUTDIR)/*.jpg $(OUTDIR)/*.png $(OUTDIR)/images/* $(OUTDIR)/vendor/*
+assets: $(OUTDIR)/*.jpg $(OUTDIR)/*.png $(OUTDIR)/images/* vendor
 
 html: src/*.html po/*.mo
 	$(foreach skin,$(SKINS), \
@@ -34,9 +34,10 @@ $(OUTDIR)/images/*: src/css/images/*
 	mkdir -p $(OUTDIR)/images/
 	cp -rf src/css/images/* $(OUTDIR)/images/
 
-$(OUTDIR)/vendor/*: src/vendor/*
+vendor: $(OUTDIR)/vendor/*
+$(OUTDIR)/vendor/*: lib/*
 	mkdir -p $(OUTDIR)/vendor/
-	cp -rf src/vendor/* $(OUTDIR)/vendor/
+	cp -rf lib/* $(OUTDIR)/vendor/
 
 $(TARGET_CSS): src/css/*.scss
 	mkdir -p $(OUTDIR)
