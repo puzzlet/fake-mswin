@@ -9,7 +9,7 @@ all: css js
 
 examples: all assets po/messages.pot html
 
-css: $(TARGET_CSS)
+css: $(TARGET_CSS) $(OUTDIR)/images/*
 
 js: $(OUTDIR)/*.js
 
