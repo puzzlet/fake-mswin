@@ -43,6 +43,6 @@ $(TARGET_CSS): src/css/*.scss
 	)
 
 clean:
-	rm -rf $(OUTDIR)/*.html $(OUTDIR)/*.jpg $(OUTDIR)/*.png $(OUTDIR)/images/* $(TARGET_CSS)
+	rm -r $(OUTDIR)
 
 .PHONY: all clean html
