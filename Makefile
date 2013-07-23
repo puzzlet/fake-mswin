@@ -1,51 +1,48 @@
+OUTDIR?=build
+SASS_ARGS ?= --style compressed
 SKINS = win98 winxp-green winxp-classic
 SOURCE_SCSS = $(patsubst %,src/css/%.scss,$(SKINS))
-TARGET_CSS = $(patsubst %,gh-pages/%.css,$(SKINS))
-LOCALES = en_US ko_KR
-SASS_ARGS = --style compressed
+TARGET_CSS = $(patsubst %,$(OUTDIR)/%.css,$(SKINS))
 
-all: html po/messages.pot gh-pages/*.js gh-pages/*.jpg gh-pages/*.png gh-pages/images/* gh-pages/vendor/* $(TARGET_CSS)
+all: css js
 
-html: src/*.html po/*.mo gh-pages/.git
+examples: all assets html
+
+css: $(TARGET_CSS) $(OUTDIR)/images/*
+
+js: $(OUTDIR)/*.js
+
+assets: $(OUTDIR)/*.jpg $(OUTDIR)/*.png $(OUTDIR)/images/* vendor
+
+html: src/*.html
 	$(foreach skin,$(SKINS), \
-		$(foreach locale,$(LOCALES), \
-			python build.py $(skin) $(locale) ; \
-		) \
+		python build.py $(skin) $(OUTDIR) ; \
 	)
 
-gh-pages/*.js: src/js/*.js gh-pages/.git
-	cp src/js/*.js gh-pages/
+$(OUTDIR)/*.js: src/js/*.js
+	mkdir -p $(OUTDIR)
+	cp src/js/*.js $(OUTDIR)/
 
-gh-pages/*.jpg gh-pages/*.png: src/css/*.jpg src/css/*.png gh-pages/.git
-	cp src/css/*.jpg gh-pages/
-	cp src/css/*.png gh-pages/
+$(OUTDIR)/*.jpg $(OUTDIR)/*.png: src/css/*.jpg src/css/*.png
+	cp src/css/*.jpg $(OUTDIR)/
+	cp src/css/*.png $(OUTDIR)/
 
-gh-pages/images/*: src/css/images/* gh-pages/.git
-	mkdir -p gh-pages/images/
-	cp -rf src/css/images/* gh-pages/images/
+$(OUTDIR)/images/*: src/css/images/*
+	mkdir -p $(OUTDIR)/images/
+	cp -rf src/css/images/* $(OUTDIR)/images/
 
-gh-pages/vendor/*: src/vendor/* gh-pages/.git
-	mkdir -p gh-pages/vendor/
-	cp -rf src/vendor/* gh-pages/vendor/
+vendor: $(OUTDIR)/vendor/*
+$(OUTDIR)/vendor/*: lib/*
+	mkdir -p $(OUTDIR)/vendor/
+	cp -rf lib/* $(OUTDIR)/vendor/
 
-$(TARGET_CSS): src/css/*.scss gh-pages/.git
+$(TARGET_CSS): src/css/*.scss
+	mkdir -p $(OUTDIR)
 	$(foreach skin,$(SKINS), \
-		sass src/css/$(skin).scss gh-pages/$(skin).css $(SASS_ARGS) ; \
-	)
-
-gh-pages/.git:
-	git clone -b gh-pages git@github.com:puzzlet/fake-mswin.git gh-pages
-
-po/messages.pot: src/*.html
-	mkdir -p po/
-	pybabel extract -F babel.conf -o po/messages.pot . || (rm -f po/messages.pot && exit 2)
-
-po/*.mo: po/*.po
-	$(foreach locale,$(LOCALES), \
-		msgfmt -o po/$(locale).mo po/$(locale).po ; \
+		sass src/css/$(skin).scss $(OUTDIR)/$(skin).css $(SASS_ARGS) ; \
 	)
 
 clean:
-	rm -rf gh-pages/*.html gh-pages/*.jpg gh-pages/*.png gh-pages/images/* $(TARGET_CSS) po/*.mo po/messages.pot
+	rm -r $(OUTDIR)
 
-.PHONY: all clean html
+.PHONY: all clean html examples css js
