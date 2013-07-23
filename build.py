@@ -1,4 +1,3 @@
-import gettext
 import glob
 import os
 import sys
@@ -7,7 +6,7 @@ import jinja2
 
 
 def main():
-    _, theme, locale, build_path = sys.argv
+    _, theme, build_path = sys.argv
     base_path = os.path.abspath(os.path.dirname(__file__))
     template_path = os.path.join(base_path, 'src')
     target_path = os.path.join(base_path, build_path, theme)
@@ -18,11 +17,8 @@ def main():
     env = jinja2.Environment(
         loader=jinja2.FileSystemLoader(template_path),
         extensions=['jinja2.ext.i18n'])
-    env.install_gettext_translations(
-        gettext.GNUTranslations(fp=open('po/{}.mo'.format(locale), 'rb')))
     kwargs = {
         'theme': theme,
-        'locale': locale,
     }
     kwargs['class_name'] = {
         'win98': 'windows-98',

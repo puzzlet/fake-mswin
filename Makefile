@@ -3,11 +3,10 @@ SASS_ARGS ?= --style compressed
 SKINS = win98 winxp-green winxp-classic
 SOURCE_SCSS = $(patsubst %,src/css/%.scss,$(SKINS))
 TARGET_CSS = $(patsubst %,$(OUTDIR)/%.css,$(SKINS))
-LOCALES = en_US ko_KR
 
 all: css js
 
-examples: all assets po/messages.pot html
+examples: all assets html
 
 css: $(TARGET_CSS) $(OUTDIR)/images/*
 
@@ -15,11 +14,9 @@ js: $(OUTDIR)/*.js
 
 assets: $(OUTDIR)/*.jpg $(OUTDIR)/*.png $(OUTDIR)/images/* vendor
 
-html: src/*.html po/*.mo
+html: src/*.html
 	$(foreach skin,$(SKINS), \
-		$(foreach locale,$(LOCALES), \
-			python build.py $(skin) $(locale) $(OUTDIR); \
-		) \
+		python build.py $(skin) $(OUTDIR) ; \
 	)
 
 $(OUTDIR)/*.js: src/js/*.js
@@ -45,16 +42,7 @@ $(TARGET_CSS): src/css/*.scss
 		sass src/css/$(skin).scss $(OUTDIR)/$(skin).css $(SASS_ARGS) ; \
 	)
 
-po/messages.pot: src/*.html
-	mkdir -p po/
-	pybabel extract -F babel.conf -o po/messages.pot . || (rm -f po/messages.pot && exit 2)
-
-po/*.mo: po/*.po
-	$(foreach locale,$(LOCALES), \
-		msgfmt -o po/$(locale).mo po/$(locale).po ; \
-	)
-
 clean:
-	rm -rf $(OUTDIR)/*.html $(OUTDIR)/*.jpg $(OUTDIR)/*.png $(OUTDIR)/images/* $(TARGET_CSS) po/*.mo po/messages.pot
+	rm -rf $(OUTDIR)/*.html $(OUTDIR)/*.jpg $(OUTDIR)/*.png $(OUTDIR)/images/* $(TARGET_CSS)
 
 .PHONY: all clean html
