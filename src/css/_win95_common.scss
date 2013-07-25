@@ -33,6 +33,10 @@ $menubar-height: 18px;
     margin: 0;
 }
 
+input[type="text"] {
+    @include user-select(text);
+}
+
 *:focus {
     outline: none;
 }
