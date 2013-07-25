@@ -33,8 +33,13 @@ $menubar-height: 18px;
     margin: 0;
 }
 
-input[type="text"] {
+input[type="text"], textarea {
     @include user-select(text);
+    cursor: text;
+
+    @include sunken-control();
+    background-color: white;
+    cursor: text;
 }
 
 *:focus {
@@ -676,13 +681,6 @@ ul.toolbar {
             height: 16px;
         }
     }
-}
-
-.edit {
-    @include sunken-control();
-    background-color: white;
-    cursor: text;
-
 }
 
 .desktop {
